@@ -80,8 +80,9 @@
         <li><a href="#combat-matchups"><span class="n">7</span> Combat matchups</a></li>
         <li><a href="#nesting"><span class="n">8</span> Nesting</a></li>
         <li><a href="#stats"><span class="n">9</span> Growth table</a></li>
-        <li><a href="#calls"><span class="n">10</span> Calls</a></li>
-        <li><a href="#appearance"><span class="n">11</span> Appearance</a></li>
+        <li><a href="#raw-stats"><span class="n">10</span> Raw stats</a></li>
+        <li><a href="#calls"><span class="n">11</span> Calls</a></li>
+        <li><a href="#appearance"><span class="n">12</span> Appearance</a></li>
       </ol>
     </div>
     <div class="sb-box">
@@ -207,6 +208,28 @@
       <tbody id="growth-tbody"></tbody>
     </table>
 
+    <!-- ── Raw stats ── -->
+    <h2 id="raw-stats" class="sec">Raw stats</h2>
+    <section class="raw-stats-card" id="raw-stats-card" hidden>
+      <div class="raw-stats-toolbar">
+        <div>
+          <div class="raw-stats-title">Balance values and movement curves</div>
+          <div class="raw-stats-meta" id="raw-stats-meta"></div>
+        </div>
+        <div class="raw-stats-actions" role="tablist" aria-label="Raw stats view">
+          <button type="button" class="raw-toggle is-active" data-raw-view="tables">Tables</button>
+          <button type="button" class="raw-toggle" data-raw-view="chart">Chart</button>
+        </div>
+      </div>
+      <div class="raw-stats-panel" id="raw-stats-tables"></div>
+      <div class="raw-stats-panel" id="raw-stats-chart-wrap" hidden>
+        <div class="raw-chart-note">Chart view is built from the same raw movement data shown in the tables.</div>
+        <div class="raw-chart-shell">
+          <canvas id="raw-stats-canvas"></canvas>
+        </div>
+      </div>
+    </section>
+
     <!-- ── Calls ── -->
     <h2 id="calls" class="sec">Calls</h2>
     <table class="calls-table">
@@ -237,6 +260,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 <script src="js/components.js"></script>
 <script src="js/parser.js"></script>
 <script src="js/dinosaur.js"></script>

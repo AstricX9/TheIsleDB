@@ -1,0 +1,6 @@
+{
+  "biomeInfo": {
+    "preferred": ["Grasslands", "Riverdelta", "Coastal", "Flat Land"],
+    "avoid": ["Swamp", "Dense Jungles"]
+  }
+}

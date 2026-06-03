@@ -1,0 +1,28 @@
+name: DT_CarnotaurusBalanceAttributes
+source: DT_CarnotaurusBalanceAttributes.readable.txt
+package: /Game/TheIsle/Core/Characters/Dinosaurs/Carnotaurus/DT_CarnotaurusBalanceAttributes
+notes: Raw values live in the generated values file.
+
+[stamina.regen]
+Standing
+Walking
+Trotting
+Resting
+
+[stamina.spending]
+Sprinting
+SprintingHolding
+SlowSwim
+FastSwim
+GetUpFast
+Charging
+Jump
+MudWalking
+
+[curves]
+ATT_Carnotaurus_CrouchSpeed | Crouch Speed
+ATT_Carnotaurus_WalkSpeed | Walk Speed
+ATT_Carnotaurus_TrotSpeed | Trot Speed
+ATT_Carnotaurus_SprintSpeed | Sprint Speed
+ATT_Carnotaurus_SlowSwimSpeed | Slow Swim Speed
+ATT_Carnotaurus_FastSwimSpeed | Fast Swim Speed

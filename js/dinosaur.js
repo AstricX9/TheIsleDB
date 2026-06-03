@@ -3,11 +3,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     const dinoId = params.get('dino') || 'carnotaurus';
 
     try {
-        const response = await fetch(`content/dinosaurs/${dinoId}.md`);
+        const [response, balanceManifest, sectionsData] = await Promise.all([
+            fetch(`content/dinosaurs/${dinoId}.md`),
+            loadRawStatsManifest(dinoId),
+            loadSectionsManifest(dinoId)
+        ]);
+
         if (!response.ok) throw new Error('Dinosaur not found');
+
         const text = await response.text();
         const { data, content } = ContentParser.parseDocument(text);
-        renderDinosaur(data, content);
+        renderDinosaur(data, content, balanceManifest, sectionsData);
     } catch (err) {
         console.error(err);
         document.getElementById('firstHeading').textContent = 'Dinosaur Not Found';
@@ -28,6 +34,90 @@ function extractSection(md, heading) {
     );
     const m = md.match(re);
     return m ? m[1].trim() : null;
+}
+
+async function loadSectionsManifest(dinoId) {
+    // Try per-dino manifest first (data/dinosaurs/<dinoId>/manifest.txt),
+    // then fall back to top-level sections txt (data/dinosaurs/<dinoId>.sections.txt).
+    const perDinoManifest = `data/dinosaurs/${dinoId}/manifest.txt`;
+    const topLevelManifest = `data/dinosaurs/${dinoId}.sections.txt`;
+
+    let manifestText = null;
+    let basePath = `data/dinosaurs/`;
+
+    // attempt per-dino manifest
+    try {
+        const resp = await fetch(perDinoManifest);
+        if (resp.ok) {
+            manifestText = await resp.text();
+            basePath = `data/dinosaurs/${dinoId}/`;
+        }
+    } catch (e) {
+        // ignore
+    }
+
+    // fallback to top-level manifest
+    if (manifestText == null) {
+        try {
+            const resp = await fetch(topLevelManifest);
+            if (resp.ok) {
+                manifestText = await resp.text();
+                basePath = `data/dinosaurs/`;
+            }
+        } catch (e) {
+            // ignore
+        }
+    }
+
+    if (!manifestText) return null;
+
+    const lines = String(manifestText).split(/\r?\n/).map(l => l.trim()).filter(l => l && !l.startsWith('#') && !l.startsWith('//'));
+    const entries = [];
+
+    for (const raw of lines) {
+        const line = raw.replace(/\t+/g, ' ').trim();
+        if (!line) continue;
+
+        const parts = line.split(':').map(p => p.trim()).filter(Boolean);
+        if (parts.length >= 2) {
+            // key: filename
+            entries.push({ key: parts[0], file: parts.slice(1).join(':') });
+            continue;
+        }
+
+        // plain filename -> infer key
+        const file = parts[0];
+        const base = file.replace(/\.json$/i, '');
+        const inferredKey = inferSectionKeyFromFilename(base);
+        entries.push({ key: inferredKey, file });
+    }
+
+    const result = {};
+    await Promise.all(entries.map(async ({ key, file }) => {
+        try {
+            const url = basePath + file;
+            const resp = await fetch(url);
+            if (!resp.ok) return;
+            const json = await resp.json();
+            result[key] = json;
+        } catch (e) {
+            // ignore individual failures
+        }
+    }));
+
+    return Object.keys(result).length ? result : null;
+}
+
+function inferSectionKeyFromFilename(base) {
+    const b = base.toLowerCase();
+    if (b === 'biome' || b === 'biomeinfo') return 'biomeInfo';
+    if (b === 'nest' || b === 'nesting') return 'nesting';
+    if (b === 'attack' || b === 'attacks') return 'attacks';
+    if (b === 'classification') return 'classification';
+    if (b === 'mutations' || b === 'recommendedmutations' || b === 'mutations') return 'recommendedMutations';
+    if (b === 'diet') return 'diet';
+    // fallback: use base as key
+    return base;
 }
 
 /** Extract the first H1 heading from markdown */
@@ -186,11 +276,451 @@ function escapeHtml(value) {
         .replace(/'/g, '&#39;');
 }
 
+async function loadRawStatsManifest(dinoId) {
+    const txtPath = `data/dinosaurs/balance/${dinoId}.txt`;
+    const valuesPath = `data/dinosaurs/balance/${dinoId}.values.json`;
+    const fallbackJsonPath = `data/dinosaurs/balance/${dinoId}.json`;
+
+    const txtResponse = await fetch(txtPath);
+    const valuesResponse = await fetch(valuesPath);
+    const fallbackResponse = await fetch(fallbackJsonPath);
+
+    if (txtResponse.ok && (valuesResponse.ok || fallbackResponse.ok)) {
+        const manifestText = await txtResponse.text();
+        const manifest = parseRawStatsManifest(manifestText, txtPath);
+        const valuePayload = valuesResponse.ok ? await valuesResponse.json() : await fallbackResponse.json();
+        return mergeRawStatsManifest(valuePayload, manifest);
+    }
+
+    if (valuesResponse.ok) {
+        return await valuesResponse.json();
+    }
+
+    if (fallbackResponse.ok) {
+        return await fallbackResponse.json();
+    }
+
+    if (txtResponse.ok) {
+        const manifestText = await txtResponse.text();
+        return parseRawStatsManifest(manifestText, txtPath);
+    }
+
+    return null;
+}
+
+function parseRawStatsManifest(manifestText, sourcePath) {
+    const lines = String(manifestText).split(/\r?\n/);
+    const result = {
+        source: sourcePath,
+        curveOrder: [],
+        staminaDurations: {
+            regen: [],
+            spending: []
+        },
+        movementCurves: []
+    };
+
+    const assignTopLevel = line => {
+        const separatorIndex = line.indexOf(':');
+        if (separatorIndex === -1) return false;
+
+        const key = line.slice(0, separatorIndex).trim();
+        const value = line.slice(separatorIndex + 1).trim();
+        if (!key) return false;
+
+        if (key === 'name' || key === 'source' || key === 'package' || key === 'notes') {
+            result[key] = value;
+            return true;
+        }
+
+        return false;
+    };
+
+    let section = 'header';
+    let curve = null;
+
+    const pushCurve = () => {
+        if (!curve) return;
+        curve.points = curve.points || [];
+        result.movementCurves.push(curve);
+        curve = null;
+    };
+
+    const parsePoint = line => {
+        const pointBody = line.replace(/^point\s*:\s*/i, '').trim();
+        const [timeText, valueText, modeText] = pointBody.split(',').map(part => part.trim());
+        const time = Number(timeText);
+        const value = Number(valueText);
+
+        if (!Number.isFinite(time) || !Number.isFinite(value)) return;
+
+        curve.points = curve.points || [];
+        curve.points.push({
+            time,
+            speed_kmh: value,
+            interp_mode: modeText || 'RCIM_Linear'
+        });
+    };
+
+    for (const rawLine of lines) {
+        const line = rawLine.trim();
+        if (!line || line.startsWith('#') || line.startsWith('//')) continue;
+
+        const sectionMatch = line.match(/^\[(.+)]$/);
+        if (sectionMatch) {
+            pushCurve();
+            const sectionName = sectionMatch[1].trim().toLowerCase();
+            if (sectionName.startsWith('stamina.regen')) {
+                section = 'stamina.regen';
+            } else if (sectionName.startsWith('stamina.spending')) {
+                section = 'stamina.spending';
+            } else if (sectionName.startsWith('curve')) {
+                section = 'curve';
+                curve = { points: [] };
+                const curveParts = sectionMatch[1].split(/\s+/).slice(1);
+                if (curveParts.length) {
+                    curve.name = curveParts.join(' ');
+                }
+            } else {
+                section = sectionName;
+            }
+            continue;
+        }
+
+        if (section === 'header') {
+            assignTopLevel(line);
+            continue;
+        }
+
+        if (section === 'stamina.regen' || section === 'stamina.spending') {
+            result.staminaDurations[section.split('.')[1]].push(line);
+            continue;
+        }
+
+        if (section === 'curve') {
+            const parts = line.split('|').map(part => part.trim()).filter(Boolean);
+            if (!parts.length) continue;
+
+            const curveName = parts[0];
+            const curveLabel = parts[1] || curveName;
+            result.curveOrder.push({ name: curveName, label: curveLabel });
+        }
+    }
+
+    pushCurve();
+
+    if (!result.name) {
+        result.name = sourcePath.split(/[\\/]/).pop().replace(/\.[^.]+$/, '');
+    }
+
+    return result;
+}
+
+function mergeRawStatsManifest(valuesPayload, manifest) {
+    if (!valuesPayload || typeof valuesPayload !== 'object') {
+        return manifest;
+    }
+
+    const merged = {
+        ...valuesPayload,
+        source: manifest.source,
+        manifest
+    };
+
+    if (Array.isArray(merged.movementCurves) && Array.isArray(manifest.curveOrder) && manifest.curveOrder.length) {
+        const labelMap = new Map(manifest.curveOrder.map(entry => [entry.name, entry.label]));
+        merged.movementCurves = merged.movementCurves.map(curve => {
+            const label = labelMap.get(curve.name);
+            return label ? { ...curve, label } : curve;
+        });
+
+        merged.movementCurves.sort((left, right) => {
+            const leftIndex = manifest.curveOrder.findIndex(entry => entry.name === left.name);
+            const rightIndex = manifest.curveOrder.findIndex(entry => entry.name === right.name);
+            return leftIndex - rightIndex;
+        });
+    }
+
+    return merged;
+}
+
+function formatNumber(value, digits = 3) {
+    const numericValue = Number(value);
+    if (!Number.isFinite(numericValue)) return '—';
+    return numericValue.toFixed(digits).replace(/\.0+$/, '').replace(/(\.\d*[1-9])0+$/, '$1');
+}
+
+function getRawCurveValue(point) {
+    const candidate = point?.speed_kmh ?? point?.speed ?? point?.value ?? point?.y;
+    const numericValue = Number(candidate);
+    return Number.isFinite(numericValue) ? numericValue : null;
+}
+
+function getRawCurvePoints(curve) {
+    return Array.isArray(curve?.points) ? curve.points : [];
+}
+
+function buildRawCurveSummary(curve) {
+    const points = getRawCurvePoints(curve);
+    const values = points.map(getRawCurveValue).filter(value => value != null);
+
+    if (!values.length) {
+        return {
+            pointCount: points.length,
+            min: null,
+            max: null,
+            start: null,
+            end: null
+        };
+    }
+
+    return {
+        pointCount: points.length,
+        min: Math.min(...values),
+        max: Math.max(...values),
+        start: values[0],
+        end: values[values.length - 1]
+    };
+}
+
+function renderRawStatsTables(rawStats) {
+    const stamina = rawStats?.staminaDurations || {};
+    const regen = stamina.regen || {};
+    const spending = stamina.spending || {};
+    const staminaKeys = Array.from(new Set([
+        ...Object.keys(regen),
+        ...Object.keys(spending)
+    ]));
+    const staminaManifest = rawStats?.manifest?.staminaDurations || {};
+    const regenOrder = Array.isArray(staminaManifest.regen) && staminaManifest.regen.length ? staminaManifest.regen : Object.keys(regen);
+    const spendingOrder = Array.isArray(staminaManifest.spending) && staminaManifest.spending.length ? staminaManifest.spending : Object.keys(spending);
+
+    const curves = Array.isArray(rawStats?.movementCurves) ? rawStats.movementCurves : [];
+    let html = '';
+
+    if (staminaKeys.length) {
+        html += `
+        <section class="raw-stats-block">
+            <h3 class="sec">Stamina durations</h3>
+            <table class="wikitable raw-table">
+                <thead>
+                    <tr><th>Action</th><th>Regen</th><th>Spending</th></tr>
+                </thead>
+                <tbody>
+                    ${Array.from(new Set([...regenOrder, ...spendingOrder])).map(key => `
+                        <tr>
+                            <td>${escapeHtml(key)}</td>
+                            <td>${escapeHtml(regen[key] || '—')}</td>
+                            <td>${escapeHtml(spending[key] || '—')}</td>
+                        </tr>`).join('')}
+                </tbody>
+            </table>
+        </section>`;
+    }
+
+    if (curves.length) {
+        html += `
+        <section class="raw-stats-block">
+            <h3 class="sec">Movement curves</h3>
+            <table class="wikitable raw-table raw-summary-table">
+                <thead>
+                    <tr>
+                        <th>Curve</th>
+                        <th>Points</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Min</th>
+                        <th>Max</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${curves.map(curve => {
+                        const summary = buildRawCurveSummary(curve);
+                        return `
+                        <tr>
+                            <td>${escapeHtml(curve.label || curve.name || 'Curve')}</td>
+                            <td>${summary.pointCount}</td>
+                            <td>${formatNumber(summary.start)}</td>
+                            <td>${formatNumber(summary.end)}</td>
+                            <td>${formatNumber(summary.min)}</td>
+                            <td>${formatNumber(summary.max)}</td>
+                        </tr>`;
+                    }).join('')}
+                </tbody>
+            </table>
+            ${curves.map(curve => {
+                const points = getRawCurvePoints(curve);
+                const summary = buildRawCurveSummary(curve);
+                return `
+                <div class="raw-curve-block">
+                    <div class="raw-curve-head">
+                        <div>
+                            <div class="raw-curve-title">${escapeHtml(curve.label || curve.name || 'Curve')}</div>
+                            <div class="raw-curve-meta">${escapeHtml(curve.name || '')}${curve.unit ? ` · ${escapeHtml(curve.unit)}` : ''}</div>
+                        </div>
+                        <div class="raw-curve-meta">Points: ${summary.pointCount}</div>
+                    </div>
+                    <table class="wikitable raw-table raw-curve-table">
+                        <thead>
+                            <tr><th>Time</th><th>Speed (${escapeHtml(curve.unit || 'unit')})</th><th>Interp mode</th></tr>
+                        </thead>
+                        <tbody>
+                            ${points.map(point => `
+                                <tr>
+                                    <td>${formatNumber(point.time, 3)}</td>
+                                    <td>${formatNumber(getRawCurveValue(point))}</td>
+                                    <td>${escapeHtml(point.interp_mode || '—')}</td>
+                                </tr>`).join('')}
+                        </tbody>
+                    </table>
+                </div>`;
+            }).join('')}
+        </section>`;
+    }
+
+    return html || '<p class="no-data">No raw stats data available.</p>';
+}
+
+function buildRawStatsChartConfig(rawStats) {
+    const curves = Array.isArray(rawStats?.movementCurves) ? rawStats.movementCurves : [];
+    const palette = [
+        { border: 'rgba(66, 133, 244, 1)', fill: 'rgba(66, 133, 244, 0.14)' },
+        { border: 'rgba(52, 168, 83, 1)', fill: 'rgba(52, 168, 83, 0.14)' },
+        { border: 'rgba(251, 188, 5, 1)', fill: 'rgba(251, 188, 5, 0.14)' },
+        { border: 'rgba(234, 67, 53, 1)', fill: 'rgba(234, 67, 53, 0.14)' },
+        { border: 'rgba(123, 97, 255, 1)', fill: 'rgba(123, 97, 255, 0.14)' },
+        { border: 'rgba(0, 172, 193, 1)', fill: 'rgba(0, 172, 193, 0.14)' }
+    ];
+
+    return {
+        type: 'line',
+        data: {
+            datasets: curves.map((curve, index) => {
+                const color = palette[index % palette.length];
+                return {
+                    label: curve.label || curve.name || `Curve ${index + 1}`,
+                    data: getRawCurvePoints(curve)
+                        .map(point => ({ x: Number(point.time), y: getRawCurveValue(point) }))
+                        .filter(point => Number.isFinite(point.x) && Number.isFinite(point.y)),
+                    borderColor: color.border,
+                    backgroundColor: color.fill,
+                    pointBackgroundColor: color.border,
+                    pointBorderColor: color.border,
+                    pointRadius: 2,
+                    pointHoverRadius: 4,
+                    tension: 0.25,
+                    fill: false
+                };
+            })
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                mode: 'nearest',
+                axis: 'x',
+                intersect: false
+            },
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                },
+                tooltip: {
+                    callbacks: {
+                        label(context) {
+                            const label = context.dataset.label || 'Curve';
+                            return `${label}: ${formatNumber(context.parsed.y)} km/h at ${formatNumber(context.parsed.x, 3)}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    type: 'linear',
+                    min: 0,
+                    max: 1,
+                    title: {
+                        display: true,
+                        text: 'Normalized time'
+                    },
+                    ticks: {
+                        callback(value) {
+                            return formatNumber(value, 2);
+                        }
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Speed (km/h)'
+                    },
+                    beginAtZero: false
+                }
+            }
+        }
+    };
+}
+
+let rawStatsChart = null;
+
+function bindRawStatsViewToggle(rawStats, sectionEl) {
+    const viewButtons = sectionEl.querySelectorAll('[data-raw-view]');
+    const tableWrap = document.getElementById('raw-stats-tables');
+    const chartWrap = document.getElementById('raw-stats-chart-wrap');
+    const chartButton = sectionEl.querySelector('[data-raw-view="chart"]');
+
+    const showTables = () => {
+        tableWrap.hidden = false;
+        chartWrap.hidden = true;
+        viewButtons.forEach(button => button.classList.toggle('is-active', button.dataset.rawView === 'tables'));
+    };
+
+    const showChart = () => {
+        if (!rawStats?.movementCurves?.length || typeof Chart === 'undefined') {
+            return;
+        }
+
+        tableWrap.hidden = true;
+        chartWrap.hidden = false;
+        viewButtons.forEach(button => button.classList.toggle('is-active', button.dataset.rawView === 'chart'));
+
+        if (rawStatsChart) {
+            rawStatsChart.destroy();
+        }
+
+        const canvas = document.getElementById('raw-stats-canvas');
+        if (!canvas) {
+            return;
+        }
+
+        rawStatsChart = new Chart(canvas, buildRawStatsChartConfig(rawStats));
+    };
+
+    viewButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            if (button.dataset.rawView === 'chart') {
+                showChart();
+                return;
+            }
+
+            showTables();
+        });
+    });
+
+    if (!rawStats?.movementCurves?.length || typeof Chart === 'undefined') {
+        chartButton.hidden = true;
+        showTables();
+        return;
+    }
+
+    showTables();
+}
+
 // ─────────────────────────────────────────────
 // Main render
 // ─────────────────────────────────────────────
 
-function renderDinosaur(data, md) {
+function renderDinosaur(data, md, balanceStats = null, sections = null) {
     const markdownTitle = extractTitle(md);
     const pageTitle = data.title || markdownTitle || 'Unknown';
 
@@ -211,10 +741,12 @@ function renderDinosaur(data, md) {
             openMediaViewer([{ src: heroImg.src, label: heroImg.alt || data.title || '' }], 0);
         });
     }
-    document.getElementById('class-diet').textContent   = data.basicStats?.diet       || 'N/A';
-    document.getElementById('class-size').textContent   = data.basicStats?.size       || 'N/A';
-    document.getElementById('class-speed').textContent  = data.basicStats?.speed      || 'N/A';
-    document.getElementById('class-diff').textContent   = data.basicStats?.difficulty || 'N/A';
+    // prefer external classification JSON when present
+    const classificationPayload = sections?.classification?.classification || sections?.classification || { basicStats: data.basicStats, characteristics: data.characteristics };
+    document.getElementById('class-diet').textContent   = classificationPayload?.basicStats?.diet       || 'N/A';
+    document.getElementById('class-size').textContent   = classificationPayload?.basicStats?.size       || 'N/A';
+    document.getElementById('class-speed').textContent  = classificationPayload?.basicStats?.speed      || 'N/A';
+    document.getElementById('class-diff').textContent   = classificationPayload?.basicStats?.difficulty || 'N/A';
     document.getElementById('stat-weight').textContent  = data.adultStats?.weight      ? data.adultStats.weight + ' kg' : 'N/A';
     document.getElementById('stat-bite').textContent    = data.adultStats?.biteDamage  || 'N/A';
     document.getElementById('stat-sprint').textContent  = data.adultStats?.sprintSpeed ? data.adultStats.sprintSpeed + ' km/h' : 'N/A';
@@ -223,8 +755,9 @@ function renderDinosaur(data, md) {
     // Mutations
     const mutBody = document.getElementById('mutations-body');
     mutBody.innerHTML = '';
-    if (data.recommendedMutations?.length) {
-        data.recommendedMutations.forEach((m, i) => {
+    const mutationsPayload = sections?.recommendedMutations?.recommendedMutations || sections?.recommendedMutations || data.recommendedMutations;
+    if (mutationsPayload && mutationsPayload.length) {
+        mutationsPayload.forEach((m, i) => {
             mutBody.innerHTML += `
             <div class="mut-row">
                 <div class="mut-num">${i + 1}</div>
@@ -272,7 +805,7 @@ function renderDinosaur(data, md) {
     overviewHtml = parseInteractiveShortcodes(overviewHtml);
 
     // Characteristics bullets
-    const chars = data.characteristics || [];
+    const chars = classificationPayload?.characteristics || data.characteristics || [];
     if (chars.length) {
         overviewHtml += `<ul class="tips">${chars.map(c => `<li>${c}</li>`).join('')}</ul>`;
     }
@@ -301,9 +834,10 @@ function renderDinosaur(data, md) {
     const attacksEl = document.getElementById('attacks-body');
     if (attacksEl) {
         let html = '';
-        // Try JSON data first
-        if (data.attacks && data.attacks.length) {
-            html += data.attacks.map(a => `
+        // Prefer external sections JSON, then frontmatter, then markdown
+        const attacksPayload = sections?.attacks?.attacks || sections?.attacks || data.attacks;
+        if (attacksPayload && attacksPayload.length) {
+            html += attacksPayload.map(a => `
             <div class="attack-item">
                 <div class="atk-name">
                     ${a.name}
@@ -331,12 +865,13 @@ function renderDinosaur(data, md) {
     // ── Biomes ───────────────────────────────────────────────────
     const biomeSec  = extractSection(md, 'Biome Information');
     const biomeEl   = document.getElementById('biome-body');
-    if (biomeEl) {
-        let html = '';
-        // Try JSON data first
-        if (data.biomeInfo) {
-            const preferred = data.biomeInfo.preferred || [];
-            const avoid     = data.biomeInfo.avoid || [];
+        if (biomeEl) {
+                let html = '';
+                // Prefer external sections JSON, then frontmatter, then markdown
+                const biomePayload = sections?.biomeInfo?.biomeInfo || sections?.biomeInfo || data.biomeInfo;
+                if (biomePayload) {
+                        const preferred = biomePayload.preferred || [];
+                        const avoid     = biomePayload.avoid || [];
             if (preferred.length) {
                 html += `<div class="biome-label-row">Preferred</div>
                          <div class="biome-chips">
@@ -394,12 +929,13 @@ function renderDinosaur(data, md) {
     const nestEl  = document.getElementById('nesting-body');
     if (nestEl) {
         let html = '';
-        // Try JSON data first
-        if (data.nesting) {
+        // Prefer external sections JSON, then frontmatter, then markdown
+        const nestingPayload = sections?.nesting?.nesting || sections?.nesting || data.nesting;
+        if (nestingPayload) {
             html += `<ul class="tips">
-                <li><strong>Eggs:</strong> ${data.nesting.eggs}</li>
-                <li><strong>Incubation Time:</strong> ${data.nesting.incubationTime}</li>
-                <li><strong>Nest Type:</strong> ${data.nesting.nestType}</li>
+                <li><strong>Eggs:</strong> ${nestingPayload.eggs}</li>
+                <li><strong>Incubation Time:</strong> ${nestingPayload.incubationTime}</li>
+                <li><strong>Nest Type:</strong> ${nestingPayload.nestType}</li>
             </ul>`;
         } else if (nestSec) {
             // Fall back to markdown
@@ -429,6 +965,22 @@ function renderDinosaur(data, md) {
         growthTbody.innerHTML = '<tr><td colspan="5" class="no-data-cell">No growth data available.</td></tr>';
     }
 
+    // ── Raw stats ───────────────────────────────────────────────
+    const rawStatsCard = document.getElementById('raw-stats-card');
+    const rawStatsMeta = document.getElementById('raw-stats-meta');
+    const rawStatsTables = document.getElementById('raw-stats-tables');
+    const rawStats = data.balanceStats || balanceStats || null;
+    if (rawStatsCard && rawStatsTables) {
+        if (rawStats) {
+            rawStatsCard.hidden = false;
+            rawStatsMeta.textContent = [rawStats.name, rawStats.source].filter(Boolean).join(' · ');
+            rawStatsTables.innerHTML = renderRawStatsTables(rawStats);
+            bindRawStatsViewToggle(rawStats, rawStatsCard);
+        } else {
+            rawStatsCard.hidden = true;
+        }
+    }
+
     // ── Diet grid ────────────────────────────────────────────────
     const dietGrid = document.getElementById('diet-grid');
     dietGrid.innerHTML = '';
@@ -447,10 +999,11 @@ function renderDinosaur(data, md) {
             ${groupHtml}
         </div>`;
     };
-    if (data.diet) {
-        addDietGroup(data.diet.alpha, 'a', 'Alpha');
-        addDietGroup(data.diet.beta,  'b', 'Beta');
-        addDietGroup(data.diet.gamma, 'g', 'Gamma');
+    const dietPayload = sections?.diet?.diet || sections?.diet || data.diet;
+    if (dietPayload) {
+        addDietGroup(dietPayload.alpha, 'a', 'Alpha');
+        addDietGroup(dietPayload.beta,  'b', 'Beta');
+        addDietGroup(dietPayload.gamma, 'g', 'Gamma');
     } else {
         dietGrid.innerHTML = '<p class="no-data">No diet data available.</p>';
     }

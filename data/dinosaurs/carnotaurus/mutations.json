@@ -1,0 +1,16 @@
+{
+  "recommendedMutations": [
+    {
+      "name": "Reabsorption",
+      "description": "Recover a small amount of water during rainy weather."
+    },
+    {
+      "name": "Gastronomic Regeneration",
+      "description": "Eating restores a small amount of health, ~5%."
+    },
+    {
+      "name": "Epidermal Fibrosis",
+      "description": "Increase bleed resistance, ~15%."
+    }
+  ]
+}

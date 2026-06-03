@@ -360,6 +360,133 @@ h3.sec {
 
 .wikitable tr:hover td { background: rgba(255,255,255,0.015); }
 
+/* ── Raw stats ── */
+.raw-stats-card {
+  border: 1px solid var(--b1);
+  background: var(--s1);
+  margin-bottom: 0.9rem;
+}
+
+.raw-stats-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--b1);
+  background: var(--s2);
+  flex-wrap: wrap;
+}
+
+.raw-stats-title {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--tx);
+}
+
+.raw-stats-meta {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.72rem;
+  color: var(--td);
+  margin-top: 0.15rem;
+}
+
+.raw-stats-actions {
+  display: inline-flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.raw-toggle {
+  border: 1px solid var(--b1);
+  background: var(--bg);
+  color: var(--tm);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.73rem;
+  padding: 0.22rem 0.55rem;
+  cursor: pointer;
+}
+
+.raw-toggle.is-active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+
+.raw-toggle:hover {
+  background: var(--s2);
+  color: var(--tx);
+}
+
+.raw-stats-panel {
+  padding: 0.7rem;
+}
+
+.raw-stats-block {
+  margin-bottom: 1rem;
+}
+
+.raw-stats-block .sec {
+  margin-top: 0;
+}
+
+.raw-table {
+  margin-bottom: 0.65rem;
+}
+
+.raw-summary-table th,
+.raw-summary-table td,
+.raw-curve-table th,
+.raw-curve-table td {
+  font-size: 0.76rem;
+}
+
+.raw-curve-block {
+  border: 1px solid var(--b1);
+  background: var(--bg);
+  margin-bottom: 0.8rem;
+}
+
+.raw-curve-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 0.42rem 0.6rem;
+  border-bottom: 1px solid var(--b1);
+  background: var(--s2);
+  flex-wrap: wrap;
+}
+
+.raw-curve-title {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--tx);
+}
+
+.raw-curve-meta {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.71rem;
+  color: var(--td);
+}
+
+.raw-chart-note {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.72rem;
+  color: var(--td);
+  margin-bottom: 0.5rem;
+}
+
+.raw-chart-shell {
+  position: relative;
+  min-height: 340px;
+  border: 1px solid var(--b1);
+  background: var(--bg);
+  padding: 0.4rem;
+}
+
 /* ── Win rate bars ── */
 .wrbar {
   display: inline-block;
@@ -791,6 +918,9 @@ sup.ref { font-size: 0.68rem; color: var(--link); }
 @media (max-width: 560px) {
   #topnav { display: none; }
   #firstHeading { font-size: 1.7rem; }
+  .raw-stats-toolbar { align-items: stretch; }
+  .raw-stats-actions { width: 100%; }
+  .raw-toggle { flex: 1 1 50%; }
 }
 
 /* ── Article Layout ── */

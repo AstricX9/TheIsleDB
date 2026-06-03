@@ -33,6 +33,27 @@
         "sprintSpeed": "Value",
         "stamina": "Value"
     },
+    "balanceStats": {
+        "source": "Optional external balance txt manifest loaded by the page",
+        "staminaDurations": {
+            "regen": {
+                "Standing": "7:01"
+            },
+            "spending": {
+                "Sprinting": "2:35"
+            }
+        },
+        "movementCurves": [
+            {
+                "name": "ATT_PageSlug_WalkSpeed",
+                "label": "Walk Speed",
+                "unit": "km/h",
+                "points": [
+                    { "time": 0.0, "speed_kmh": 1.908, "interp_mode": "RCIM_Linear" }
+                ]
+            }
+        ]
+    },
     "recommendedMutations": [
         {
             "name": "Mutation Name",
@@ -173,6 +194,21 @@ Add growth stage information here. See the growth table in the infobox for detai
 - **Nest Type:** Type description
 
 ---
+
+## External sections convention
+
+To keep large or frequently-changing sections editable without bloating frontmatter, you may place the following JSON files under `data/dinosaurs/` and index them with a simple `data/dinosaurs/<slug>.sections.txt` manifest.
+
+Example `carnotaurus.sections.txt`:
+
+```
+biomeInfo: carnotaurus.biome.json
+nesting: carnotaurus.nesting.json
+attacks: carnotaurus.attacks.json
+```
+
+When present, the page renderer will prefer the external JSON for `biomeInfo`, `nesting`, and `attacks` (or similarly named keys). Survival tips should be kept in the markdown body under `## Survival Tips`.
+
 
 ## Appearance
 
