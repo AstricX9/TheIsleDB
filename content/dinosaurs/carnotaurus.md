@@ -10,7 +10,7 @@
         "isOutdated": false
     },
     "heroImage": {
-        "src": "/images/carnotaurus/Carno_Default_New.png",
+        "src": "./assets/images/carnotaurus/Carno_Default_New.png",
         "alt": "Carnotaurus default skin"
     },
     "basicStats": {
@@ -114,11 +114,11 @@
     ],
     "skins": [
         {
-            "src": "/images/carnotaurus/skins/Skin_Carnotaurus_Adult_Male.png",
+            "src": "./assets/images/carnotaurus/skins/Skin_Carnotaurus_Adult_Male.png",
             "label": "Adult Male"
         },
         {
-            "src": "/images/carnotaurus/skins/Skin_Carnotaurus_Adult_Female.png",
+            "src": "./assets/images/carnotaurus/skins/Skin_Carnotaurus_Adult_Female.png",
             "label": "Adult Female"
         }
     ],
