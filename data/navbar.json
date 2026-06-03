@@ -1,0 +1,57 @@
+﻿{
+  "brand": {
+    "title": "The Isle DB",
+    "logo": "/new-wiki/assets/images/logo/TheIsleDB_Text_Light.png",
+    "href": "index.html"
+  },
+  "links": [
+    {
+      "title": "Home",
+      "href": "index.html"
+    },
+    {
+      "title": "Dinosaurs",
+      "href": "dinosaur.html?dino=carnotaurus",
+      "submenu": [
+        { "title": "Carnotaurus", "href": "dinosaur.html?dino=carnotaurus" },
+        { "title": "Tyrannosaurus", "href": "dinosaur.html?dino=tyrannosaurus" }
+      ]
+    },
+    {
+      "title": "User Interface",
+      "href": "page.html?category=items&slug=weapons",
+      "submenu": [
+        { "title": "The User Interface", "href": "article.html?category=ui&slug=user-interface" }
+      ]
+    },
+    {
+      "title": "Mechanics",
+      "href": "page.html?category=mechanics&slug=mutations",
+      "submenu": [
+        { "title": "Mutations", "href": "page.html?category=mechanics&slug=mutations" },
+        { "title": "Gore & Decay", "href": "page.html?category=mechanics&slug=gore-and-decay" },
+        { "title": "Diet & Nutrients", "href": "page.html?category=mechanics&slug=diet-and-nutrients" },
+        { "title": "Health & Injuries", "href": "page.html?category=mechanics&slug=health-and-injuries" },
+        { "title": "Hunting & AI", "href": "page.html?category=mechanics&slug=hunting-and-ai" },
+        { "title": "Night Vision", "href": "page.html?category=mechanics&slug=nightvision" }
+      ]
+    },
+    {
+      "title": "Upcoming",
+      "href": "page.html?category=upcoming&slug=upcoming-creatures",
+      "submenu": [
+        { "title": "Upcoming Creatures", "href": "page.html?category=upcoming&slug=upcoming-creatures" },
+        { "title": "Speculations", "href": "page.html?category=upcoming&slug=speculations" }
+      ]
+    },
+    {
+      "title": "Support",
+      "href": "page.html?category=support&slug=lore",
+      "submenu": [
+        { "title": "Lore", "href": "page.html?category=support&slug=lore" },
+        { "title": "Bugs & Fixes", "href": "page.html?category=support&slug=bugs-and-fixes" },
+        { "title": "Community", "href": "page.html?category=support&slug=community" }
+      ]
+    }
+  ]
+}

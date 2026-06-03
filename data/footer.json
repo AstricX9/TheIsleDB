@@ -1,0 +1,31 @@
+﻿{
+  "footerLinks": [
+    {
+      "column": "Content",
+      "links": [
+        { "title": "Carnotaurus", "href": "dinosaur.html?dino=carnotaurus" },
+        { "title": "Tyrannosaurus", "href": "dinosaur.html?dino=tyrannosaurus" },
+        { "title": "Mechanics", "href": "page.html?category=mechanics&slug=mutations" },
+        { "title": "Upcoming", "href": "page.html?category=upcoming&slug=upcoming-creatures" }
+      ]
+    },
+    {
+      "column": "Support",
+      "links": [
+        { "title": "Lore", "href": "page.html?category=support&slug=lore" },
+        { "title": "Bugs & Fixes", "href": "page.html?category=support&slug=bugs-and-fixes" },
+        { "title": "Community", "href": "page.html?category=support&slug=community" }
+      ]
+    },
+    {
+      "column": "Socials",
+      "links": [
+        { "title": "Discord", "href": "https://discord.gg/survivetheisle" },
+        { "title": "YouTube", "href": "https://www.youtube.com/c/survivetheisle" },
+        { "title": "Steam", "href": "https://store.steampowered.com/app/376210/The_Isle/" }
+      ]
+    }
+  ],
+  "copyright": "© 2026 The Isle Wiki. Not officially affiliated with Afterthought LLC.",
+  "version": "v3.0.0"
+}

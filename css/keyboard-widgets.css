@@ -1,0 +1,207 @@
+/* ── Keyboard input widgets ── */
+.input-figure {
+  margin: 1rem 0 1.15rem;
+  font-family: 'Source Sans 3', sans-serif;
+  color: var(--tm);
+}
+
+.input-figure .input-keys {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.input-keycap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.35rem;
+  padding: 0.38rem 0.68rem 0.34rem;
+  border: 1px solid var(--b2);
+  border-radius: 0.35rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f0f0f0 100%);
+  color: var(--tx);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 1px 0 rgba(0, 0, 0, 0.08);
+}
+
+.input-inline-key {
+  display: inline-flex;
+  min-width: 0;
+  padding: 0.18rem 0.45rem 0.16rem;
+  border-radius: 0.3rem;
+  font-size: 0.82rem;
+  vertical-align: baseline;
+}
+
+.input-mouse {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.14rem;
+  vertical-align: baseline;
+}
+
+.input-mouse-shell {
+  position: relative;
+  width: 1.68rem;
+  height: 2.08rem;
+  border: 1px solid var(--b2);
+  border-radius: 0.9rem 0.9rem 0.65rem 0.65rem;
+  background: linear-gradient(180deg, #ffffff 0%, #ececec 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.05),
+    0 1px 0 rgba(0, 0, 0, 0.08),
+    2px 2px 6px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.input-mouse-shell::before {
+  content: "";
+  position: absolute;
+  top: 0.55rem;
+  bottom: 0.35rem;
+  left: 50%;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.12);
+  transform: translateX(-50%);
+}
+
+.input-mouse-shell::after {
+  content: "";
+  position: absolute;
+  top: 0.35rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.22rem;
+  height: 0.45rem;
+  border-radius: 0.2rem;
+  background: linear-gradient(180deg, #bdbdbd, #8f8f8f);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+.input-mouse-btn {
+  position: absolute;
+  top: 0;
+  height: 42%;
+  width: 40%;
+  background: transparent;
+}
+
+.input-mouse-btn-left { left: 0; }
+.input-mouse-btn-middle {
+  left: 30%;
+  width: 25%;
+}
+.input-mouse-btn-right { right: 0; }
+
+.input-mouse-btn-left {
+  border-radius: 0.9rem 0 0 0.4rem;
+}
+
+.input-mouse-btn-right {
+  border-radius: 0 0.9rem 0.4rem 0;
+}
+
+.input-mouse-left .input-mouse-btn-left,
+.input-mouse-right .input-mouse-btn-right,
+.input-mouse-middle .input-mouse-btn-middle {
+  background: linear-gradient(180deg, #c9c9c9 0%, #8f8f8f 100%);
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.input-mouse-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--tm);
+  letter-spacing: 0.04em;
+}
+
+.input-plus {
+  color: var(--td);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.input-inline-plus {
+  font-size: 0.72rem;
+  margin: 0 0.08rem;
+}
+
+.input-inline-key,
+.input-mouse {
+  margin-top: 0.02rem;
+}
+
+.input-caption {
+  margin-top: 0.35rem;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--td);
+}
+
+.input-left {
+  float: left;
+  margin: 0.2rem 1.35rem 1rem 0;
+}
+
+.input-right {
+  float: right;
+  margin: 0.2rem 0 1rem 1.35rem;
+}
+
+.input-center {
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.input-size-xs { width: min(140px, 100%); }
+.input-size-sm { width: min(190px, 100%); }
+.input-size-md { width: min(260px, 100%); }
+.input-size-lg { width: min(360px, 100%); }
+.input-size-xl { width: min(480px, 100%); }
+.input-size-full { width: 100%; }
+
+.input-inline-key + .input-inline-plus {
+  margin-left: 0.14rem;
+}
+
+.input-inline-plus + .input-inline-key {
+  margin-left: 0.14rem;
+}
+
+.input-inline-key + .input-inline-plus,
+.input-mouse + .input-inline-plus,
+.input-inline-plus + .input-mouse {
+  margin-left: 0.14rem;
+}
+
+@media (max-width: 600px) {
+  .input-left,
+  .input-right {
+    float: none;
+    margin: 0.2rem 0 1rem 0;
+  }
+
+  .input-figure,
+  .input-size-xs,
+  .input-size-sm,
+  .input-size-md,
+  .input-size-lg,
+  .input-size-xl,
+  .input-size-full {
+    width: 100%;
+  }
+}

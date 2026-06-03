@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Isle Database - Home</title>
+  <link rel="icon" href="assets/images/logo/TIW_Favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* basic styles for placeholder home */
+    .home-hero {
+      text-align: center;
+      padding: 4rem 1rem;
+      border: 1px solid var(--b1);
+      background: var(--s1);
+      margin-bottom: 2rem;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .home-hero img {
+      display: block;
+      width: min(520px, 92vw);
+      height: auto;
+      margin: 0 auto 1rem;
+    }
+    .home-hero p {
+      color: var(--tm);
+      font-family: 'Source Sans 3', sans-serif;
+    }
+    .search-bar {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+    .search-bar input {
+      padding: 0.5rem 1rem;
+      width: 100%;
+      max-width: 580px; max-height: 400px; overflow-y: auto;
+      border: 1px solid var(--b2);
+      background: var(--s2);
+      color: var(--tx);
+      font-family: 'Source Sans 3', sans-serif;
+    }
+    .search-results {
+      position: absolute;
+      top: 100%;
+      margin-top: 0.25rem;
+      width: 100%;
+      max-width: 12rem; max-height: 400px; overflow-y: auto;
+      background: var(--s2);
+      border: 1px solid var(--b2);
+      border-radius: 4px;
+      display: none;
+      text-align: left;
+      z-index: 10;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+    .search-result-item {
+      display: block;
+      padding: 0.75rem;
+      color: var(--tx);
+      text-decoration: none;
+      border-bottom: 1px solid var(--b1);
+    }
+    .search-result-item:hover {
+      background: var(--s3);
+    }
+    .search-result-item:last-child {
+      border-bottom: none;
+    }
+    .result-title {
+      font-weight: 600;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+    .result-desc {
+      font-size: 0.8rem;
+      color: var(--tm);
+      margin-top: 0.25rem;
+    }
+    .badge {
+      font-size: 0.65rem;
+      padding: 0.1rem 0.3rem;
+      background: var(--s3);
+      border: 1px solid var(--b2);
+      border-radius: 3px;
+      margin-left: 0.5rem;
+      color: var(--tm);
+    }
+  </style>
+</head>
+<body>
+
+<!-- topbar -->
+<div id="topbar"></div>
+
+<div id="page" style="display:block; max-width: 800px;">
+  <main id="content">
+    
+    <div class="home-hero">
+      <img src="/new-wiki/assets/images/logo/TheIsleDB_Text_Centered.png" alt="The Isle Database">
+      <p>Search dinosaurs, guides, maps, and everything else in The Isle.</p>
+      
+      <div class="search-bar">
+        <input type="text" id="main-search" placeholder="Loading search..." disabled autocomplete="off" />
+        <div id="search-results" class="search-results"></div>
+      </div>
+    </div>
+    
+    <h2 class="sec">Recent Updates & Blogs</h2>
+    <p>Articles and posts will appear here.</p>
+
+  </main>
+</div>
+
+<div id="footer"></div>
+
+<!-- Load Parser so Search can read Markdown -->
+<script src="js/components.js"></script>
+<script src="js/parser.js"></script>
+<script src="js/main.js"></script>
+<script src="js/search.js"></script>
+</body>
+</html>
