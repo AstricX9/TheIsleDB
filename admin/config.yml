@@ -16,8 +16,8 @@ backend:
 media_folder: assets/images
 public_folder: /assets/images
 
-site_url: https://theisledb.com
-display_url: https://theisledb.com
+site_url: https://theisledb.netlify.app/
+display_url: https://theisledb.netlify.app/
 logo_url: /assets/images/logo/TheIsleDB_Text_Light.png
 
 slug:
