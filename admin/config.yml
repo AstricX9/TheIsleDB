@@ -1,0 +1,554 @@
+# Decap CMS configuration for TheIsleDB
+# Docs: https://decapcms.org/docs/
+#
+# Local editing:  npx decap-server   (in repo root, then open /admin/)
+# Production:     deploy to Netlify or Cloudflare Pages + GitHub OAuth
+#                 https://decapcms.org/docs/github-backend/
+
+local_backend: true
+
+backend:
+  name: github
+  repo: AstricX9/TheIsleDB
+  branch: main
+  # squash_merges: true   # optional — keeps history cleaner for CMS commits
+
+media_folder: assets/images
+public_folder: /assets/images
+
+site_url: https://theisledb.com
+display_url: https://theisledb.com
+logo_url: /assets/images/logo/TheIsleDB_Text_Light.png
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+# Shared field groups ---------------------------------------------------------
+
+article_meta: &article_meta
+  - label: Date
+    name: date
+    widget: datetime
+    format: YYYY-MM-DD
+    date_format: YYYY-MM-DD
+    time_format: false
+  - label: Title
+    name: title
+    widget: string
+  - label: Slug
+    name: slug
+    widget: string
+    hint: "URL slug — must match the filename (e.g. mutations → mutations.md)"
+  - label: Content
+    name: body
+    widget: markdown
+
+diet_tier: &diet_tier
+  - label: Food Name
+    name: name
+    widget: string
+  - label: Location
+    name: location
+    widget: string
+
+matchup_entry: &matchup_entry
+  - label: Opponent
+    name: name
+    widget: string
+  - label: Win Rate (%)
+    name: winRate
+    widget: number
+    value_type: int
+    min: 0
+    max: 100
+
+dino_meta: &dino_meta
+  - label: Date
+    name: date
+    widget: datetime
+    format: YYYY-MM-DD
+    date_format: YYYY-MM-DD
+    time_format: false
+  - label: Title
+    name: title
+    widget: string
+  - label: Slug
+    name: slug
+    widget: string
+    hint: "URL slug — must match the filename (e.g. tyrannosaurus → tyrannosaurus.md)"
+  - label: Category
+    name: category
+    widget: hidden
+    default: dinosaurs
+  - label: Description
+    name: description
+    widget: text
+    hint: "Short summary shown in search results and meta tags"
+  - label: Game Description
+    name: gameDescription
+    widget: text
+  - label: Game Description Source
+    name: gameDescriptionSource
+    widget: string
+  - label: Last Updated
+    name: lastUpdated
+    widget: object
+    collapsed: true
+    fields:
+      - { label: Date, name: date, widget: string, hint: "DD/MM/YYYY" }
+      - { label: Game Version, name: gameVersion, widget: string }
+      - { label: Outdated, name: isOutdated, widget: boolean, default: false }
+  - label: Hero Image
+    name: heroImage
+    widget: object
+    collapsed: true
+    fields:
+      - { label: Image, name: src, widget: image }
+      - { label: Alt Text, name: alt, widget: string }
+  - label: Basic Stats
+    name: basicStats
+    widget: object
+    collapsed: true
+    fields:
+      - label: Diet
+        name: diet
+        widget: select
+        options: [Carnivore, Herbivore, Omnivore]
+      - label: Size
+        name: size
+        widget: select
+        options: [Small, Medium, Large]
+      - label: Speed
+        name: speed
+        widget: select
+        options: [Slow, Medium, Fast]
+      - label: Difficulty
+        name: difficulty
+        widget: select
+        options: [Easy, Moderate, Hard, Extreme]
+  - label: Characteristics
+    name: characteristics
+    widget: list
+    summary: "{{fields.value}}"
+    field: { label: Characteristic, name: value, widget: string }
+  - label: Adult Stats
+    name: adultStats
+    widget: object
+    collapsed: true
+    fields:
+      - { label: Weight, name: weight, widget: string }
+      - { label: Bite Damage, name: biteDamage, widget: string }
+      - { label: Sprint Speed, name: sprintSpeed, widget: string }
+      - { label: Stamina, name: stamina, widget: string }
+  - label: Growth Table
+    name: growthTable
+    widget: list
+    summary: "{{fields.stage}}"
+    fields:
+      - { label: Stage, name: stage, widget: string }
+      - { label: Weight, name: weight, widget: string }
+      - { label: Bite, name: bite, widget: string }
+      - { label: Sprint, name: sprint, widget: string }
+      - { label: Stamina, name: stamina, widget: string }
+  - label: Recommended Mutations
+    name: recommendedMutations
+    widget: list
+    summary: "{{fields.name}}"
+    fields:
+      - { label: Name, name: name, widget: string }
+      - { label: Description, name: description, widget: text }
+  - label: Diet
+    name: diet
+    widget: object
+    collapsed: true
+    fields:
+      - label: Alpha Tier
+        name: alpha
+        widget: list
+        summary: "{{fields.name}}"
+        fields: *diet_tier
+      - label: Beta Tier
+        name: beta
+        widget: list
+        summary: "{{fields.name}}"
+        fields: *diet_tier
+      - label: Gamma Tier
+        name: gamma
+        widget: list
+        summary: "{{fields.name}}"
+        fields: *diet_tier
+  - label: Combat Matchups
+    name: combatMatchups
+    widget: object
+    collapsed: true
+    fields:
+      - { label: Data Date, name: dataDate, widget: string, hint: "DD/MM/YYYY" }
+      - label: Strong Against
+        name: strongAgainst
+        widget: list
+        summary: "{{fields.name}} — {{fields.winRate}}%"
+        fields: *matchup_entry
+      - label: Weak Against
+        name: weakAgainst
+        widget: list
+        summary: "{{fields.name}} — {{fields.winRate}}%"
+        fields: *matchup_entry
+  - label: Calls
+    name: calls
+    widget: list
+    summary: "{{fields.name}} ({{fields.key}})"
+    fields:
+      - { label: Name, name: name, widget: string }
+      - { label: Key, name: key, widget: string }
+      - { label: Cooldown, name: cooldown, widget: string }
+      - { label: Range, name: range, widget: string }
+  - label: Skins
+    name: skins
+    widget: list
+    summary: "{{fields.label}}"
+    fields:
+      - { label: Image, name: src, widget: image }
+      - { label: Label, name: label, widget: string }
+  - label: Page Content
+    name: body
+    widget: markdown
+    hint: "Overview, Survival Tips, Combat Tactics, Appearance, etc."
+
+nav_link: &nav_link
+  - label: Title
+    name: title
+    widget: string
+  - label: URL
+    name: href
+    widget: string
+
+# Collections -----------------------------------------------------------------
+
+collections:
+  # --- Wiki articles ---------------------------------------------------------
+
+  - name: mechanics
+    label: Mechanics
+    label_singular: Mechanics Page
+    folder: content/mechanics
+    create: true
+    slug: "{{slug}}"
+    identifier_field: slug
+    extension: md
+    format: json-frontmatter
+    frontmatter_delimiter: ["---json", "---"]
+    summary: "{{title}}"
+    sortable_fields: [title, date]
+    fields:
+      - label: Date
+        name: date
+        widget: datetime
+        format: YYYY-MM-DD
+        date_format: YYYY-MM-DD
+        time_format: false
+      - label: Title
+        name: title
+        widget: string
+      - label: Slug
+        name: slug
+        widget: string
+      - label: Category
+        name: category
+        widget: hidden
+        default: mechanics
+      - label: Content
+        name: body
+        widget: markdown
+
+  - name: support
+    label: Support
+    label_singular: Support Page
+    folder: content/support
+    create: true
+    slug: "{{slug}}"
+    identifier_field: slug
+    extension: md
+    format: json-frontmatter
+    frontmatter_delimiter: ["---json", "---"]
+    summary: "{{title}}"
+    fields:
+      - label: Date
+        name: date
+        widget: datetime
+        format: YYYY-MM-DD
+        date_format: YYYY-MM-DD
+        time_format: false
+      - label: Title
+        name: title
+        widget: string
+      - label: Slug
+        name: slug
+        widget: string
+      - label: Category
+        name: category
+        widget: hidden
+        default: support
+      - label: Content
+        name: body
+        widget: markdown
+
+  - name: upcoming
+    label: Upcoming
+    label_singular: Upcoming Page
+    folder: content/upcoming
+    create: true
+    slug: "{{slug}}"
+    identifier_field: slug
+    extension: md
+    format: json-frontmatter
+    frontmatter_delimiter: ["---json", "---"]
+    summary: "{{title}}"
+    fields:
+      - label: Date
+        name: date
+        widget: datetime
+        format: YYYY-MM-DD
+        date_format: YYYY-MM-DD
+        time_format: false
+      - label: Title
+        name: title
+        widget: string
+      - label: Slug
+        name: slug
+        widget: string
+      - label: Category
+        name: category
+        widget: hidden
+        default: upcoming
+      - label: Content
+        name: body
+        widget: markdown
+
+  - name: ui
+    label: User Interface
+    label_singular: UI Article
+    folder: content/ui
+    create: true
+    slug: "{{slug}}"
+    identifier_field: slug
+    extension: md
+    format: json-frontmatter
+    frontmatter_delimiter: ["---json", "---"]
+    summary: "{{title}}"
+    fields:
+      - label: Date
+        name: date
+        widget: datetime
+        format: YYYY-MM-DD
+        date_format: YYYY-MM-DD
+        time_format: false
+      - label: Title
+        name: title
+        widget: string
+      - label: Slug
+        name: slug
+        widget: string
+      - label: Category
+        name: category
+        widget: hidden
+        default: ui
+      - label: Content
+        name: body
+        widget: markdown
+
+  # --- Dinosaurs -------------------------------------------------------------
+
+  - name: dinosaurs
+    label: Dinosaurs
+    label_singular: Dinosaur
+    folder: content/dinosaurs
+    create: true
+    slug: "{{slug}}"
+    identifier_field: slug
+    extension: md
+    format: json-frontmatter
+    frontmatter_delimiter: ["---json", "---"]
+    summary: "{{title}}"
+    sortable_fields: [title, date]
+    filter: { field: slug, pattern: "(?!^test$).*" }
+    fields: *dino_meta
+
+  # --- Per-dino section data (external JSON) ---------------------------------
+  # Duplicate this block when adding a new dinosaur with external JSON files.
+  # Balance data under data/dinosaurs/*/balance/ is game-export data — edit via script, not CMS.
+
+  - name: carnotaurus-data
+    label: "Carnotaurus — Section Data"
+    files:
+      - label: Attacks
+        name: attacks
+        file: data/dinosaurs/carnotaurus/attacks.json
+        format: json
+        fields:
+          - label: Attacks
+            name: attacks
+            widget: list
+            summary: "{{fields.name}} ({{fields.key}})"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Key, name: key, widget: string }
+              - { label: Description, name: description, widget: text }
+
+      - label: Biome Info
+        name: biome
+        file: data/dinosaurs/carnotaurus/biome.json
+        format: json
+        fields:
+          - label: Biome Info
+            name: biomeInfo
+            widget: object
+            fields:
+              - label: Preferred Biomes
+                name: preferred
+                widget: list
+                summary: "{{fields.value}}"
+                field: { label: Biome, name: value, widget: string }
+              - label: Avoid Biomes
+                name: avoid
+                widget: list
+                summary: "{{fields.value}}"
+                field: { label: Biome, name: value, widget: string }
+
+      - label: Classification
+        name: classification
+        file: data/dinosaurs/carnotaurus/classification.json
+        format: json
+        fields:
+          - label: Classification
+            name: classification
+            widget: object
+            fields:
+              - label: Basic Stats
+                name: basicStats
+                widget: object
+                fields:
+                  - label: Diet
+                    name: diet
+                    widget: select
+                    options: [Carnivore, Herbivore, Omnivore]
+                  - label: Size
+                    name: size
+                    widget: select
+                    options: [Small, Medium, Large]
+                  - label: Speed
+                    name: speed
+                    widget: select
+                    options: [Slow, Medium, Fast]
+                  - label: Difficulty
+                    name: difficulty
+                    widget: select
+                    options: [Easy, Moderate, Hard, Extreme]
+              - label: Characteristics
+                name: characteristics
+                widget: list
+                summary: "{{fields.value}}"
+                field: { label: Characteristic, name: value, widget: string }
+
+      - label: Diet
+        name: diet
+        file: data/dinosaurs/carnotaurus/diet.json
+        format: json
+        fields:
+          - label: Diet
+            name: diet
+            widget: object
+            fields:
+              - label: Alpha Tier
+                name: alpha
+                widget: list
+                summary: "{{fields.name}}"
+                fields: *diet_tier
+              - label: Beta Tier
+                name: beta
+                widget: list
+                summary: "{{fields.name}}"
+                fields: *diet_tier
+              - label: Gamma Tier
+                name: gamma
+                widget: list
+                summary: "{{fields.name}}"
+                fields: *diet_tier
+
+      - label: Mutations
+        name: mutations
+        file: data/dinosaurs/carnotaurus/mutations.json
+        format: json
+        fields:
+          - label: Recommended Mutations
+            name: recommendedMutations
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Description, name: description, widget: text }
+
+      - label: Nesting
+        name: nesting
+        file: data/dinosaurs/carnotaurus/nesting.json
+        format: json
+        fields:
+          - label: Nesting
+            name: nesting
+            widget: object
+            fields:
+              - { label: Eggs, name: eggs, widget: string }
+              - { label: Incubation Time, name: incubationTime, widget: string }
+              - { label: Nest Type, name: nestType, widget: string }
+              - { label: Nest Image, name: nestImage, widget: image, required: false }
+
+  # --- Site config -----------------------------------------------------------
+
+  - name: site
+    label: Site Settings
+    files:
+      - label: Navigation
+        name: navbar
+        file: data/navbar.json
+        format: json
+        fields:
+          - label: Brand
+            name: brand
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Logo, name: logo, widget: image }
+              - { label: Home URL, name: href, widget: string }
+          - label: Navigation Links
+            name: links
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: URL, name: href, widget: string }
+              - label: Submenu
+                name: submenu
+                widget: list
+                required: false
+                summary: "{{fields.title}}"
+                fields: *nav_link
+
+      - label: Footer
+        name: footer
+        file: data/footer.json
+        format: json
+        fields:
+          - label: Footer Columns
+            name: footerLinks
+            widget: list
+            summary: "{{fields.column}}"
+            fields:
+              - { label: Column Title, name: column, widget: string }
+              - label: Links
+                name: links
+                widget: list
+                summary: "{{fields.title}}"
+                fields: *nav_link
+          - { label: Copyright, name: copyright, widget: string }
+          - { label: Version, name: version, widget: string }

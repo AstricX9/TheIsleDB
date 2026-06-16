@@ -1,7 +1,7 @@
-﻿{
+{
   "brand": {
     "title": "The Isle DB",
-    "logo": "./assets/images/logo/TheIsleDB_Text_Light.png",
+    "logo": "/assets/images/logo/TheIsleDB_Text_Light.png",
     "href": "index.html"
   },
   "links": [

@@ -1,4 +1,13 @@
-﻿# Carnotaurus
+---json
+{
+    "date": "2026-05-29",
+    "title": "Carnotaurus",
+    "category": "dinosaurs",
+    "slug": "carnotaurus"
+}
+---
+
+# Carnotaurus
 
 ## Game Description
 

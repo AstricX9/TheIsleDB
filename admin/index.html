@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>The Isle DB — Content Manager</title>
+  <link rel="icon" href="../assets/images/logo/TheIsleDB_Text_Light.png" type="image/png" />
+</head>
+<body>
+  <script>window.CMS_MANUAL_INIT = true;</script>
+  <script src="https://unpkg.com/decap-cms@^3.8.0/dist/decap-cms.js"></script>
+  <script>
+    // Decap list widgets require a `name` on each field, which saves string
+    // arrays as [{ value: "..." }]. These formatters convert back to plain
+    // string arrays so existing content files stay compatible with the site.
+    const STRING_LIST_KEYS = new Set(['characteristics', 'preferred', 'avoid']);
+
+    function expandStringLists(value) {
+      if (Array.isArray(value)) {
+        return value.map(expandStringLists);
+      }
+      if (!value || typeof value !== 'object') {
+        return value;
+      }
+
+      const out = {};
+      for (const [key, val] of Object.entries(value)) {
+        if (STRING_LIST_KEYS.has(key) && Array.isArray(val) && val.length && typeof val[0] === 'string') {
+          out[key] = val.map((item) => ({ value: item }));
+        } else if (Array.isArray(val) || (val && typeof val === 'object')) {
+          out[key] = expandStringLists(val);
+        } else {
+          out[key] = val;
+        }
+      }
+      return out;
+    }
+
+    function flattenStringLists(value) {
+      if (Array.isArray(value)) {
+        return value.map(flattenStringLists);
+      }
+      if (!value || typeof value !== 'object') {
+        return value;
+      }
+
+      const out = {};
+      for (const [key, val] of Object.entries(value)) {
+        if (STRING_LIST_KEYS.has(key) && Array.isArray(val)) {
+          out[key] = val.map((item) => {
+            if (typeof item === 'string') return item;
+            if (item && typeof item === 'object' && 'value' in item) return item.value;
+            return String(item ?? '');
+          });
+        } else if (Array.isArray(val) || (val && typeof val === 'object')) {
+          out[key] = flattenStringLists(val);
+        } else {
+          out[key] = val;
+        }
+      }
+      return out;
+    }
+
+    const FRONTMATTER_RE = /^\uFEFF?---json\s*\r?\n([\s\S]*?)\r?\n---(?:\s*\r?\n([\s\S]*))?$/;
+
+    function normalizeImagePaths(content) {
+      if (!content) return content;
+      return content
+        .replace(/\]\(\.\/assets\/images\//g, '](/assets/images/')
+        .replace(/src="\.\/assets\/images\//g, 'src="/assets/images/')
+        .replace(/\]\(assets\/images\//g, '](/assets/images/')
+        .replace(/src="assets\/images\//g, 'src="/assets/images/');
+    }
+
+    // Override built-in formatters (config.yml only allows standard format names).
+    CMS.registerCustomFormat('json-frontmatter', 'md', {
+      fromFile(text) {
+        const match = text.match(FRONTMATTER_RE);
+        if (!match) {
+          return { body: normalizeImagePaths(text.replace(/^\uFEFF/, '')) };
+        }
+
+        let frontmatter = {};
+        try {
+          frontmatter = JSON.parse(match[1]);
+        } catch (error) {
+          console.warn('Failed to parse JSON frontmatter', error);
+        }
+
+        return {
+          ...expandStringLists(frontmatter),
+          body: normalizeImagePaths((match[2] || '').replace(/^\r?\n/, '')),
+        };
+      },
+      toFile(value) {
+        const { body, ...rest } = value;
+        const frontmatter = flattenStringLists(rest);
+        return `---json\n${JSON.stringify(frontmatter, null, 4)}\n---\n\n${body ?? ''}`;
+      },
+    });
+
+    CMS.registerCustomFormat('json', 'json', {
+      fromFile(text) {
+        return expandStringLists(JSON.parse(text));
+      },
+      toFile(value) {
+        return `${JSON.stringify(flattenStringLists(value), null, 2)}\n`;
+      },
+    });
+
+    CMS.init();
+  </script>
+</body>
+</html>
