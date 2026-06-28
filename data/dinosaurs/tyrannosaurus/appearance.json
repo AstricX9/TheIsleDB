@@ -1,0 +1,48 @@
+{
+  "skins": [
+    {
+      "src": "assets/images/tyrannosaurus/I_Tyrannosaurus_Adult.png",
+      "label": "Adult"
+    },
+    {
+      "src": "assets/images/tyrannosaurus/I_Tyrannosaurus_SubAdult.png",
+      "label": "SubAdult"
+    },
+    {
+      "src": "assets/images/tyrannosaurus/Skins/Skin_Tyrannosaurus_Adult_Female.png",
+      "label": "Skin - Adult Female"
+    },
+    {
+      "src": "assets/images/tyrannosaurus/Skins/Skin_Tyrannosaurus_Adult_Male.png",
+      "label": "Skin - Adult Male"
+    },
+    {
+      "src": "assets/images/tyrannosaurus/Tyrannosaurus_Adult.png",
+      "label": "Adult"
+    },
+    {
+      "src": "assets/images/tyrannosaurus/Skins/Skin_Tyrannosaurus_Sub_Male.png",
+      "label": "Skin - Subadult Male"
+    },
+    {
+      "src": "assets/images/tyrannosaurus/Tyrannosaurus_Sub.png",
+      "label": "Subadult"
+    },
+    {
+      "src": "assets/images/tyrannosaurus/Skins/Skin_Tyrannosaurus_Juvie_Male.png",
+      "label": "Skin - Juvenile Male"
+    },
+    {
+      "src": "assets/images/tyrannosaurus/Tyrannosaurus_Juvie.png",
+      "label": "Juvenile"
+    },
+    {
+      "src": "assets/images/tyrannosaurus/I_Tyrannosaurus_Hatchling.png",
+      "label": "Hatchling"
+    },
+    {
+      "src": "assets/images/tyrannosaurus/I_Tyrannosaurus_Elder.png",
+      "label": "Elder"
+    }
+  ]
+}

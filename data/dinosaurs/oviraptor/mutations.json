@@ -1,0 +1,16 @@
+{
+  "recommendedMutations": [
+    {
+      "name": "Enhanced Digestion",
+      "description": "Supports opportunistic feeding."
+    },
+    {
+      "name": "Reabsorption",
+      "description": "Improves water sustain during wet weather."
+    },
+    {
+      "name": "Epidermal Fibrosis",
+      "description": "Improves bleed resistance if caught."
+    }
+  ]
+}

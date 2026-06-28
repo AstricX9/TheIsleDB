@@ -1,0 +1,16 @@
+{
+  "recommendedMutations": [
+    {
+      "name": "Epidermal Fibrosis",
+      "description": "Improves bleed resistance when predators commit."
+    },
+    {
+      "name": "Hydrodynamic",
+      "description": "Helps with water crossings and escape routes."
+    },
+    {
+      "name": "Photosynthetic Tissue",
+      "description": "Supports recovery and sustain during calmer periods."
+    }
+  ]
+}

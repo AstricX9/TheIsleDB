@@ -1,0 +1,15 @@
+{
+  "classification": {
+    "basicStats": {
+      "diet": "Carnivore",
+      "size": "Small",
+      "speed": "Fast",
+      "difficulty": "Hard"
+    },
+    "characteristics": [
+      "Small venom-focused carnivore",
+      "Thrives in coordinated packs",
+      "Needs patience and clean escape paths"
+    ]
+  }
+}

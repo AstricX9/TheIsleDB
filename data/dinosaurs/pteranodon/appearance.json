@@ -1,0 +1,20 @@
+{
+  "skins": [
+    {
+      "src": "assets/images/pteranadon/Skins/Skin_Pteranadon_Adult_female.png",
+      "label": "Skin - Pteranadon Adult female"
+    },
+    {
+      "src": "assets/images/pteranadon/Skins/Skin_Pteranadon_Adult_Male.png",
+      "label": "Skin - Pteranadon Adult Male"
+    },
+    {
+      "src": "assets/images/pteranadon/Skins/Skin_Pteranadon_Sub_Male.png",
+      "label": "Skin - Pteranadon Subadult Male"
+    },
+    {
+      "src": "assets/images/pteranadon/Skins/Skin_Pteranadon_Juvie_Male.png",
+      "label": "Skin - Pteranadon Juvenile Male"
+    }
+  ]
+}

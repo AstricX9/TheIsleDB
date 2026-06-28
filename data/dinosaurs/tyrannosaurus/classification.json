@@ -1,0 +1,15 @@
+{
+  "classification": {
+    "basicStats": {
+      "diet": "Carnivore",
+      "size": "Apex",
+      "speed": "Moderate",
+      "difficulty": "Hard"
+    },
+    "characteristics": [
+      "Apex theropod predator",
+      "High threat at close range",
+      "Relies on commitment and positional advantage"
+    ]
+  }
+}

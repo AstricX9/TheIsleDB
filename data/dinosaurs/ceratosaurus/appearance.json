@@ -1,0 +1,48 @@
+{
+  "skins": [
+    {
+      "src": "assets/images/ceratosaurus/Ceratosaurus_Adult.png",
+      "label": "Adult"
+    },
+    {
+      "src": "assets/images/ceratosaurus/I_Ceratosaurus_Adult.png",
+      "label": "Adult"
+    },
+    {
+      "src": "assets/images/ceratosaurus/Skins/Skin_Ceratosaurus_Adult_Female.PNG",
+      "label": "Skin - Adult Female"
+    },
+    {
+      "src": "assets/images/ceratosaurus/Skins/Skin_Ceratosaurus_Adult_Male.PNG",
+      "label": "Skin - Adult Male"
+    },
+    {
+      "src": "assets/images/ceratosaurus/Ceratosaurus_Sub.png",
+      "label": "Subadult"
+    },
+    {
+      "src": "assets/images/ceratosaurus/I_Ceratosaurus_Sub.png",
+      "label": "Subadult"
+    },
+    {
+      "src": "assets/images/ceratosaurus/Skins/Skin_Ceratosaurus_Sub_Male.PNG",
+      "label": "Skin - Subadult Male"
+    },
+    {
+      "src": "assets/images/ceratosaurus/Ceratosaurus_Juvie.png",
+      "label": "Juvenile"
+    },
+    {
+      "src": "assets/images/ceratosaurus/Skins/Skin_Ceratosaurus_Juvie_Male.PNG",
+      "label": "Skin - Juvenile Male"
+    },
+    {
+      "src": "assets/images/ceratosaurus/I_Ceratosaurus_Hatchling.png",
+      "label": "Hatchling"
+    },
+    {
+      "src": "assets/images/ceratosaurus/I_Ceratosaurus_Elder.png",
+      "label": "Elder"
+    }
+  ]
+}

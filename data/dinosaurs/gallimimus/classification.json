@@ -1,0 +1,15 @@
+{
+  "classification": {
+    "basicStats": {
+      "diet": "Herbivore",
+      "size": "Medium",
+      "speed": "Very fast",
+      "difficulty": "Moderate"
+    },
+    "characteristics": [
+      "Fast cursorial herbivore",
+      "Excellent scouting and escape potential",
+      "Punishes small threats with kicks"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "classification": {
+    "basicStats": {
+      "diet": "Omnivore",
+      "size": "Small",
+      "speed": "Fast",
+      "difficulty": "Moderate"
+    },
+    "characteristics": [
+      "Small omnivorous dinosaur",
+      "Built for opportunistic play",
+      "Uses speed and awareness to avoid larger threats"
+    ]
+  }
+}

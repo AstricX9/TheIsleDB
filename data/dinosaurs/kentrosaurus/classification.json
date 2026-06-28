@@ -1,0 +1,15 @@
+{
+  "classification": {
+    "basicStats": {
+      "diet": "Herbivore",
+      "size": "Medium",
+      "speed": "Moderate",
+      "difficulty": "Moderate"
+    },
+    "characteristics": [
+      "Spiked defensive herbivore",
+      "Dangerous tail pressure",
+      "Strong against careless close-range attacks"
+    ]
+  }
+}

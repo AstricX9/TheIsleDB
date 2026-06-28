@@ -1,0 +1,32 @@
+{
+  "skins": [
+    {
+      "src": "assets/images/herrerasaurus/Herrerasaurus_Adult.png",
+      "label": "Adult"
+    },
+    {
+      "src": "assets/images/herrerasaurus/Skins/Skin_Herrerasaurus_Adult_Female.png",
+      "label": "Skin - Adult Female"
+    },
+    {
+      "src": "assets/images/herrerasaurus/Skins/Skin_Herrerasaurus_Adult_Male.png",
+      "label": "Skin - Adult Male"
+    },
+    {
+      "src": "assets/images/herrerasaurus/Herrerasaurus_Sub.png",
+      "label": "Subadult"
+    },
+    {
+      "src": "assets/images/herrerasaurus/Skins/Skin_Herrerasaurus_Sub_Male.png",
+      "label": "Skin - Subadult Male"
+    },
+    {
+      "src": "assets/images/herrerasaurus/Herrerasaurus_Juvie.png",
+      "label": "Juvenile"
+    },
+    {
+      "src": "assets/images/herrerasaurus/Skins/Skin_Herrerasaurus_Juvie_Male.png",
+      "label": "Skin - Juvenile Male"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "attacks": [
+    {
+      "name": "Bite",
+      "key": "LMB",
+      "description": "Heavy close-range bite."
+    },
+    {
+      "name": "Lunge",
+      "key": "RMB",
+      "description": "Ambush attack from water against targets near the edge."
+    },
+    {
+      "name": "Alt Bite",
+      "key": "ALT + LMB",
+      "description": "Aimed alternate bite."
+    }
+  ]
+}

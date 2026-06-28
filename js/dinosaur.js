@@ -276,33 +276,50 @@ function escapeHtml(value) {
         .replace(/'/g, '&#39;');
 }
 
+function escapeAttr(value) {
+    return escapeHtml(value).replace(/`/g, '&#96;');
+}
+
 async function loadRawStatsManifest(dinoId) {
-    const txtPath = `data/dinosaurs/balance/${dinoId}.txt`;
-    const valuesPath = `data/dinosaurs/balance/${dinoId}.values.json`;
-    const fallbackJsonPath = `data/dinosaurs/balance/${dinoId}.json`;
+    const candidates = [
+        {
+            txtPath: `data/dinosaurs/${dinoId}/balance/${dinoId}.txt`,
+            valuesPath: `data/dinosaurs/${dinoId}/balance/${dinoId}.values.json`,
+            fallbackJsonPath: `data/dinosaurs/${dinoId}/balance/${dinoId}.json`
+        },
+        {
+            txtPath: `data/dinosaurs/balance/${dinoId}.txt`,
+            valuesPath: `data/dinosaurs/balance/${dinoId}.values.json`,
+            fallbackJsonPath: `data/dinosaurs/balance/${dinoId}.json`
+        }
+    ];
 
-    const txtResponse = await fetch(txtPath);
-    const valuesResponse = await fetch(valuesPath);
-    const fallbackResponse = await fetch(fallbackJsonPath);
+    for (const candidate of candidates) {
+        const [txtResponse, valuesResponse, fallbackResponse] = await Promise.all([
+            fetch(candidate.txtPath).catch(() => null),
+            fetch(candidate.valuesPath).catch(() => null),
+            fetch(candidate.fallbackJsonPath).catch(() => null)
+        ]);
 
-    if (txtResponse.ok && (valuesResponse.ok || fallbackResponse.ok)) {
-        const manifestText = await txtResponse.text();
-        const manifest = parseRawStatsManifest(manifestText, txtPath);
-        const valuePayload = valuesResponse.ok ? await valuesResponse.json() : await fallbackResponse.json();
-        return mergeRawStatsManifest(valuePayload, manifest);
-    }
+        if (txtResponse?.ok && (valuesResponse?.ok || fallbackResponse?.ok)) {
+            const manifestText = await txtResponse.text();
+            const manifest = parseRawStatsManifest(manifestText, candidate.txtPath);
+            const valuePayload = valuesResponse?.ok ? await valuesResponse.json() : await fallbackResponse.json();
+            return mergeRawStatsManifest(valuePayload, manifest);
+        }
 
-    if (valuesResponse.ok) {
-        return await valuesResponse.json();
-    }
+        if (valuesResponse?.ok) {
+            return await valuesResponse.json();
+        }
 
-    if (fallbackResponse.ok) {
-        return await fallbackResponse.json();
-    }
+        if (fallbackResponse?.ok) {
+            return await fallbackResponse.json();
+        }
 
-    if (txtResponse.ok) {
-        const manifestText = await txtResponse.text();
-        return parseRawStatsManifest(manifestText, txtPath);
+        if (txtResponse?.ok) {
+            const manifestText = await txtResponse.text();
+            return parseRawStatsManifest(manifestText, candidate.txtPath);
+        }
     }
 
     return null;
@@ -661,6 +678,101 @@ function buildRawStatsChartConfig(rawStats) {
     };
 }
 
+function drawRawStatsFallbackChart(rawStats) {
+    const canvas = document.getElementById('raw-stats-canvas');
+    const curves = Array.isArray(rawStats?.movementCurves) ? rawStats.movementCurves : [];
+    if (!canvas || !curves.length) return;
+
+    const ctx = canvas.getContext('2d');
+    const rect = canvas.getBoundingClientRect();
+    const width = Math.max(640, Math.floor(rect.width || 640));
+    const height = Math.max(320, Math.floor(rect.height || 320));
+    const ratio = window.devicePixelRatio || 1;
+    canvas.width = width * ratio;
+    canvas.height = height * ratio;
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    ctx.clearRect(0, 0, width, height);
+
+    const padding = { left: 44, right: 16, top: 18, bottom: 56 };
+    const plotWidth = width - padding.left - padding.right;
+    const plotHeight = height - padding.top - padding.bottom;
+    const allPoints = curves.flatMap(curve => getRawCurvePoints(curve)
+        .map(point => ({ x: Number(point.time), y: getRawCurveValue(point) }))
+        .filter(point => Number.isFinite(point.x) && Number.isFinite(point.y)));
+
+    if (!allPoints.length) return;
+
+    const yValues = allPoints.map(point => point.y);
+    const yMin = Math.min(0, Math.min(...yValues));
+    const yMax = Math.max(...yValues);
+    const yRange = Math.max(1, yMax - yMin);
+    const palette = ['#4285f4', '#34a853', '#f9ab00', '#ea4335', '#7b61ff', '#00acc1'];
+    const xToCanvas = value => padding.left + Math.max(0, Math.min(1, value)) * plotWidth;
+    const yToCanvas = value => padding.top + (1 - ((value - yMin) / yRange)) * plotHeight;
+
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = '#d0d0d0';
+    ctx.fillStyle = '#666666';
+    ctx.font = '11px Source Sans 3, sans-serif';
+
+    for (let i = 0; i <= 4; i += 1) {
+        const yValue = yMin + (yRange * i / 4);
+        const y = yToCanvas(yValue);
+        ctx.beginPath();
+        ctx.moveTo(padding.left, y);
+        ctx.lineTo(width - padding.right, y);
+        ctx.stroke();
+        ctx.fillText(formatNumber(yValue, 1), 6, y + 4);
+    }
+
+    ctx.strokeStyle = '#888888';
+    ctx.beginPath();
+    ctx.moveTo(padding.left, padding.top);
+    ctx.lineTo(padding.left, height - padding.bottom);
+    ctx.lineTo(width - padding.right, height - padding.bottom);
+    ctx.stroke();
+
+    curves.forEach((curve, index) => {
+        const points = getRawCurvePoints(curve)
+            .map(point => ({ x: Number(point.time), y: getRawCurveValue(point) }))
+            .filter(point => Number.isFinite(point.x) && Number.isFinite(point.y));
+        if (!points.length) return;
+
+        ctx.strokeStyle = palette[index % palette.length];
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        points.forEach((point, pointIndex) => {
+            const x = xToCanvas(point.x);
+            const y = yToCanvas(point.y);
+            if (pointIndex === 0) {
+                ctx.moveTo(x, y);
+            } else {
+                ctx.lineTo(x, y);
+            }
+        });
+        ctx.stroke();
+    });
+
+    let legendX = padding.left;
+    let legendY = height - 34;
+    ctx.font = '11px Source Sans 3, sans-serif';
+    curves.forEach((curve, index) => {
+        const label = curve.label || curve.name || `Curve ${index + 1}`;
+        const textWidth = ctx.measureText(label).width;
+        if (legendX + textWidth + 34 > width - padding.right) {
+            legendX = padding.left;
+            legendY += 16;
+        }
+        ctx.fillStyle = palette[index % palette.length];
+        ctx.fillRect(legendX, legendY - 8, 12, 3);
+        ctx.fillStyle = '#4a4a4a';
+        ctx.fillText(label, legendX + 17, legendY - 4);
+        legendX += textWidth + 34;
+    });
+}
+
 let rawStatsChart = null;
 
 function bindRawStatsViewToggle(rawStats, sectionEl) {
@@ -676,7 +788,7 @@ function bindRawStatsViewToggle(rawStats, sectionEl) {
     };
 
     const showChart = () => {
-        if (!rawStats?.movementCurves?.length || typeof Chart === 'undefined') {
+        if (!rawStats?.movementCurves?.length) {
             return;
         }
 
@@ -686,6 +798,7 @@ function bindRawStatsViewToggle(rawStats, sectionEl) {
 
         if (rawStatsChart) {
             rawStatsChart.destroy();
+            rawStatsChart = null;
         }
 
         const canvas = document.getElementById('raw-stats-canvas');
@@ -693,7 +806,11 @@ function bindRawStatsViewToggle(rawStats, sectionEl) {
             return;
         }
 
-        rawStatsChart = new Chart(canvas, buildRawStatsChartConfig(rawStats));
+        if (typeof Chart !== 'undefined') {
+            rawStatsChart = new Chart(canvas, buildRawStatsChartConfig(rawStats));
+        } else {
+            drawRawStatsFallbackChart(rawStats);
+        }
     };
 
     viewButtons.forEach(button => {
@@ -707,7 +824,7 @@ function bindRawStatsViewToggle(rawStats, sectionEl) {
         });
     });
 
-    if (!rawStats?.movementCurves?.length || typeof Chart === 'undefined') {
+    if (!rawStats?.movementCurves?.length) {
         chartButton.hidden = true;
         showTables();
         return;
@@ -779,20 +896,17 @@ function renderDinosaur(data, md, balanceStats = null, sections = null) {
         ? gameDescriptionSec.split(/\n\s*\n/).map(part => part.trim()).filter(Boolean)
         : [];
     const gameDescription = gameDescriptionParts[0] || '';
-    const gameDescriptionSource = gameDescriptionParts[1] || '';
+    const gameDescriptionSource = (gameDescriptionParts[1] || '')
+        .replace(/\*\*/g, '')
+        .replace(/^Source:\s*/i, '')
+        .trim();
 
     let gameDescriptionHtml = '';
     if (gameDescriptionSec) {
-        if (typeof marked !== 'undefined') {
-            gameDescriptionHtml = marked.parse(`## Game Description\n\n${gameDescriptionSec}`);
-        } else {
-            gameDescriptionHtml = `
-            <h2>Game Description</h2>
-            <p>${escapeHtml(gameDescription || '')}</p>
-            <p class="game-quote-src">— ${escapeHtml(gameDescriptionSource || 'Source unknown')}</p>`;
-        }
+        gameDescriptionHtml = `
+            <p class="game-quote">${escapeHtml(gameDescription || '')}</p>
+            ${gameDescriptionSource ? `<p class="game-quote-src">Source: ${escapeHtml(gameDescriptionSource)}</p>` : ''}`;
     }
-
     // Game quote
     let overviewHtml = '';
     if (gameDescriptionHtml) {
@@ -912,7 +1026,11 @@ function renderDinosaur(data, md, balanceStats = null, sections = null) {
     const tacticWeakEl   = document.getElementById('tactic-weak');
 
     function renderTacticTable(sec, el) {
-        if (!el || !sec) return;
+        if (!el) return;
+        if (!sec) {
+            el.innerHTML = '<tr><td colspan="2" class="no-data-cell">No combat tactics data available.</td></tr>';
+            return;
+        }
         const rows = parseTable(sec);
         if (!rows.length) { el.innerHTML = '<tr><td colspan="2" class="no-data-cell">No data</td></tr>'; return; }
         el.innerHTML = rows.map(r => `
@@ -977,7 +1095,15 @@ function renderDinosaur(data, md, balanceStats = null, sections = null) {
             rawStatsTables.innerHTML = renderRawStatsTables(rawStats);
             bindRawStatsViewToggle(rawStats, rawStatsCard);
         } else {
-            rawStatsCard.hidden = true;
+            rawStatsCard.hidden = false;
+            rawStatsMeta.textContent = 'No local balance export found for this dinosaur.';
+            rawStatsTables.hidden = false;
+            rawStatsTables.innerHTML = '<p class="no-data">Raw stats require a balance export such as DT_&lt;Dinosaur&gt;BalanceAttributes.json plus attribute curves.</p>';
+            document.getElementById('raw-stats-chart-wrap').hidden = true;
+            rawStatsCard.querySelectorAll('[data-raw-view]').forEach(button => {
+                button.classList.toggle('is-active', button.dataset.rawView === 'tables');
+                if (button.dataset.rawView === 'chart') button.hidden = true;
+            });
         }
     }
 
@@ -1037,12 +1163,16 @@ function renderDinosaur(data, md, balanceStats = null, sections = null) {
     callsTbody.innerHTML = '';
     if (data.calls?.length) {
         data.calls.forEach(c => {
+            const audioSrc = c.audioSrc || c.src || '';
+            const audioHtml = audioSrc
+                ? `<audio class="call-audio" controls preload="none" src="${escapeAttr(audioSrc)}"></audio>`
+                : '';
             callsTbody.innerHTML += `
             <tr>
-                <td>${c.name}</td>
-                <td>${c.key}</td>
-                <td>${c.cooldown}</td>
-                <td>${c.range}</td>
+                <td><strong>${escapeHtml(c.name || '')}</strong>${audioHtml}</td>
+                <td>${escapeHtml(c.key || 'N/A')}</td>
+                <td>${escapeHtml(c.cooldown || 'N/A')}</td>
+                <td>${escapeHtml(c.range || 'N/A')}</td>
             </tr>`;
         });
     } else {
@@ -1052,14 +1182,14 @@ function renderDinosaur(data, md, balanceStats = null, sections = null) {
     // ── Skins ────────────────────────────────────────────────────
     const skinGrid = document.getElementById('skin-grid');
     skinGrid.innerHTML = '';
-    const allSkins = data.skins || [];
+    const allSkins = sections?.appearance?.skins || sections?.appearance || data.skins || [];
     if (allSkins.length) {
         allSkins.forEach((skin, i) => {
             const card = document.createElement('div');
             card.className = 'skin-card';
             card.innerHTML = `
-                <img src="${skin.src}" alt="${skin.label}" loading="lazy">
-                <div class="skin-label">${skin.label}</div>`;
+                <img src="${escapeAttr(skin.src)}" alt="${escapeAttr(skin.label)}" loading="lazy">
+                <div class="skin-label">${escapeHtml(skin.label)}</div>`;
             card.addEventListener('click', () => openMediaViewer(allSkins, i));
             skinGrid.appendChild(card);
         });

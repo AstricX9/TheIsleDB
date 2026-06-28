@@ -1,21 +1,54 @@
 {
   "diet": {
     "alpha": [
-      { "name": "Pachycephalosaurus", "location": "Coastal" },
-      { "name": "Tenontosaurus", "location": "Riverdelta, Grasslands, Jungles, Island" },
-      { "name": "Herrerasaurus", "location": "Jungles, Riverdelta" },
-      { "name": "Boar", "location": "All Land Biomes" }
+      {
+        "name": "Pachycephalosaurus",
+        "location": "Coastal"
+      },
+      {
+        "name": "Tenontosaurus",
+        "location": "Riverdelta, Grasslands, Jungles, Island"
+      },
+      {
+        "name": "Herrerasaurus",
+        "location": "Jungles, Riverdelta"
+      },
+      {
+        "name": "Boar",
+        "location": "All land biomes"
+      }
     ],
     "beta": [
-      { "name": "Omniraptor", "location": "Grasslands, Jungles" },
-      { "name": "Diabloceratops", "location": "Highland, Grassland" },
-      { "name": "Troodon", "location": "Coastal, Grasslands, Highlands" },
-      { "name": "Deer", "location": "All Land Biomes" }
+      {
+        "name": "Omniraptor",
+        "location": "Grasslands, Jungles"
+      },
+      {
+        "name": "Diabloceratops",
+        "location": "Highlands, Grasslands"
+      },
+      {
+        "name": "Troodon",
+        "location": "Coastal, Grasslands, Highlands"
+      },
+      {
+        "name": "Deer",
+        "location": "All land biomes"
+      }
     ],
     "gamma": [
-      { "name": "Dryosaurus", "location": "Grasslands, Riverdelta, Swamp" },
-      { "name": "Gallimimus", "location": "Highlands, Grasslands" },
-      { "name": "Maiasaura", "location": "Highland, Grassland, Riverdelta" }
+      {
+        "name": "Dryosaurus",
+        "location": "Grasslands, Riverdelta, Swamp"
+      },
+      {
+        "name": "Gallimimus",
+        "location": "Highlands, Grasslands"
+      },
+      {
+        "name": "Maiasaura",
+        "location": "Highland, Grassland, Riverdelta"
+      }
     ]
   }
 }

@@ -1,0 +1,15 @@
+{
+  "classification": {
+    "basicStats": {
+      "diet": "Carnivore",
+      "size": "Small",
+      "speed": "Fast",
+      "difficulty": "Moderate"
+    },
+    "characteristics": [
+      "Small pack-hunting raptor",
+      "Strong pounce pressure",
+      "Needs coordination and stamina discipline"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skins": [
+    {
+      "src": "assets/images/dryosaurus/Dryosaurus_Adult.png",
+      "label": "Adult"
+    },
+    {
+      "src": "assets/images/dryosaurus/Skins/Skin_Dryosaurus_Adult_Female.png",
+      "label": "Skin - Adult Female"
+    },
+    {
+      "src": "assets/images/dryosaurus/Skins/Skin_Dryosaurus_Adult_Male.png",
+      "label": "Skin - Adult Male"
+    },
+    {
+      "src": "assets/images/dryosaurus/Dryosaurus_Sub.png",
+      "label": "Subadult"
+    },
+    {
+      "src": "assets/images/dryosaurus/Skins/Skin_Dryosaurus_Sub_Male.png",
+      "label": "Skin - Subadult Male"
+    },
+    {
+      "src": "assets/images/dryosaurus/Dryosaurus_Juvie.png",
+      "label": "Juvenile"
+    },
+    {
+      "src": "assets/images/dryosaurus/Skins/Skin_Dryosaurus_Juvie_Male.png",
+      "label": "Skin - Juvenile Male"
+    }
+  ]
+}

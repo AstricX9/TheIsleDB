@@ -1,0 +1,56 @@
+{
+  "skins": [
+    {
+      "src": "assets/images/stegosaurus/I_Stegosaurus_Adult_Female.png",
+      "label": "Adult Female"
+    },
+    {
+      "src": "assets/images/stegosaurus/I_Stegosaurus_Adult_Male.png",
+      "label": "Adult Male"
+    },
+    {
+      "src": "assets/images/stegosaurus/Skins/Skin_Stegosaurus_Adult_Female.png",
+      "label": "Skin - Adult Female"
+    },
+    {
+      "src": "assets/images/stegosaurus/Skins/Skin_Stegosaurus_Adult_Male.png",
+      "label": "Skin - Adult Male"
+    },
+    {
+      "src": "assets/images/stegosaurus/Stegosaurus_Adult_Female.png",
+      "label": "Adult Female"
+    },
+    {
+      "src": "assets/images/stegosaurus/Stegosaurus_Adult_Male.png",
+      "label": "Adult Male"
+    },
+    {
+      "src": "assets/images/stegosaurus/I_Stegosaurus_Sub_Male.png",
+      "label": "Subadult Male"
+    },
+    {
+      "src": "assets/images/stegosaurus/Skins/Skin_Stegosaurus_Sub_Male.png",
+      "label": "Skin - Subadult Male"
+    },
+    {
+      "src": "assets/images/stegosaurus/Stegosaurus_Sub.png",
+      "label": "Subadult"
+    },
+    {
+      "src": "assets/images/stegosaurus/Skins/Skin_Stegosaurus_Juvie_Male.png",
+      "label": "Skin - Juvenile Male"
+    },
+    {
+      "src": "assets/images/stegosaurus/Stegosaurus_Juvie.png",
+      "label": "Juvenile"
+    },
+    {
+      "src": "assets/images/stegosaurus/I_Stegosaurus_Hatchling_Male.png",
+      "label": "Hatchling Male"
+    },
+    {
+      "src": "assets/images/stegosaurus/I_Stegosaurus_Elder_Male.png",
+      "label": "Elder Male"
+    }
+  ]
+}

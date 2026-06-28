@@ -1,0 +1,15 @@
+{
+  "classification": {
+    "basicStats": {
+      "diet": "Herbivore",
+      "size": "Apex",
+      "speed": "Moderate",
+      "difficulty": "Hard"
+    },
+    "characteristics": [
+      "Massive horned herbivore",
+      "Extremely dangerous from the front",
+      "Best when holding ground with herd support"
+    ]
+  }
+}

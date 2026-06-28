@@ -13,44 +13,174 @@
       "title": "Dinosaurs",
       "href": "dinosaur.html?dino=carnotaurus",
       "submenu": [
-        { "title": "Carnotaurus", "href": "dinosaur.html?dino=carnotaurus" },
-        { "title": "Tyrannosaurus", "href": "dinosaur.html?dino=tyrannosaurus" }
+        {
+          "title": "Allosaurus",
+          "href": "dinosaur.html?dino=allosaurus"
+        },
+        {
+          "title": "Austroraptor",
+          "href": "dinosaur.html?dino=austroraptor"
+        },
+        {
+          "title": "Baryonyx",
+          "href": "dinosaur.html?dino=baryonyx"
+        },
+        {
+          "title": "Beipiaosaurus",
+          "href": "dinosaur.html?dino=beipiaosaurus"
+        },
+        {
+          "title": "Carnotaurus",
+          "href": "dinosaur.html?dino=carnotaurus"
+        },
+        {
+          "title": "Ceratosaurus",
+          "href": "dinosaur.html?dino=ceratosaurus"
+        },
+        {
+          "title": "Deinosuchus",
+          "href": "dinosaur.html?dino=deinosuchus"
+        },
+        {
+          "title": "Diabloceratops",
+          "href": "dinosaur.html?dino=diabloceratops"
+        },
+        {
+          "title": "Dilophosaurus",
+          "href": "dinosaur.html?dino=dilophosaurus"
+        },
+        {
+          "title": "Dryosaurus",
+          "href": "dinosaur.html?dino=dryosaurus"
+        },
+        {
+          "title": "Gallimimus",
+          "href": "dinosaur.html?dino=gallimimus"
+        },
+        {
+          "title": "Herrerasaurus",
+          "href": "dinosaur.html?dino=herrerasaurus"
+        },
+        {
+          "title": "Hypsilophodon",
+          "href": "dinosaur.html?dino=hypsilophodon"
+        },
+        {
+          "title": "Kentrosaurus",
+          "href": "dinosaur.html?dino=kentrosaurus"
+        },
+        {
+          "title": "Maiasaura",
+          "href": "dinosaur.html?dino=maiasaurus"
+        },
+        {
+          "title": "Omniraptor",
+          "href": "dinosaur.html?dino=omniraptor"
+        },
+        {
+          "title": "Oviraptor",
+          "href": "dinosaur.html?dino=oviraptor"
+        },
+        {
+          "title": "Pachycephalosaurus",
+          "href": "dinosaur.html?dino=pachycephalosaurus"
+        },
+        {
+          "title": "Pteranodon",
+          "href": "dinosaur.html?dino=pteranodon"
+        },
+        {
+          "title": "Stegosaurus",
+          "href": "dinosaur.html?dino=stegosaurus"
+        },
+        {
+          "title": "Tenontosaurus",
+          "href": "dinosaur.html?dino=tenontosaurus"
+        },
+        {
+          "title": "Triceratops",
+          "href": "dinosaur.html?dino=triceratops"
+        },
+        {
+          "title": "Troodon",
+          "href": "dinosaur.html?dino=troodon"
+        },
+        {
+          "title": "Tyrannosaurus",
+          "href": "dinosaur.html?dino=tyrannosaurus"
+        }
       ]
     },
     {
       "title": "User Interface",
       "href": "page.html?category=items&slug=weapons",
       "submenu": [
-        { "title": "The User Interface", "href": "article.html?category=ui&slug=user-interface" }
+        {
+          "title": "The User Interface",
+          "href": "article.html?category=ui&slug=user-interface"
+        }
       ]
     },
     {
       "title": "Mechanics",
       "href": "page.html?category=mechanics&slug=mutations",
       "submenu": [
-        { "title": "Mutations", "href": "page.html?category=mechanics&slug=mutations" },
-        { "title": "Gore & Decay", "href": "page.html?category=mechanics&slug=gore-and-decay" },
-        { "title": "Diet & Nutrients", "href": "page.html?category=mechanics&slug=diet-and-nutrients" },
-        { "title": "Health & Injuries", "href": "page.html?category=mechanics&slug=health-and-injuries" },
-        { "title": "Hunting & AI", "href": "page.html?category=mechanics&slug=hunting-and-ai" },
-        { "title": "Night Vision", "href": "page.html?category=mechanics&slug=nightvision" }
+        {
+          "title": "Mutations",
+          "href": "page.html?category=mechanics&slug=mutations"
+        },
+        {
+          "title": "Gore & Decay",
+          "href": "page.html?category=mechanics&slug=gore-and-decay"
+        },
+        {
+          "title": "Diet & Nutrients",
+          "href": "page.html?category=mechanics&slug=diet-and-nutrients"
+        },
+        {
+          "title": "Health & Injuries",
+          "href": "page.html?category=mechanics&slug=health-and-injuries"
+        },
+        {
+          "title": "Hunting & AI",
+          "href": "page.html?category=mechanics&slug=hunting-and-ai"
+        },
+        {
+          "title": "Night Vision",
+          "href": "page.html?category=mechanics&slug=nightvision"
+        }
       ]
     },
     {
       "title": "Upcoming",
       "href": "page.html?category=upcoming&slug=upcoming-creatures",
       "submenu": [
-        { "title": "Upcoming Creatures", "href": "page.html?category=upcoming&slug=upcoming-creatures" },
-        { "title": "Speculations", "href": "page.html?category=upcoming&slug=speculations" }
+        {
+          "title": "Upcoming Creatures",
+          "href": "page.html?category=upcoming&slug=upcoming-creatures"
+        },
+        {
+          "title": "Speculations",
+          "href": "page.html?category=upcoming&slug=speculations"
+        }
       ]
     },
     {
       "title": "Support",
       "href": "page.html?category=support&slug=lore",
       "submenu": [
-        { "title": "Lore", "href": "page.html?category=support&slug=lore" },
-        { "title": "Bugs & Fixes", "href": "page.html?category=support&slug=bugs-and-fixes" },
-        { "title": "Community", "href": "page.html?category=support&slug=community" }
+        {
+          "title": "Lore",
+          "href": "page.html?category=support&slug=lore"
+        },
+        {
+          "title": "Bugs & Fixes",
+          "href": "page.html?category=support&slug=bugs-and-fixes"
+        },
+        {
+          "title": "Community",
+          "href": "page.html?category=support&slug=community"
+        }
       ]
     }
   ]

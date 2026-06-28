@@ -1,0 +1,19 @@
+{
+  "attacks": [
+    {
+      "name": "Bite",
+      "key": "LMB",
+      "description": "Short-range bite."
+    },
+    {
+      "name": "Kick",
+      "key": "RMB",
+      "description": "Defensive kick to punish close predators."
+    },
+    {
+      "name": "Tail Slam",
+      "key": "ALT + RMB",
+      "description": "Aimed tail attack for close-range control."
+    }
+  ]
+}

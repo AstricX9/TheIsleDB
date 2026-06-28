@@ -1,0 +1,15 @@
+{
+  "classification": {
+    "basicStats": {
+      "diet": "Omnivore",
+      "size": "Small",
+      "speed": "Moderate",
+      "difficulty": "Easy"
+    },
+    "characteristics": [
+      "Small semi-aquatic omnivore",
+      "Can escape into water",
+      "Relies on awareness more than raw damage"
+    ]
+  }
+}

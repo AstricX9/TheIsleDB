@@ -3,6 +3,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     const searchResults = document.getElementById('search-results');
     let indexData = [];
 
+    async function loadDinosaurFiles() {
+        try {
+            const rosterResponse = await fetch('data/dinosaurs/roster.json');
+            if (!rosterResponse.ok) throw new Error('Roster not found');
+            const roster = await rosterResponse.json();
+            return roster.map(item => item.slug).filter(Boolean);
+        } catch (error) {
+            return ['carnotaurus', 'tyrannosaurus'];
+        }
+    }
+
     // 1. Build the search index directly from the Markdown files
     try {
         // Define the categories and their paths
@@ -21,7 +32,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 let files = [];
                 
                 if (category.name === 'dinosaurs') {
-                    files = ['carnotaurus', 'tyrannosaurus'];
+                    files = await loadDinosaurFiles();
                 } else if (category.name === 'mechanics') {
                     files = ['mutations', 'gore-and-decay', 'health-and-injuries', 'hunting-and-ai', 'illnesses', 'keybinds', 'movement', 'packs-and-herds', 'stamina', 'wallowing', 'diet-and-nutrients', 'courting-and-nesting', 'elder-system', 'entomb', 'fighting-and-effects', 'fishing-and-foraging', 'gathering-and-flora', 'migrations-and-patrol-zones', 'navigation', 'sanctuary', 'vulnona-map'];
                 } else if (category.name === 'support') {

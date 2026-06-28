@@ -1,0 +1,15 @@
+{
+  "classification": {
+    "basicStats": {
+      "diet": "Herbivore",
+      "size": "Large",
+      "speed": "Slow",
+      "difficulty": "Hard"
+    },
+    "characteristics": [
+      "Large defensive herbivore",
+      "Powerful tail threat",
+      "Controls close-range space extremely well"
+    ]
+  }
+}

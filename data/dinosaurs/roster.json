@@ -1,0 +1,194 @@
+[
+  {
+    "slug": "allosaurus",
+    "title": "Allosaurus",
+    "diet": "Carnivore",
+    "size": "Large",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=allosaurus"
+  },
+  {
+    "slug": "austroraptor",
+    "title": "Austroraptor",
+    "diet": "Carnivore",
+    "size": "Medium",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=austroraptor"
+  },
+  {
+    "slug": "baryonyx",
+    "title": "Baryonyx",
+    "diet": "Carnivore",
+    "size": "Large",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=baryonyx"
+  },
+  {
+    "slug": "beipiaosaurus",
+    "title": "Beipiaosaurus",
+    "diet": "Omnivore",
+    "size": "Small",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=beipiaosaurus"
+  },
+  {
+    "slug": "carnotaurus",
+    "title": "Carnotaurus",
+    "diet": "Carnivore",
+    "size": "Medium",
+    "hasBalance": true,
+    "href": "dinosaur.html?dino=carnotaurus"
+  },
+  {
+    "slug": "ceratosaurus",
+    "title": "Ceratosaurus",
+    "diet": "Carnivore",
+    "size": "Medium",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=ceratosaurus"
+  },
+  {
+    "slug": "deinosuchus",
+    "title": "Deinosuchus",
+    "diet": "Carnivore",
+    "size": "Apex",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=deinosuchus"
+  },
+  {
+    "slug": "diabloceratops",
+    "title": "Diabloceratops",
+    "diet": "Herbivore",
+    "size": "Medium",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=diabloceratops"
+  },
+  {
+    "slug": "dilophosaurus",
+    "title": "Dilophosaurus",
+    "diet": "Carnivore",
+    "size": "Medium",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=dilophosaurus"
+  },
+  {
+    "slug": "dryosaurus",
+    "title": "Dryosaurus",
+    "diet": "Herbivore",
+    "size": "Small",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=dryosaurus"
+  },
+  {
+    "slug": "gallimimus",
+    "title": "Gallimimus",
+    "diet": "Herbivore",
+    "size": "Medium",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=gallimimus"
+  },
+  {
+    "slug": "herrerasaurus",
+    "title": "Herrerasaurus",
+    "diet": "Carnivore",
+    "size": "Small",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=herrerasaurus"
+  },
+  {
+    "slug": "hypsilophodon",
+    "title": "Hypsilophodon",
+    "diet": "Herbivore",
+    "size": "Small",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=hypsilophodon"
+  },
+  {
+    "slug": "kentrosaurus",
+    "title": "Kentrosaurus",
+    "diet": "Herbivore",
+    "size": "Medium",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=kentrosaurus"
+  },
+  {
+    "slug": "maiasaurus",
+    "title": "Maiasaura",
+    "diet": "Herbivore",
+    "size": "Large",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=maiasaurus"
+  },
+  {
+    "slug": "omniraptor",
+    "title": "Omniraptor",
+    "diet": "Carnivore",
+    "size": "Small",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=omniraptor"
+  },
+  {
+    "slug": "oviraptor",
+    "title": "Oviraptor",
+    "diet": "Omnivore",
+    "size": "Small",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=oviraptor"
+  },
+  {
+    "slug": "pachycephalosaurus",
+    "title": "Pachycephalosaurus",
+    "diet": "Herbivore",
+    "size": "Medium",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=pachycephalosaurus"
+  },
+  {
+    "slug": "pteranodon",
+    "title": "Pteranodon",
+    "diet": "Piscivore",
+    "size": "Small",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=pteranodon"
+  },
+  {
+    "slug": "stegosaurus",
+    "title": "Stegosaurus",
+    "diet": "Herbivore",
+    "size": "Large",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=stegosaurus"
+  },
+  {
+    "slug": "tenontosaurus",
+    "title": "Tenontosaurus",
+    "diet": "Herbivore",
+    "size": "Medium",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=tenontosaurus"
+  },
+  {
+    "slug": "triceratops",
+    "title": "Triceratops",
+    "diet": "Herbivore",
+    "size": "Apex",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=triceratops"
+  },
+  {
+    "slug": "troodon",
+    "title": "Troodon",
+    "diet": "Carnivore",
+    "size": "Small",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=troodon"
+  },
+  {
+    "slug": "tyrannosaurus",
+    "title": "Tyrannosaurus",
+    "diet": "Carnivore",
+    "size": "Apex",
+    "hasBalance": false,
+    "href": "dinosaur.html?dino=tyrannosaurus"
+  }
+]

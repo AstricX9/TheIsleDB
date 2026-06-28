@@ -1,0 +1,20 @@
+{
+  "skins": [
+    {
+      "src": "assets/images/austroraptor/I_Austroraptor_Adult.png",
+      "label": "Adult"
+    },
+    {
+      "src": "assets/images/austroraptor/I_Austroraptor_Sub.png",
+      "label": "Subadult"
+    },
+    {
+      "src": "assets/images/austroraptor/I_Austroraptor_Hatchling.png",
+      "label": "Hatchling"
+    },
+    {
+      "src": "assets/images/austroraptor/I_Austroraptor_Elder.png",
+      "label": "Elder"
+    }
+  ]
+}

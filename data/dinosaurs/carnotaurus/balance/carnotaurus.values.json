@@ -1,6 +1,6 @@
 {
   "name": "DT_CarnotaurusBalanceAttributes",
-  "source": "DT_CarnotaurusBalanceAttributes.readable.json",
+  "source": "DT_CarnotaurusBalanceAttributes.json",
   "package": "/Game/TheIsle/Core/Characters/Dinosaurs/Carnotaurus/DT_CarnotaurusBalanceAttributes",
   "staminaDurations": {
     "regen": {
@@ -26,13 +26,41 @@
       "label": "Crouch Speed",
       "unit": "km/h",
       "points": [
-        { "time": 0.0, "speed_kmh": 1.908, "interp_mode": "RCIM_Linear" },
-        { "time": 0.25, "speed_kmh": 4.536, "interp_mode": "RCIM_Linear" },
-        { "time": 0.375, "speed_kmh": 5.4, "interp_mode": "RCIM_Linear" },
-        { "time": 0.5, "speed_kmh": 5.94, "interp_mode": "RCIM_Linear" },
-        { "time": 0.625, "speed_kmh": 6.3, "interp_mode": "RCIM_Linear" },
-        { "time": 0.75, "speed_kmh": 6.48, "interp_mode": "RCIM_Linear" },
-        { "time": 1.0, "speed_kmh": 7.2, "interp_mode": "RCIM_Cubic" }
+        {
+          "time": 0,
+          "speed_kmh": 1.908,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.25,
+          "speed_kmh": 4.536,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.375,
+          "speed_kmh": 5.4,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.5,
+          "speed_kmh": 5.94,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.625,
+          "speed_kmh": 6.3,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.75,
+          "speed_kmh": 6.48,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 1,
+          "speed_kmh": 7.2,
+          "interp_mode": "RCIM_Cubic"
+        }
       ]
     },
     {
@@ -40,13 +68,41 @@
       "label": "Walk Speed",
       "unit": "km/h",
       "points": [
-        { "time": 0.0, "speed_kmh": 1.908, "interp_mode": "RCIM_Linear" },
-        { "time": 0.25, "speed_kmh": 4.536, "interp_mode": "RCIM_Linear" },
-        { "time": 0.375, "speed_kmh": 5.04, "interp_mode": "RCIM_Linear" },
-        { "time": 0.5, "speed_kmh": 5.4, "interp_mode": "RCIM_Linear" },
-        { "time": 0.625, "speed_kmh": 5.652, "interp_mode": "RCIM_Linear" },
-        { "time": 0.75, "speed_kmh": 5.76, "interp_mode": "RCIM_Linear" },
-        { "time": 1.0, "speed_kmh": 6.12, "interp_mode": "RCIM_Cubic" }
+        {
+          "time": 0,
+          "speed_kmh": 1.908,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.25,
+          "speed_kmh": 4.536,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.375,
+          "speed_kmh": 5.04,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.5,
+          "speed_kmh": 5.4,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.625,
+          "speed_kmh": 5.652,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.75,
+          "speed_kmh": 5.76,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 1,
+          "speed_kmh": 6.12,
+          "interp_mode": "RCIM_Cubic"
+        }
       ]
     },
     {
@@ -54,13 +110,41 @@
       "label": "Trot Speed",
       "unit": "km/h",
       "points": [
-        { "time": 0.0, "speed_kmh": 2.772, "interp_mode": "RCIM_Linear" },
-        { "time": 0.25, "speed_kmh": 6.48, "interp_mode": "RCIM_Linear" },
-        { "time": 0.375, "speed_kmh": 12.6, "interp_mode": "RCIM_Linear" },
-        { "time": 0.5, "speed_kmh": 14.4, "interp_mode": "RCIM_Linear" },
-        { "time": 0.625, "speed_kmh": 15.3, "interp_mode": "RCIM_Linear" },
-        { "time": 0.75, "speed_kmh": 15.84, "interp_mode": "RCIM_Linear" },
-        { "time": 1.0, "speed_kmh": 18.0, "interp_mode": "RCIM_Cubic" }
+        {
+          "time": 0,
+          "speed_kmh": 2.772,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.25,
+          "speed_kmh": 6.48,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.375,
+          "speed_kmh": 12.6,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.5,
+          "speed_kmh": 14.4,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.625,
+          "speed_kmh": 15.3,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.75,
+          "speed_kmh": 15.84,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 1,
+          "speed_kmh": 18,
+          "interp_mode": "RCIM_Cubic"
+        }
       ]
     },
     {
@@ -68,13 +152,41 @@
       "label": "Sprint Speed",
       "unit": "km/h",
       "points": [
-        { "time": 0.0, "speed_kmh": 13.752, "interp_mode": "RCIM_Linear" },
-        { "time": 0.25, "speed_kmh": 32.4, "interp_mode": "RCIM_Linear" },
-        { "time": 0.375, "speed_kmh": 41.4, "interp_mode": "RCIM_Linear" },
-        { "time": 0.5, "speed_kmh": 46.8, "interp_mode": "RCIM_Linear" },
-        { "time": 0.625, "speed_kmh": 48.96, "interp_mode": "RCIM_Linear" },
-        { "time": 0.75, "speed_kmh": 49.5, "interp_mode": "RCIM_Cubic" },
-        { "time": 1.0, "speed_kmh": 39.6, "interp_mode": "RCIM_Cubic" }
+        {
+          "time": 0,
+          "speed_kmh": 13.752,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.25,
+          "speed_kmh": 32.4,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.375,
+          "speed_kmh": 41.4,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.5,
+          "speed_kmh": 46.8,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.625,
+          "speed_kmh": 48.96,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.75,
+          "speed_kmh": 49.5,
+          "interp_mode": "RCIM_Cubic"
+        },
+        {
+          "time": 1,
+          "speed_kmh": 39.6,
+          "interp_mode": "RCIM_Cubic"
+        }
       ]
     },
     {
@@ -82,9 +194,21 @@
       "label": "Slow Swim Speed",
       "unit": "km/h",
       "points": [
-        { "time": 0.0, "speed_kmh": 6.804, "interp_mode": "RCIM_Linear" },
-        { "time": 0.5, "speed_kmh": 6.804, "interp_mode": "RCIM_Linear" },
-        { "time": 1.0, "speed_kmh": 6.804, "interp_mode": "RCIM_Linear" }
+        {
+          "time": 0,
+          "speed_kmh": 6.804,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.5,
+          "speed_kmh": 6.804,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 1,
+          "speed_kmh": 6.804,
+          "interp_mode": "RCIM_Linear"
+        }
       ]
     },
     {
@@ -92,9 +216,21 @@
       "label": "Fast Swim Speed",
       "unit": "km/h",
       "points": [
-        { "time": 0.0, "speed_kmh": 13.212, "interp_mode": "RCIM_Linear" },
-        { "time": 0.5, "speed_kmh": 13.212, "interp_mode": "RCIM_Linear" },
-        { "time": 1.0, "speed_kmh": 13.212, "interp_mode": "RCIM_Linear" }
+        {
+          "time": 0,
+          "speed_kmh": 13.212,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 0.5,
+          "speed_kmh": 13.212,
+          "interp_mode": "RCIM_Linear"
+        },
+        {
+          "time": 1,
+          "speed_kmh": 13.212,
+          "interp_mode": "RCIM_Linear"
+        }
       ]
     }
   ]

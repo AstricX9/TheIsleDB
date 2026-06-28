@@ -1,7 +1,7 @@
 name: DT_CarnotaurusBalanceAttributes
-source: DT_CarnotaurusBalanceAttributes.readable.txt
+source: DT_CarnotaurusBalanceAttributes.json
 package: /Game/TheIsle/Core/Characters/Dinosaurs/Carnotaurus/DT_CarnotaurusBalanceAttributes
-notes: Raw values live in the generated values file.
+notes: Generated from the local Evrima export.
 
 [stamina.regen]
 Standing

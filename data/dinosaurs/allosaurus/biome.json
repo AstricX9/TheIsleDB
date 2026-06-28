@@ -1,0 +1,12 @@
+{
+  "biomeInfo": {
+    "preferred": [
+      "Grasslands",
+      "Jungle Edge",
+      "Riverdelta"
+    ],
+    "avoid": [
+      "Open Water"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "skins": [
+    {
+      "src": "assets/images/omniraptor/Omniraptor_Adult.png",
+      "label": "Adult"
+    },
+    {
+      "src": "assets/images/omniraptor/Skins/Skins_Omniraptor_Adult_Female.png",
+      "label": "Skin - Adult Female"
+    },
+    {
+      "src": "assets/images/omniraptor/Skins/Skins_Omniraptor_Adult_Male.png",
+      "label": "Skin - Adult Male"
+    },
+    {
+      "src": "assets/images/omniraptor/Omniraptor_Sub.png",
+      "label": "Subadult"
+    },
+    {
+      "src": "assets/images/omniraptor/Skins/Skins_Omniraptor_Sub_Male.png",
+      "label": "Skin - Subadult Male"
+    },
+    {
+      "src": "assets/images/omniraptor/Omniraptor_Juvie.png",
+      "label": "Juvenile"
+    },
+    {
+      "src": "assets/images/omniraptor/Skins/Skins_Omniraptor_Juvie_Male.png",
+      "label": "Skin - Juvenile Male"
+    }
+  ]
+}

@@ -3,17 +3,17 @@
     {
       "name": "Bite",
       "key": "LMB",
-      "description": "Mediocre damage, can be used as a basic attack"
+      "description": "Basic bite attack."
     },
     {
       "name": "Charge",
       "key": "SHIFT + RMB",
-      "description": "To initiate, you must be running and holding RMB; can be triggered instantly once running"
+      "description": "Burst forward while running to pressure or knock targets."
     },
     {
-      "name": "Alternative Bite",
+      "name": "Alt Bite",
       "key": "ALT + LMB",
-      "description": "Hold alt and aim with your mouse. Standard attack for this playable."
+      "description": "Aimed alternate bite for close-range tracking."
     }
   ]
 }

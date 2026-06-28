@@ -1,0 +1,52 @@
+{
+  "skins": [
+    {
+      "src": "assets/images/dilophosaurus/Dilophosaurus_Adult.png",
+      "label": "Adult"
+    },
+    {
+      "src": "assets/images/dilophosaurus/Dilophosaurus_SubAdult.png",
+      "label": "SubAdult"
+    },
+    {
+      "src": "assets/images/dilophosaurus/I_Dilophosaurus_Adult.png",
+      "label": "Adult"
+    },
+    {
+      "src": "assets/images/dilophosaurus/skins/Skin_Dilophosaurus_Adult_Female.PNG",
+      "label": "Skin - Adult Female"
+    },
+    {
+      "src": "assets/images/dilophosaurus/skins/Skin_Dilophosaurus_Adult_Male.PNG",
+      "label": "Skin - Adult Male"
+    },
+    {
+      "src": "assets/images/dilophosaurus/I_Dilophosaurus_Sub.png",
+      "label": "Subadult"
+    },
+    {
+      "src": "assets/images/dilophosaurus/skins/Skin_Dilophosaurus_Sub_Male.PNG",
+      "label": "Skin - Subadult Male"
+    },
+    {
+      "src": "assets/images/dilophosaurus/Dilophosaurus_Juvenile.png",
+      "label": "Juvenile"
+    },
+    {
+      "src": "assets/images/dilophosaurus/I_Dilophosaurus_Juvie.png",
+      "label": "Juvenile"
+    },
+    {
+      "src": "assets/images/dilophosaurus/skins/Skin_Dilophosaurus_Juvie_Male.PNG",
+      "label": "Skin - Juvenile Male"
+    },
+    {
+      "src": "assets/images/dilophosaurus/I_Dilophosaurus_Elder.png",
+      "label": "Elder"
+    },
+    {
+      "src": "assets/images/dilophosaurus/Preview_Dilophosaurus.png",
+      "label": "Preview Dilophosaurus"
+    }
+  ]
+}

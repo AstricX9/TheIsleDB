@@ -487,6 +487,12 @@ h3.sec {
   padding: 0.4rem;
 }
 
+#raw-stats-canvas {
+  display: block;
+  width: 100%;
+  height: 320px;
+}
+
 /* ── Win rate bars ── */
 .wrbar {
   display: inline-block;
@@ -694,6 +700,13 @@ h3.sec {
   font-weight: 600;
   font-size: 0.74rem;
   color: var(--tx);
+}
+
+.call-audio {
+  display: block;
+  width: min(260px, 100%);
+  height: 28px;
+  margin-top: 0.25rem;
 }
 
 /* ── Attacks ── */

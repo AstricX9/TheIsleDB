@@ -1,0 +1,15 @@
+{
+  "classification": {
+    "basicStats": {
+      "diet": "Carnivore",
+      "size": "Medium",
+      "speed": "Fast",
+      "difficulty": "Moderate"
+    },
+    "characteristics": [
+      "Agile raptor predator",
+      "Good chase pressure",
+      "Works best with careful stamina control"
+    ]
+  }
+}

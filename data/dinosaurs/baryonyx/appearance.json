@@ -1,0 +1,20 @@
+{
+  "skins": [
+    {
+      "src": "assets/images/baryonyx/I_Baryonyx_Adult.png",
+      "label": "Adult"
+    },
+    {
+      "src": "assets/images/baryonyx/I_Baryonyx_Sub.png",
+      "label": "Subadult"
+    },
+    {
+      "src": "assets/images/baryonyx/I_Baryonyx_Hatchling.png",
+      "label": "Hatchling"
+    },
+    {
+      "src": "assets/images/baryonyx/I_Baryonyx_Elder.png",
+      "label": "Elder"
+    }
+  ]
+}

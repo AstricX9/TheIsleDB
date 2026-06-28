@@ -1,16 +1,16 @@
 {
   "recommendedMutations": [
     {
-      "name": "Reabsorption",
-      "description": "Recover a small amount of water during rainy weather."
+      "name": "Epidermal Fibrosis",
+      "description": "Improves bleed resistance for extended fights."
     },
     {
       "name": "Gastronomic Regeneration",
-      "description": "Eating restores a small amount of health, ~5%."
+      "description": "Eating restores a small amount of health."
     },
     {
-      "name": "Epidermal Fibrosis",
-      "description": "Increase bleed resistance, ~15%."
+      "name": "Enhanced Digestion",
+      "description": "Helps stretch food value between hunts."
     }
   ]
 }

@@ -1,6 +1,7 @@
-biome.json
-nesting.json
-attacks.json
 classification.json
+attacks.json
+biome.json
 mutations.json
 diet.json
+nesting.json
+appearance.json

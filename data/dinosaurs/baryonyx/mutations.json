@@ -1,0 +1,16 @@
+{
+  "recommendedMutations": [
+    {
+      "name": "Hydrodynamic",
+      "description": "Improves movement around water-heavy routes."
+    },
+    {
+      "name": "Reabsorption",
+      "description": "Improves water sustain during wet weather."
+    },
+    {
+      "name": "Epidermal Fibrosis",
+      "description": "Improves bleed resistance during close fights."
+    }
+  ]
+}
