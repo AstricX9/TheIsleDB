@@ -1,6 +1,6 @@
 ---json
 {
-  "date": "2026-06-28",
+  "date": "2026-10-12",
   "title": "Omniraptor",
   "category": "dinosaurs",
   "slug": "omniraptor",
@@ -9,10 +9,10 @@
     "gameVersion": "Local export"
   },
   "heroImage": {
-    "src": "assets/images/omniraptor/Icon_Omniraptor.png",
+    "src": "assets/images/omniraptor/Skins/Skins_Omniraptor_Adult_Male.png",
     "alt": "Omniraptor"
   },
-  "description": "Omniraptor is a small carnivore in The Isle: Evrima. Small pack-hunting raptor. The current local dump does not include a Core balance export for this species, so stat tables are limited to visual, call, and animation-derived data.",
+  "description": "Omniraptor is a small carnivore in The Isle: Evrima. Small pack-hunting raptor. One of the first additions to Evrima alongside the Tenontosaurus.",
   "survivalTips": [
     "Pick fights where your movement and size class are favored.",
     "Avoid burning all stamina before the target is committed.",
