@@ -1,0 +1,15 @@
+[[skins]]
+src = "assets/images/troodon/Skins/Skin_Troodon_Adult_Female.png"
+label = "Skin - Adult Female"
+
+[[skins]]
+src = "assets/images/troodon/Skins/Skin_Troodon_Adult_Male.png"
+label = "Skin - Adult Male"
+
+[[skins]]
+src = "assets/images/troodon/Skins/Skin_Troodon_Sub_Male.png"
+label = "Skin - Subadult Male"
+
+[[skins]]
+src = "assets/images/troodon/Skins/Skin_Troodon_Juvie_Male.png"
+label = "Skin - Juvenile Male"

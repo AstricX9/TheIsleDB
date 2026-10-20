@@ -1,0 +1,11 @@
+[[recommendedMutations]]
+name = "Epidermal Fibrosis"
+description = "Improves bleed resistance for extended fights."
+
+[[recommendedMutations]]
+name = "Gastronomic Regeneration"
+description = "Eating restores a small amount of health."
+
+[[recommendedMutations]]
+name = "Enhanced Digestion"
+description = "Helps stretch food value between hunts."

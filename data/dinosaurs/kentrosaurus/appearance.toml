@@ -1,0 +1,11 @@
+[[skins]]
+src = "assets/images/kentrosaurus/I_Kentrosaurus_Adult_Male.png"
+label = "Adult Male"
+
+[[skins]]
+src = "assets/images/kentrosaurus/I_Kentrosaurus_Juvenile_Male.png"
+label = "Juvenile Male"
+
+[[skins]]
+src = "assets/images/kentrosaurus/I_Kentrosaurus_Hatchling_Male.png"
+label = "Hatchling Male"

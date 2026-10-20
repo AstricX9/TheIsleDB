@@ -1,0 +1,9 @@
+[[attacks]]
+name = "Headbutt"
+key = "LMB"
+description = "Primary impact attack."
+
+[[attacks]]
+name = "Charge"
+key = "RMB"
+description = "Commit to a stronger forward hit when spacing is favorable."

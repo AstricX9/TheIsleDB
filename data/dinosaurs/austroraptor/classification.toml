@@ -1,0 +1,8 @@
+[classification]
+characteristics = ["Agile raptor predator","Good chase pressure","Works best with careful stamina control"]
+
+[classification.basicStats]
+diet = "Carnivore"
+size = "Medium"
+speed = "Fast"
+difficulty = "Moderate"

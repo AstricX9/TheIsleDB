@@ -1,0 +1,221 @@
+name = "DT_CarnotaurusBalanceAttributes"
+source = "DT_CarnotaurusBalanceAttributes.json"
+package = "/Game/TheIsle/Core/Characters/Dinosaurs/Carnotaurus/DT_CarnotaurusBalanceAttributes"
+
+[staminaDurations]
+
+[staminaDurations.regen]
+Standing = "7:01"
+Walking = "7:01"
+Trotting = "7:01"
+Resting = "7:01"
+
+[staminaDurations.spending]
+Sprinting = "2:35"
+SprintingHolding = "1:34"
+SlowSwim = "1:17"
+FastSwim = "0:46"
+GetUpFast = "0:05"
+Charging = "2:09"
+Jump = "28:03"
+MudWalking = "1:41"
+
+[[movementCurves]]
+name = "ATT_Carnotaurus_CrouchSpeed"
+label = "Crouch Speed"
+unit = "km/h"
+
+[[movementCurves.points]]
+time = 0
+speed_kmh = 1.908
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.25
+speed_kmh = 4.536
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.375
+speed_kmh = 5.4
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.5
+speed_kmh = 5.94
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.625
+speed_kmh = 6.3
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.75
+speed_kmh = 6.48
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 1
+speed_kmh = 7.2
+interp_mode = "RCIM_Cubic"
+
+[[movementCurves]]
+name = "ATT_Carnotaurus_WalkSpeed"
+label = "Walk Speed"
+unit = "km/h"
+
+[[movementCurves.points]]
+time = 0
+speed_kmh = 1.908
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.25
+speed_kmh = 4.536
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.375
+speed_kmh = 5.04
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.5
+speed_kmh = 5.4
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.625
+speed_kmh = 5.652
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.75
+speed_kmh = 5.76
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 1
+speed_kmh = 6.12
+interp_mode = "RCIM_Cubic"
+
+[[movementCurves]]
+name = "ATT_Carnotaurus_TrotSpeed"
+label = "Trot Speed"
+unit = "km/h"
+
+[[movementCurves.points]]
+time = 0
+speed_kmh = 2.772
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.25
+speed_kmh = 6.48
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.375
+speed_kmh = 12.6
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.5
+speed_kmh = 14.4
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.625
+speed_kmh = 15.3
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.75
+speed_kmh = 15.84
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 1
+speed_kmh = 18
+interp_mode = "RCIM_Cubic"
+
+[[movementCurves]]
+name = "ATT_Carnotaurus_SprintSpeed"
+label = "Sprint Speed"
+unit = "km/h"
+
+[[movementCurves.points]]
+time = 0
+speed_kmh = 13.752
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.25
+speed_kmh = 32.4
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.375
+speed_kmh = 41.4
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.5
+speed_kmh = 46.8
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.625
+speed_kmh = 48.96
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.75
+speed_kmh = 49.5
+interp_mode = "RCIM_Cubic"
+
+[[movementCurves.points]]
+time = 1
+speed_kmh = 39.6
+interp_mode = "RCIM_Cubic"
+
+[[movementCurves]]
+name = "ATT_Carnotaurus_SlowSwimSpeed"
+label = "Slow Swim Speed"
+unit = "km/h"
+
+[[movementCurves.points]]
+time = 0
+speed_kmh = 6.804
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.5
+speed_kmh = 6.804
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 1
+speed_kmh = 6.804
+interp_mode = "RCIM_Linear"
+
+[[movementCurves]]
+name = "ATT_Carnotaurus_FastSwimSpeed"
+label = "Fast Swim Speed"
+unit = "km/h"
+
+[[movementCurves.points]]
+time = 0
+speed_kmh = 13.212
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 0.5
+speed_kmh = 13.212
+interp_mode = "RCIM_Linear"
+
+[[movementCurves.points]]
+time = 1
+speed_kmh = 13.212
+interp_mode = "RCIM_Linear"

@@ -1,0 +1,11 @@
+[[skins]]
+src = "assets/images/pachycephalosaurus/Pachycephalosaurus_Adult.png"
+label = "Adult"
+
+[[skins]]
+src = "assets/images/pachycephalosaurus/Pachycephalosaurus_Sub.png"
+label = "Subadult"
+
+[[skins]]
+src = "assets/images/pachycephalosaurus/Pachycephalosaurus_Juvie.png"
+label = "Juvenile"

@@ -1,0 +1,27 @@
+[[skins]]
+src = "assets/images/maiasaurus/Maiasaurus_Adult.png"
+label = "Maiasaurus Adult"
+
+[[skins]]
+src = "assets/images/maiasaurus/Skins/Skin_Maiasaurus_Adult_Female.png"
+label = "Skin - Maiasaurus Adult Female"
+
+[[skins]]
+src = "assets/images/maiasaurus/Skins/Skin_Maiasaurus_Adult_Male.png"
+label = "Skin - Maiasaurus Adult Male"
+
+[[skins]]
+src = "assets/images/maiasaurus/Maiasaurus_Sub.png"
+label = "Maiasaurus Subadult"
+
+[[skins]]
+src = "assets/images/maiasaurus/Skins/Skin_Maiasaurus_Sub_Male.png"
+label = "Skin - Maiasaurus Subadult Male"
+
+[[skins]]
+src = "assets/images/maiasaurus/Maiasaurus_Juvie.png"
+label = "Maiasaurus Juvenile"
+
+[[skins]]
+src = "assets/images/maiasaurus/Skins/Skin_Maiasaurus_Juvie_Male.png"
+label = "Skin - Maiasaurus Juvenile Male"

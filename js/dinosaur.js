@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const text = await response.text();
         const { data, content } = ContentParser.parseDocument(text);
+        if (sectionsData && sectionsData.frontmatter) {
+            Object.assign(data, sectionsData.frontmatter);
+        }
         renderDinosaur(data, content, balanceManifest, sectionsData);
     } catch (err) {
         console.error(err);
@@ -87,7 +90,7 @@ async function loadSectionsManifest(dinoId) {
 
         // plain filename -> infer key
         const file = parts[0];
-        const base = file.replace(/\.json$/i, '');
+        const base = file.replace(/\.(?:json|toml)$/i, '');
         const inferredKey = inferSectionKeyFromFilename(base);
         entries.push({ key: inferredKey, file });
     }
@@ -98,8 +101,11 @@ async function loadSectionsManifest(dinoId) {
             const url = basePath + file;
             const resp = await fetch(url);
             if (!resp.ok) return;
-            const json = await resp.json();
-            result[key] = json;
+            if (/\.toml$/i.test(file)) {
+                result[key] = ContentParser.parseToml(await resp.text());
+            } else {
+                result[key] = await resp.json();
+            }
         } catch (e) {
             // ignore individual failures
         }
@@ -284,12 +290,12 @@ async function loadRawStatsManifest(dinoId) {
     const candidates = [
         {
             txtPath: `data/dinosaurs/${dinoId}/balance/${dinoId}.txt`,
-            valuesPath: `data/dinosaurs/${dinoId}/balance/${dinoId}.values.json`,
+            valuesPath: `data/dinosaurs/${dinoId}/balance/${dinoId}.values.toml`,
             fallbackJsonPath: `data/dinosaurs/${dinoId}/balance/${dinoId}.json`
         },
         {
             txtPath: `data/dinosaurs/balance/${dinoId}.txt`,
-            valuesPath: `data/dinosaurs/balance/${dinoId}.values.json`,
+            valuesPath: `data/dinosaurs/balance/${dinoId}.values.toml`,
             fallbackJsonPath: `data/dinosaurs/balance/${dinoId}.json`
         }
     ];
@@ -304,12 +310,14 @@ async function loadRawStatsManifest(dinoId) {
         if (txtResponse?.ok && (valuesResponse?.ok || fallbackResponse?.ok)) {
             const manifestText = await txtResponse.text();
             const manifest = parseRawStatsManifest(manifestText, candidate.txtPath);
-            const valuePayload = valuesResponse?.ok ? await valuesResponse.json() : await fallbackResponse.json();
+            const valuePayload = valuesResponse?.ok
+                ? ContentParser.parseToml(await valuesResponse.text())
+                : await fallbackResponse.json();
             return mergeRawStatsManifest(valuePayload, manifest);
         }
 
         if (valuesResponse?.ok) {
-            return await valuesResponse.json();
+            return ContentParser.parseToml(await valuesResponse.text());
         }
 
         if (fallbackResponse?.ok) {

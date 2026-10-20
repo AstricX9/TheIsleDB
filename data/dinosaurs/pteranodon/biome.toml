@@ -1,0 +1,3 @@
+[biomeInfo]
+preferred = ["Coastal","Cliffs","Rivers"]
+avoid = ["Dense Forest"]

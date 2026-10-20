@@ -197,7 +197,7 @@ Add growth stage information here. See the growth table in the infobox for detai
 
 ## External sections convention
 
-To keep large or frequently-changing sections editable without bloating frontmatter, you may place the following JSON files under `data/dinosaurs/` and index them with a simple `data/dinosaurs/<slug>.sections.txt` manifest.
+To keep large or frequently-changing sections editable without bloating frontmatter, you may place the following TOML files under `data/dinosaurs/` and index them with a simple `data/dinosaurs/<slug>.sections.txt` manifest.
 
 Example `carnotaurus.sections.txt`:
 
@@ -207,7 +207,7 @@ nesting: carnotaurus.nesting.json
 attacks: carnotaurus.attacks.json
 ```
 
-When present, the page renderer will prefer the external JSON for `biomeInfo`, `nesting`, and `attacks` (or similarly named keys). Survival tips should be kept in the markdown body under `## Survival Tips`.
+When present, the page renderer will prefer the external TOML for `biomeInfo`, `nesting`, and `attacks` (or similarly named keys). Survival tips should be kept in the markdown body under `## Survival Tips`.
 
 
 ## Appearance

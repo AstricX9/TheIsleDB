@@ -49,8 +49,20 @@ document.addEventListener('DOMContentLoaded', async () => {
                 for (const response of responses) {
                     if (response.ok) {
                         const text = await response.text();
-                        // We reuse your ContentParser to extract the JSON frontmatter!
-                        const { data, content } = ContentParser.parseDocument(text);
+                        // We reuse your ContentParser to extract the document frontmatter.
+                        const parsed = ContentParser.parseDocument(text);
+                        const data = parsed.data;
+                        const content = parsed.content;
+                        if (category.name === 'dinosaurs' && !data.title) {
+                            try {
+                                const metadataResponse = await fetch(`data/dinosaurs/${file}/metadata.toml`);
+                                if (metadataResponse.ok) {
+                                    Object.assign(data, ContentParser.parseToml(await metadataResponse.text()));
+                                }
+                            } catch (error) {
+                                console.warn(`Failed to load metadata for ${file}:`, error);
+                            }
+                        }
 
                         // We strip out markdown formatting for an even cleaner text body
                         const cleanContent = content.replace(/[#>*_\[\]`-]/g, '').trim();

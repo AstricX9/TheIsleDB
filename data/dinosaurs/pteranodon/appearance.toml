@@ -1,0 +1,15 @@
+[[skins]]
+src = "assets/images/pteranadon/Skins/Skin_Pteranadon_Adult_female.png"
+label = "Skin - Pteranadon Adult female"
+
+[[skins]]
+src = "assets/images/pteranadon/Skins/Skin_Pteranadon_Adult_Male.png"
+label = "Skin - Pteranadon Adult Male"
+
+[[skins]]
+src = "assets/images/pteranadon/Skins/Skin_Pteranadon_Sub_Male.png"
+label = "Skin - Pteranadon Subadult Male"
+
+[[skins]]
+src = "assets/images/pteranadon/Skins/Skin_Pteranadon_Juvie_Male.png"
+label = "Skin - Pteranadon Juvenile Male"

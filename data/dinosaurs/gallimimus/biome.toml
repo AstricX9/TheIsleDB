@@ -1,0 +1,3 @@
+[biomeInfo]
+preferred = ["Grasslands","Highlands","Forest Edge"]
+avoid = ["Deep Water"]

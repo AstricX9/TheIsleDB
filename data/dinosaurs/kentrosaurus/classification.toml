@@ -1,0 +1,8 @@
+[classification]
+characteristics = ["Spiked defensive herbivore","Dangerous tail pressure","Strong against careless close-range attacks"]
+
+[classification.basicStats]
+diet = "Herbivore"
+size = "Medium"
+speed = "Moderate"
+difficulty = "Moderate"

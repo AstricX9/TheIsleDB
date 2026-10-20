@@ -34,14 +34,21 @@ body {
 #topbar {
   background: var(--s1);
   border-bottom: 1px solid var(--b1);
-  padding: 0 1.5rem;
   height: 46px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+.topbar-inner {
+  width: 1180px;
+  max-width: calc(100% - 2rem);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .site-logo {
@@ -90,7 +97,8 @@ body {
 
 /* ── Layout ── */
 #page {
-  max-width: 1180px;
+  width: 1180px;
+  max-width: calc(100% - 2rem);
   margin: 0 auto;
   padding: 1.5rem 1.25rem 4rem;
   display: grid;
@@ -938,7 +946,8 @@ sup.ref { font-size: 0.68rem; color: var(--link); }
 
 /* ── Article Layout ── */
 .article-wrapper {
-  max-width: 1040px;
+  width: 1180px;
+  max-width: calc(100% - 2rem);
   margin: 2.2rem auto;
   padding: 0 1.25rem;
 }

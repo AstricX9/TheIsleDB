@@ -1,0 +1,14 @@
+[[attacks]]
+name = "Bite"
+key = "LMB"
+description = "Fast primary bite."
+
+[[attacks]]
+name = "Pounce"
+key = "RMB"
+description = "Latch onto a target when an opening is available."
+
+[[attacks]]
+name = "Alt Bite"
+key = "ALT + LMB"
+description = "Aimed alternate bite."

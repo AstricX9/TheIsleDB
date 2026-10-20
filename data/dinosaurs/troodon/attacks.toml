@@ -1,0 +1,14 @@
+[[attacks]]
+name = "Bite"
+key = "LMB"
+description = "Quick bite attack."
+
+[[attacks]]
+name = "Pounce"
+key = "RMB"
+description = "Pack-focused attack used to apply pressure over time."
+
+[[attacks]]
+name = "Alt Bite"
+key = "ALT + LMB"
+description = "Aimed alternate bite."

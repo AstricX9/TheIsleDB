@@ -1,0 +1,9 @@
+[[attacks]]
+name = "Bite"
+key = "LMB"
+description = "Primary close-range attack."
+
+[[attacks]]
+name = "Alt Bite"
+key = "ALT + LMB"
+description = "Aimed alternate bite for angle control."

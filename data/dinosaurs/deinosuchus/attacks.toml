@@ -1,0 +1,14 @@
+[[attacks]]
+name = "Bite"
+key = "LMB"
+description = "Heavy close-range bite."
+
+[[attacks]]
+name = "Lunge"
+key = "RMB"
+description = "Ambush attack from water against targets near the edge."
+
+[[attacks]]
+name = "Alt Bite"
+key = "ALT + LMB"
+description = "Aimed alternate bite."

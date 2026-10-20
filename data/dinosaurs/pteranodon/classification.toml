@@ -1,0 +1,8 @@
+[classification]
+characteristics = ["Flying piscivore","Excellent map mobility","Fragile if forced onto the ground"]
+
+[classification.basicStats]
+diet = "Piscivore"
+size = "Small"
+speed = "Fast"
+difficulty = "Hard"

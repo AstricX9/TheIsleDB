@@ -1,0 +1,8 @@
+[classification]
+characteristics = ["Versatile mid-sized herbivore","Can fight back with kicks and tail pressure","Rewards timing and spacing"]
+
+[classification.basicStats]
+diet = "Herbivore"
+size = "Medium"
+speed = "Moderate"
+difficulty = "Moderate"

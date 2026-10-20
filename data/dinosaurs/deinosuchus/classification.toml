@@ -1,0 +1,8 @@
+[classification]
+characteristics = ["Massive crocodilian ambush predator","Dominates water crossings","Vulnerable when committed far from water"]
+
+[classification.basicStats]
+diet = "Carnivore"
+size = "Apex"
+speed = "Slow on land"
+difficulty = "Hard"

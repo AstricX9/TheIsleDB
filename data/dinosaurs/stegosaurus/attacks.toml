@@ -1,0 +1,14 @@
+[[attacks]]
+name = "Bite"
+key = "LMB"
+description = "Short-range bite."
+
+[[attacks]]
+name = "Tail Swing"
+key = "RMB"
+description = "Powerful tail attack for defensive spacing."
+
+[[attacks]]
+name = "Alt Tail Swing"
+key = "ALT + RMB"
+description = "Aimed tail pressure against nearby threats."

@@ -1,0 +1,27 @@
+[[skins]]
+src = "assets/images/tenontosaurus/Skins/Skin_Tenontosaurus_Adult_Female.png"
+label = "Skin - Adult Female"
+
+[[skins]]
+src = "assets/images/tenontosaurus/Skins/Skin_Tenontosaurus_Adult_Male.png"
+label = "Skin - Adult Male"
+
+[[skins]]
+src = "assets/images/tenontosaurus/Tenontosaurus_Adult.png"
+label = "Adult"
+
+[[skins]]
+src = "assets/images/tenontosaurus/Skins/Skin_Tenontosaurus_Sub_Male.png"
+label = "Skin - Subadult Male"
+
+[[skins]]
+src = "assets/images/tenontosaurus/Tenontosaurus_Sub.png"
+label = "Subadult"
+
+[[skins]]
+src = "assets/images/tenontosaurus/Skins/Skin_Tenontosaurus_Juvie_Male.png"
+label = "Skin - Juvenile Male"
+
+[[skins]]
+src = "assets/images/tenontosaurus/Tenontosaurus_Juvie.png"
+label = "Juvenile"

@@ -27,6 +27,9 @@ function renderNavbar(data) {
   // Clear existing static nav
   topbar.innerHTML = '';
 
+  const navInner = document.createElement('div');
+  navInner.className = 'topbar-inner';
+
   // Create brand logo
   if (data.brand) {
     const brandA = document.createElement('a');
@@ -38,7 +41,7 @@ function renderNavbar(data) {
     brandImg.style.height = '22px';
     brandImg.style.verticalAlign = 'middle';
     brandA.appendChild(brandImg);
-    topbar.appendChild(brandA);
+    navInner.appendChild(brandA);
   }
 
   // Create new nav
@@ -102,7 +105,8 @@ function renderNavbar(data) {
     }
   });
 
-  topbar.appendChild(nav);
+  navInner.appendChild(nav);
+  topbar.appendChild(navInner);
 }
 
 function transformLegacyItems(items) {

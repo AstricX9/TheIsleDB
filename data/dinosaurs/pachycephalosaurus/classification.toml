@@ -1,0 +1,8 @@
+[classification]
+characteristics = ["Headbutting herbivore","Strong burst impact","Can punish predators that tunnel too hard"]
+
+[classification.basicStats]
+diet = "Herbivore"
+size = "Medium"
+speed = "Fast"
+difficulty = "Moderate"

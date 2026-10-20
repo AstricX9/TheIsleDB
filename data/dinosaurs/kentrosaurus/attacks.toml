@@ -1,0 +1,9 @@
+[[attacks]]
+name = "Primary Attack"
+key = "LMB"
+description = "Primary defensive attack."
+
+[[attacks]]
+name = "Alternate Attack"
+key = "ALT + LMB"
+description = "Aimed alternate attack for close-range defense."

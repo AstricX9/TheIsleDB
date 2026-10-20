@@ -1,0 +1,8 @@
+[classification]
+characteristics = ["Durable medium carnivore","Strong scavenger pressure","Threatens wounded targets well"]
+
+[classification.basicStats]
+diet = "Carnivore"
+size = "Medium"
+speed = "Moderate"
+difficulty = "Moderate"

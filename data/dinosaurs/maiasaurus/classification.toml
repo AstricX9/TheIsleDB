@@ -1,0 +1,8 @@
+[classification]
+characteristics = ["Large herd herbivore","Built around group safety","Can pressure smaller predators through numbers"]
+
+[classification.basicStats]
+diet = "Herbivore"
+size = "Large"
+speed = "Moderate"
+difficulty = "Moderate"

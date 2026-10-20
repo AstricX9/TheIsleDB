@@ -1,0 +1,45 @@
+[diet]
+
+[[diet.alpha]]
+name = "Pachycephalosaurus"
+location = "Coastal"
+
+[[diet.alpha]]
+name = "Tenontosaurus"
+location = "Riverdelta, Grasslands, Jungles, Island"
+
+[[diet.alpha]]
+name = "Herrerasaurus"
+location = "Jungles, Riverdelta"
+
+[[diet.alpha]]
+name = "Boar"
+location = "All land biomes"
+
+[[diet.beta]]
+name = "Omniraptor"
+location = "Grasslands, Jungles"
+
+[[diet.beta]]
+name = "Diabloceratops"
+location = "Highlands, Grasslands"
+
+[[diet.beta]]
+name = "Troodon"
+location = "Coastal, Grasslands, Highlands"
+
+[[diet.beta]]
+name = "Deer"
+location = "All land biomes"
+
+[[diet.gamma]]
+name = "Dryosaurus"
+location = "Grasslands, Riverdelta, Swamp"
+
+[[diet.gamma]]
+name = "Gallimimus"
+location = "Highlands, Grasslands"
+
+[[diet.gamma]]
+name = "Maiasaura"
+location = "Highland, Grassland, Riverdelta"

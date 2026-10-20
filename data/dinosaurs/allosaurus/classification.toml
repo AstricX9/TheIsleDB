@@ -1,0 +1,8 @@
+[classification]
+characteristics = ["Large allosaurid predator","Balanced power and mobility","Suited to measured ambush pressure"]
+
+[classification.basicStats]
+diet = "Carnivore"
+size = "Large"
+speed = "Moderate"
+difficulty = "Moderate"

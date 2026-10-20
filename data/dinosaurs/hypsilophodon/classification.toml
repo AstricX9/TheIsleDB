@@ -1,0 +1,8 @@
+[classification]
+characteristics = ["Tiny evasive herbivore","Hard to pin down in cover","Relies on awareness and harassment"]
+
+[classification.basicStats]
+diet = "Herbivore"
+size = "Small"
+speed = "Fast"
+difficulty = "Easy"

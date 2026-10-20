@@ -1,0 +1,47 @@
+[[skins]]
+src = "assets/images/dilophosaurus/Dilophosaurus_Adult.png"
+label = "Adult"
+
+[[skins]]
+src = "assets/images/dilophosaurus/Dilophosaurus_SubAdult.png"
+label = "SubAdult"
+
+[[skins]]
+src = "assets/images/dilophosaurus/I_Dilophosaurus_Adult.png"
+label = "Adult"
+
+[[skins]]
+src = "assets/images/dilophosaurus/skins/Skin_Dilophosaurus_Adult_Female.PNG"
+label = "Skin - Adult Female"
+
+[[skins]]
+src = "assets/images/dilophosaurus/skins/Skin_Dilophosaurus_Adult_Male.PNG"
+label = "Skin - Adult Male"
+
+[[skins]]
+src = "assets/images/dilophosaurus/I_Dilophosaurus_Sub.png"
+label = "Subadult"
+
+[[skins]]
+src = "assets/images/dilophosaurus/skins/Skin_Dilophosaurus_Sub_Male.PNG"
+label = "Skin - Subadult Male"
+
+[[skins]]
+src = "assets/images/dilophosaurus/Dilophosaurus_Juvenile.png"
+label = "Juvenile"
+
+[[skins]]
+src = "assets/images/dilophosaurus/I_Dilophosaurus_Juvie.png"
+label = "Juvenile"
+
+[[skins]]
+src = "assets/images/dilophosaurus/skins/Skin_Dilophosaurus_Juvie_Male.PNG"
+label = "Skin - Juvenile Male"
+
+[[skins]]
+src = "assets/images/dilophosaurus/I_Dilophosaurus_Elder.png"
+label = "Elder"
+
+[[skins]]
+src = "assets/images/dilophosaurus/Preview_Dilophosaurus.png"
+label = "Preview Dilophosaurus"

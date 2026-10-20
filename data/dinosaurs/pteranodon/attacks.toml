@@ -1,0 +1,9 @@
+[[attacks]]
+name = "Peck"
+key = "LMB"
+description = "Primary close-range attack while grounded or near a target."
+
+[[attacks]]
+name = "Takeoff and Flight"
+key = "SPACE"
+description = "Use flight to reposition, scout, and escape."

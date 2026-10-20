@@ -1,7 +1,7 @@
-classification.json
-attacks.json
-biome.json
-mutations.json
-diet.json
-nesting.json
-appearance.json
+classification.toml
+attacks.toml
+biome.toml
+mutations.toml
+diet.toml
+nesting.toml
+appearance.toml

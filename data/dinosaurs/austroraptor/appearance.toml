@@ -1,0 +1,15 @@
+[[skins]]
+src = "assets/images/austroraptor/I_Austroraptor_Adult.png"
+label = "Adult"
+
+[[skins]]
+src = "assets/images/austroraptor/I_Austroraptor_Sub.png"
+label = "Subadult"
+
+[[skins]]
+src = "assets/images/austroraptor/I_Austroraptor_Hatchling.png"
+label = "Hatchling"
+
+[[skins]]
+src = "assets/images/austroraptor/I_Austroraptor_Elder.png"
+label = "Elder"
