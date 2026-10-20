@@ -1,0 +1,41 @@
+[diet]
+
+[[diet.alpha]]
+name = "Stegosaurus"
+location = "Carbohydrates"
+
+[[diet.alpha]]
+name = "Tenontosaurus"
+location = "Carbohydrates"
+
+[[diet.alpha]]
+name = "Boar"
+location = "Carbohydrates"
+
+[[diet.alpha]]
+name = "Kentrosaurus"
+location = "Carbohydrates"
+
+[[diet.beta]]
+name = "Diabloceratops"
+location = "Proteins"
+
+[[diet.beta]]
+name = "Triceratops"
+location = "Proteins"
+
+[[diet.beta]]
+name = "Deer"
+location = "Proteins"
+
+[[diet.gamma]]
+name = "Maiasaura"
+location = "Lipids"
+
+[[diet.gamma]]
+name = "Dryosaurus"
+location = "Lipids"
+
+[[diet.gamma]]
+name = "Goat"
+location = "Lipids"

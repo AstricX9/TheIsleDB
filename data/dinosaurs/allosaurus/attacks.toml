@@ -1,9 +1,19 @@
 [[attacks]]
-name = "Bite"
-key = "LMB"
-description = "Primary close-range attack."
+name = "Pounce / Pin"
+key = "HOLD RMB"
+description = "Pounces prey and can pin targets when health, stamina, and weight conditions are met. Inflicts bleed; pinning is limited by target weight."
 
 [[attacks]]
-name = "Alt Bite"
+name = "Directional Attack"
 key = "ALT + LMB"
-description = "Aimed alternate bite for angle control."
+description = "Aims with the camera to strike in a chosen direction."
+
+[[attacks]]
+name = "Bite"
+key = "LMB"
+description = "Fast-cooldown standard bite."
+
+[[attacks]]
+name = "Claw Attack"
+key = "RUN + HOLD LMB"
+description = "Inflicts stackable bleed, with each stack using its own timer."

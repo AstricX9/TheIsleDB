@@ -6,3 +6,4 @@ biome.toml
 mutations.toml
 nesting.toml
 appearance.toml
+diet.toml

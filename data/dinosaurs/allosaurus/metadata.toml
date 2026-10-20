@@ -3,8 +3,45 @@ title = "Allosaurus"
 category = "dinosaurs"
 slug = "allosaurus"
 description = "Allosaurus is a fast, aggressive predator in The Isle: Evrima that relies on pressure, positioning, and timing rather than pure strength. It excels at chasing prey, draining stamina, and forcing mistakes through coordinated attacks."
-survivalTips = ["Pick fights where your movement and size class are favored.","Avoid burning all stamina before the target is committed.","Disengage early when larger animals or third parties arrive."]
-growthTable = []
+survivalTips = ["Use speed, coordination, and stamina pressure instead of relying on raw strength.","Coordinate pounces and pins with pack members to pressure heavier prey.","Keep fights prolonged only when bleed and stamina pressure are working in your favor."]
+packLimit = 3
+maxEggs = 4
+stomachDuration = "60 min"
+waterDuration = "60 min"
+
+[[growthTable]]
+stage = "Hatchling"
+weight = "2.3 kg"
+bite = "0.21"
+sprint = "13.8 km/h"
+growthTime = "60 min"
+
+[[growthTable]]
+stage = "Juvenile"
+weight = "49.2 kg"
+bite = "5.52"
+sprint = "25.4 km/h"
+growthTime = "120 min"
+
+[[growthTable]]
+stage = "Sub Adult"
+weight = "1058 kg–2.6 ton"
+bite = "79.3–175"
+sprint = "41.4–39.8 km/h"
+growthTime = "200 min"
+
+[[growthTable]]
+stage = "Elder Frail"
+weight = "2.6 ton"
+bite = "175–105"
+sprint = "38.6–33.6 km/h"
+growthTime = "220 min"
+
+[[growthTable]]
+stage = "Elder Prime"
+weight = "2.6–3.7 ton"
+bite = "175–201–140"
+sprint = "39.8–35.6 km/h"
 
 [lastUpdated]
 date = "2026-06-28"
@@ -15,6 +52,9 @@ src = "assets/images/allosaurus/Icon_Allosaurus.png"
 alt = "Allosaurus"
 
 [adultStats]
+weight = "2.6–3.7 ton"
+biteDamage = "175–201–140"
+sprintSpeed = "39.8–35.6 km/h"
 
 [combatMatchups]
 dataDate = "No local matchup dataset"
