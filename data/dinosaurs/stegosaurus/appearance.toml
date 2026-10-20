@@ -1,12 +1,4 @@
 [[skins]]
-src = "assets/images/stegosaurus/I_Stegosaurus_Adult_Female.png"
-label = "Adult Female"
-
-[[skins]]
-src = "assets/images/stegosaurus/I_Stegosaurus_Adult_Male.png"
-label = "Adult Male"
-
-[[skins]]
 src = "assets/images/stegosaurus/Skins/Skin_Stegosaurus_Adult_Female.png"
 label = "Skin - Adult Female"
 
@@ -23,10 +15,6 @@ src = "assets/images/stegosaurus/Stegosaurus_Adult_Male.png"
 label = "Adult Male"
 
 [[skins]]
-src = "assets/images/stegosaurus/I_Stegosaurus_Sub_Male.png"
-label = "Subadult Male"
-
-[[skins]]
 src = "assets/images/stegosaurus/Skins/Skin_Stegosaurus_Sub_Male.png"
 label = "Skin - Subadult Male"
 
@@ -41,11 +29,3 @@ label = "Skin - Juvenile Male"
 [[skins]]
 src = "assets/images/stegosaurus/Stegosaurus_Juvie.png"
 label = "Juvenile"
-
-[[skins]]
-src = "assets/images/stegosaurus/I_Stegosaurus_Hatchling_Male.png"
-label = "Hatchling Male"
-
-[[skins]]
-src = "assets/images/stegosaurus/I_Stegosaurus_Elder_Male.png"
-label = "Elder Male"

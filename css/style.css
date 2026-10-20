@@ -951,6 +951,85 @@ sup.ref { font-size: 0.68rem; color: var(--link); }
   margin: 2.2rem auto;
   padding: 0 1.25rem;
 }
+
+.home-page {
+  display: block !important;
+}
+
+.home-updates {
+  margin-top: 2.4rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--b1);
+}
+
+.home-section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.home-section-heading .section-title {
+  margin-bottom: 0;
+}
+
+.home-section-heading > span {
+  color: var(--td);
+  font-size: 0.78rem;
+}
+
+.home-update-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.home-update-card {
+  display: block;
+  border: 1px solid var(--b1);
+  background: var(--s1);
+  color: var(--tx);
+  text-decoration: none;
+}
+
+.home-update-card:hover {
+  border-color: var(--b2);
+  text-decoration: none;
+}
+
+.home-update-card img {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  background: var(--s2);
+}
+
+.home-update-card-body {
+  padding: 0.75rem;
+}
+
+.home-update-date {
+  color: var(--td);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.home-update-card h3 {
+  margin: 0.2rem 0 0.35rem;
+  font-family: 'EB Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.home-update-card p {
+  margin: 0;
+  color: var(--tm);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
 .article-header #firstHeading,
 .article-header h1 {
   font-family: 'EB Garamond', serif;
@@ -1128,6 +1207,7 @@ body.media-viewer-open {
 @media (max-width: 880px) {
   .article-wrapper { margin: 1rem auto; padding: 0 0.9rem; }
   .article-header #firstHeading { font-size: 1.9rem; }
+  .home-update-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 600px) {

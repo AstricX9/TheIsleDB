@@ -1,12 +1,4 @@
 [[skins]]
-src = "assets/images/tyrannosaurus/I_Tyrannosaurus_Adult.png"
-label = "Adult"
-
-[[skins]]
-src = "assets/images/tyrannosaurus/I_Tyrannosaurus_SubAdult.png"
-label = "SubAdult"
-
-[[skins]]
 src = "assets/images/tyrannosaurus/Skins/Skin_Tyrannosaurus_Adult_Female.png"
 label = "Skin - Adult Female"
 
@@ -33,11 +25,3 @@ label = "Skin - Juvenile Male"
 [[skins]]
 src = "assets/images/tyrannosaurus/Tyrannosaurus_Juvie.png"
 label = "Juvenile"
-
-[[skins]]
-src = "assets/images/tyrannosaurus/I_Tyrannosaurus_Hatchling.png"
-label = "Hatchling"
-
-[[skins]]
-src = "assets/images/tyrannosaurus/I_Tyrannosaurus_Elder.png"
-label = "Elder"

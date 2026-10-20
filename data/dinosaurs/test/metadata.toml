@@ -1,0 +1,83 @@
+date = "YYYY-MM-DD"
+title = "Page Title"
+category = "dinosaurs"
+slug = "page-slug"
+description = "A brief description of the dinosaur"
+gameDescription = "Official game description from roadmap"
+gameDescriptionSource = "Official The Isle Roadmap"
+characteristics = ["Characteristic 1","Characteristic 2","Characteristic 3"]
+
+[lastUpdated]
+date = "DD/MM/YYYY"
+gameVersion = "0.20.XXX HT"
+isOutdated = false
+
+[heroImage]
+src = "/images/dinosaur/Default.png"
+alt = "Dinosaur default skin"
+
+[basicStats]
+diet = "Carnivore/Herbivore"
+size = "Small/Medium/Large"
+speed = "Slow/Medium/Fast"
+difficulty = "Easy/Moderate/Hard"
+
+[adultStats]
+weight = "Value"
+biteDamage = "Value"
+sprintSpeed = "Value"
+stamina = "Value"
+
+[diet]
+
+[[diet.alpha]]
+name = "Food Name"
+location = "Location"
+
+[[diet.beta]]
+name = "Food Name"
+location = "Location"
+
+[[diet.gamma]]
+name = "Food Name"
+location = "Location"
+
+[combatMatchups]
+dataDate = "DD/MM/YYYY"
+
+[[combatMatchups.strongAgainst]]
+name = "Opponent"
+winRate = 65
+
+[[combatMatchups.weakAgainst]]
+name = "Opponent"
+winRate = 35
+
+[[recommendedMutations]]
+name = "Mutation Name"
+description = "Mutation description"
+
+[[growthTable]]
+stage = "Juvenile"
+weight = "Value"
+bite = "Value"
+sprint = "Value"
+stamina = "Value"
+
+[[growthTable]]
+stage = "Sub-Adult"
+weight = "Value"
+bite = "Value"
+sprint = "Value"
+stamina = "Value"
+
+[[growthTable]]
+stage = "Adult"
+weight = "Value"
+bite = "Value"
+sprint = "Value"
+stamina = "Value"
+
+[[skins]]
+src = "/images/dinosaur/skins/Skin_1.png"
+label = "Skin Name"

@@ -3,9 +3,10 @@ title = "Omniraptor"
 category = "dinosaurs"
 slug = "omniraptor"
 description = "Omniraptor is a small carnivore in The Isle: Evrima. Small pack-hunting raptor. One of the first additions to Evrima alongside the Tenontosaurus."
-survivalTips = ["Pick fights where your movement and size class are favored.", "Avoid burning all stamina before the target is committed.", "Disengage early when larger animals or third parties arrive."]
-adultStats = {}
+survivalTips = ["Pick fights where your movement and size class are favored.","Avoid burning all stamina before the target is committed.","Disengage early when larger animals or third parties arrive."]
 growthTable = []
+
+[adultStats]
 
 [lastUpdated]
 date = "2026-06-28"
@@ -14,36 +15,6 @@ gameVersion = "Local export"
 [heroImage]
 src = "assets/images/omniraptor/Skins/Skins_Omniraptor_Adult_Male.png"
 alt = "Omniraptor"
-
-[[calls]]
-name = "Broadcast"
-key = "1"
-cooldown = "N/A"
-range = "N/A"
-
-[[calls]]
-name = "Attract"
-key = "2"
-cooldown = "N/A"
-range = "N/A"
-
-[[calls]]
-name = "Threaten"
-key = "3"
-cooldown = "N/A"
-range = "N/A"
-
-[[calls]]
-name = "Danger"
-key = "4"
-cooldown = "N/A"
-range = "N/A"
-
-[[calls]]
-name = "Generic"
-key = "F"
-cooldown = "N/A"
-range = "N/A"
 
 [combatMatchups]
 dataDate = "No local matchup dataset"

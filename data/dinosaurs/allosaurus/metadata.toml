@@ -1,0 +1,22 @@
+date = "2026-06-28"
+title = "Allosaurus"
+category = "dinosaurs"
+slug = "allosaurus"
+description = "Allosaurus is a fast, aggressive predator in The Isle: Evrima that relies on pressure, positioning, and timing rather than pure strength. It excels at chasing prey, draining stamina, and forcing mistakes through coordinated attacks."
+survivalTips = ["Pick fights where your movement and size class are favored.","Avoid burning all stamina before the target is committed.","Disengage early when larger animals or third parties arrive."]
+growthTable = []
+
+[lastUpdated]
+date = "2026-06-28"
+gameVersion = "Local export"
+
+[heroImage]
+src = "assets/images/allosaurus/Icon_Allosaurus.png"
+alt = "Allosaurus"
+
+[adultStats]
+
+[combatMatchups]
+dataDate = "No local matchup dataset"
+strongAgainst = []
+weakAgainst = []

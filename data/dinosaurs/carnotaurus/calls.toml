@@ -1,0 +1,33 @@
+[[calls]]
+name = "Broadcast"
+key = "1"
+cooldown = "N/A"
+range = "600,000 uu max"
+audioSrc = "assets/audio/dinosaurs/carnotaurus/Carno_Broadcast_01.mp3"
+
+[[calls]]
+name = "Attract"
+key = "2"
+cooldown = "N/A"
+range = "1,000,000 uu max"
+audioSrc = "assets/audio/dinosaurs/carnotaurus/Carno_Attract_01.mp3"
+
+[[calls]]
+name = "Threaten"
+key = "3"
+cooldown = "N/A"
+range = "600,000 uu max"
+audioSrc = "assets/audio/dinosaurs/carnotaurus/Carno_Threaten.mp3"
+
+[[calls]]
+name = "Danger"
+key = "4"
+cooldown = "N/A"
+range = "600,000 uu max"
+audioSrc = "assets/audio/dinosaurs/carnotaurus/Carno_Danger_01.mp3"
+
+[[calls]]
+name = "Generic"
+key = "F"
+cooldown = "N/A"
+range = "1,000,000 uu max"

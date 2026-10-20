@@ -1,0 +1,53 @@
+date = "2026-06-28"
+title = "Carnotaurus"
+category = "dinosaurs"
+slug = "carnotaurus"
+description = "Carnotaurus is a medium carnivore in The Isle: Evrima. Medium-sized theropod dinosaur. Its local balance export is available, so growth and raw movement values are calculated from the exported curves."
+survivalTips = ["Pick fights where your movement and size class are favored.","Avoid burning all stamina before the target is committed.","Disengage early when larger animals or third parties arrive."]
+
+[lastUpdated]
+date = "2026-06-28"
+gameVersion = "Local export"
+
+[heroImage]
+src = "assets/images/carnotaurus/Carno_Default_New.PNG"
+alt = "Carnotaurus"
+
+[adultStats]
+weight = 1300
+biteDamage = "0.6x"
+sprintSpeed = 39.6
+stamina = "1,000"
+
+[combatMatchups]
+dataDate = "No local matchup dataset"
+strongAgainst = []
+weakAgainst = []
+
+[[growthTable]]
+stage = "Hatchling"
+weight = "3.8 kg"
+bite = "0x"
+sprint = "13.8 km/h"
+stamina = "100"
+
+[[growthTable]]
+stage = "Juvenile"
+weight = "32 kg"
+bite = "0.03x"
+sprint = "32.4 km/h"
+stamina = "100"
+
+[[growthTable]]
+stage = "Subadult"
+weight = "700 kg"
+bite = "0.47x"
+sprint = "46.8 km/h"
+stamina = "550"
+
+[[growthTable]]
+stage = "Adult"
+weight = "1,300 kg"
+bite = "0.6x"
+sprint = "39.6 km/h"
+stamina = "1,000"

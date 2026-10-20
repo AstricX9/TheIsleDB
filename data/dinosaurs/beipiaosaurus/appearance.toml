@@ -3,25 +3,9 @@ src = "assets/images/beipiaosaurus/Beipiaosaurus_Adult.png"
 label = "Adult"
 
 [[skins]]
-src = "assets/images/beipiaosaurus/I_Beipiaosaurus_Adult.png"
-label = "Adult"
-
-[[skins]]
 src = "assets/images/beipiaosaurus/Beipiaosaurus_Sub.png"
-label = "Subadult"
-
-[[skins]]
-src = "assets/images/beipiaosaurus/I_Beipiaosaurus_Sub.png"
 label = "Subadult"
 
 [[skins]]
 src = "assets/images/beipiaosaurus/Beipiaosaurus_Juvie.png"
 label = "Juvenile"
-
-[[skins]]
-src = "assets/images/beipiaosaurus/I_Beipiaosaurus_Hatchling.png"
-label = "Hatchling"
-
-[[skins]]
-src = "assets/images/beipiaosaurus/I_Beipiaosaurus_Elder.png"
-label = "Elder"

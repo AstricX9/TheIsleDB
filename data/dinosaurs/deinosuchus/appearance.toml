@@ -3,10 +3,6 @@ src = "assets/images/deinosuchus/Deinosuchus_Adult.png"
 label = "Adult"
 
 [[skins]]
-src = "assets/images/deinosuchus/I_Deinosuchus_Adult.png"
-label = "Adult"
-
-[[skins]]
 src = "assets/images/deinosuchus/Skins/Skin_Deinosuchus_Adult_Female.PNG"
 label = "Skin - Adult Female"
 
@@ -19,19 +15,11 @@ src = "assets/images/deinosuchus/Deinosuchus_Sub.png"
 label = "Subadult"
 
 [[skins]]
-src = "assets/images/deinosuchus/I_Deinosuchus_Sub.png"
-label = "Subadult"
-
-[[skins]]
 src = "assets/images/deinosuchus/Skins/Skin_Deinosuchus_Sub_Male.PNG"
 label = "Skin - Subadult Male"
 
 [[skins]]
 src = "assets/images/deinosuchus/Deinosuchus_Juvie.png"
-label = "Juvenile"
-
-[[skins]]
-src = "assets/images/deinosuchus/I_Deinosuchus_Juvie.png"
 label = "Juvenile"
 
 [[skins]]

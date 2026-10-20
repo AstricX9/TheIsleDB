@@ -1,0 +1,22 @@
+date = "2026-06-28"
+title = "Pteranodon"
+category = "dinosaurs"
+slug = "pteranodon"
+description = "Pteranodon is a small piscivore in The Isle: Evrima. Flying piscivore. The current local dump does not include a Core balance export for this species, so stat tables are limited to visual, call, and animation-derived data."
+survivalTips = ["Keep enough stamina to leave the ground safely.","Scout before landing near water or carcasses.","Avoid grounded fights unless the target is already vulnerable."]
+growthTable = []
+
+[lastUpdated]
+date = "2026-06-28"
+gameVersion = "Local export"
+
+[heroImage]
+src = "assets/images/pteranadon/Skins/Skin_Pteranadon_Adult_female.png"
+alt = "Pteranodon"
+
+[adultStats]
+
+[combatMatchups]
+dataDate = "No local matchup dataset"
+strongAgainst = []
+weakAgainst = []

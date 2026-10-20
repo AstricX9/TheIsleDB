@@ -1,0 +1,22 @@
+date = "2026-06-28"
+title = "Hypsilophodon"
+category = "dinosaurs"
+slug = "hypsilophodon"
+description = "Hypsilophodon is a small herbivore in The Isle: Evrima. Tiny evasive herbivore. The current local dump does not include a Core balance export for this species, so stat tables are limited to visual, call, and animation-derived data."
+survivalTips = ["Keep escape routes in mind before feeding or resting.","Group with compatible herd members when possible.","Use spacing and terrain before committing to a fight."]
+growthTable = []
+
+[lastUpdated]
+date = "2026-06-28"
+gameVersion = "Local export"
+
+[heroImage]
+src = "assets/images/hypsilophodon/Icon_Hypsilophodon.png"
+alt = "Hypsilophodon"
+
+[adultStats]
+
+[combatMatchups]
+dataDate = "No local matchup dataset"
+strongAgainst = []
+weakAgainst = []

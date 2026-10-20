@@ -52,7 +52,7 @@ class ContentParser {
                 if (!Array.isArray(parent[key])) parent[key] = [];
                 const entry = {};
                 parent[key].push(entry);
-                currentPath = path.concat(key, String(parent[key].length - 1));
+                currentPath = path.concat(key);
                 continue;
             }
 

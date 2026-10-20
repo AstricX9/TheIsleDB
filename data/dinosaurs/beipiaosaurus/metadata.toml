@@ -1,0 +1,22 @@
+date = "2026-06-28"
+title = "Beipiaosaurus"
+category = "dinosaurs"
+slug = "beipiaosaurus"
+description = "Beipiaosaurus is a small omnivore in The Isle: Evrima. Small semi-aquatic omnivore. The current local dump does not include a Core balance export for this species, so stat tables are limited to visual, call, and animation-derived data."
+survivalTips = ["Treat water access as your main safety tool.","Do not overcommit far from a shoreline or river route.","Use ambush angles instead of long open chases."]
+growthTable = []
+
+[lastUpdated]
+date = "2026-06-28"
+gameVersion = "Local export"
+
+[heroImage]
+src = "assets/images/beipiaosaurus/Icon_Beipiaosaurus.png"
+alt = "Beipiaosaurus"
+
+[adultStats]
+
+[combatMatchups]
+dataDate = "No local matchup dataset"
+strongAgainst = []
+weakAgainst = []

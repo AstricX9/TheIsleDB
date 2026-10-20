@@ -3,25 +3,9 @@ src = "assets/images/gallimimus/Gallimimas_Adult.png"
 label = "Gallimimas Adult"
 
 [[skins]]
-src = "assets/images/gallimimus/I_Gallimimus_Adult.png"
-label = "Adult"
-
-[[skins]]
 src = "assets/images/gallimimus/Gallimimas_Sub.png"
 label = "Gallimimas Subadult"
 
 [[skins]]
 src = "assets/images/gallimimus/Gallimimas_Juvie.png"
 label = "Gallimimas Juvenile"
-
-[[skins]]
-src = "assets/images/gallimimus/I_Gallimimus_Juvenile.png"
-label = "Juvenile"
-
-[[skins]]
-src = "assets/images/gallimimus/I_Gallimimus_Hatchling.png"
-label = "Hatchling"
-
-[[skins]]
-src = "assets/images/gallimimus/I_Gallimimus_Elder.png"
-label = "Elder"

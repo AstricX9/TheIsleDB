@@ -1169,8 +1169,9 @@ function renderDinosaur(data, md, balanceStats = null, sections = null) {
     // ── Calls ────────────────────────────────────────────────────
     const callsTbody = document.getElementById('calls-tbody');
     callsTbody.innerHTML = '';
-    if (data.calls?.length) {
-        data.calls.forEach(c => {
+    const callsPayload = sections?.calls?.calls || sections?.calls || data.calls;
+    if (callsPayload?.length) {
+        callsPayload.forEach(c => {
             const audioSrc = c.audioSrc || c.src || '';
             const audioHtml = audioSrc
                 ? `<audio class="call-audio" controls preload="none" src="${escapeAttr(audioSrc)}"></audio>`

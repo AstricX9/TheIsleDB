@@ -1,43 +1,15 @@
 [[skins]]
-src = "assets/images/diabloceratops/Diabloceratops_Adult.png"
-label = "Adult"
-
-[[skins]]
-src = "assets/images/diabloceratops/I_Diabloceratops_Adult.png"
-label = "Adult"
+src = "assets/images/diabloceratops/Skins/Skin_Diabloceratops_Adult_Male.png"
+label = "Skin - Adult Male"
 
 [[skins]]
 src = "assets/images/diabloceratops/Skins/Skin_Diabloceratops_Adult_Female.png"
 label = "Skin - Adult Female"
 
 [[skins]]
-src = "assets/images/diabloceratops/Skins/Skin_Diabloceratops_Adult_Male.png"
-label = "Skin - Adult Male"
-
-[[skins]]
-src = "assets/images/diabloceratops/Diabloceratops_Sub.png"
-label = "Subadult"
-
-[[skins]]
-src = "assets/images/diabloceratops/I_Diabloceratops_Sub.png"
-label = "Subadult"
-
-[[skins]]
 src = "assets/images/diabloceratops/Skins/Skin_Diabloceratops_Sub_Male.png"
 label = "Skin - Subadult Male"
 
 [[skins]]
-src = "assets/images/diabloceratops/Diabloceratops_Juvie.png"
-label = "Juvenile"
-
-[[skins]]
-src = "assets/images/diabloceratops/I_Diabloceratops_Juvie.png"
-label = "Juvenile"
-
-[[skins]]
 src = "assets/images/diabloceratops/Skins/Skin_Diabloceratops_Juvie_Male.png"
 label = "Skin - Juvenile Male"
-
-[[skins]]
-src = "assets/images/diabloceratops/I_Diabloceratops_Elder.png"
-label = "Elder"

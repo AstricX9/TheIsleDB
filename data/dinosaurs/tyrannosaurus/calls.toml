@@ -1,0 +1,33 @@
+[[calls]]
+name = "Broadcast"
+key = "1"
+cooldown = "N/A"
+range = "N/A"
+audioSrc = "assets/audio/dinosaurs/tyrannosaurus/WA_TyrannosaurusRex_Call_Broadcast_Mixed_Adult_01.mp3"
+
+[[calls]]
+name = "Attract"
+key = "2"
+cooldown = "N/A"
+range = "N/A"
+audioSrc = "assets/audio/dinosaurs/tyrannosaurus/WA_TyrannosaurusRex_Call_Attract_Mixed_Adult_01.mp3"
+
+[[calls]]
+name = "Threaten"
+key = "3"
+cooldown = "N/A"
+range = "N/A"
+audioSrc = "assets/audio/dinosaurs/tyrannosaurus/WA_TyrannosaurusRex_Call_Threaten_Mixed_Adult_01.mp3"
+
+[[calls]]
+name = "Danger"
+key = "4"
+cooldown = "N/A"
+range = "N/A"
+audioSrc = "assets/audio/dinosaurs/tyrannosaurus/WA_TyrannosaurusRex_Call_Danger_Mixed_Adult_01.mp3"
+
+[[calls]]
+name = "Generic"
+key = "F"
+cooldown = "N/A"
+range = "N/A"

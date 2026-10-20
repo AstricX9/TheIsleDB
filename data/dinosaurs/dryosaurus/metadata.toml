@@ -1,0 +1,22 @@
+date = "2026-06-28"
+title = "Dryosaurus"
+category = "dinosaurs"
+slug = "dryosaurus"
+description = "Dryosaurus is a small herbivore in The Isle: Evrima. Small fast herbivore. The current local dump does not include a Core balance export for this species, so stat tables are limited to visual, call, and animation-derived data."
+survivalTips = ["Keep escape routes in mind before feeding or resting.","Group with compatible herd members when possible.","Use spacing and terrain before committing to a fight."]
+growthTable = []
+
+[lastUpdated]
+date = "2026-06-28"
+gameVersion = "Local export"
+
+[heroImage]
+src = "assets/images/dryosaurus/Icon_Dryosaurus.png"
+alt = "Dryosaurus"
+
+[adultStats]
+
+[combatMatchups]
+dataDate = "No local matchup dataset"
+strongAgainst = []
+weakAgainst = []

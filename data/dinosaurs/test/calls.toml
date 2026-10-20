@@ -1,0 +1,23 @@
+[[calls]]
+name = "Broadcast"
+key = "1"
+cooldown = "5s"
+range = "3.5km"
+
+[[calls]]
+name = "Friendly"
+key = "2"
+cooldown = "3s"
+range = "350m"
+
+[[calls]]
+name = "Threaten"
+key = "3"
+cooldown = "3s"
+range = "350m"
+
+[[calls]]
+name = "Danger"
+key = "4"
+cooldown = "3s"
+range = "350m"

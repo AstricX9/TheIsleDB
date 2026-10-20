@@ -1,0 +1,22 @@
+date = "2026-06-28"
+title = "Austroraptor"
+category = "dinosaurs"
+slug = "austroraptor"
+description = "Austroraptor is a medium carnivore in The Isle: Evrima. Agile raptor predator. The current local dump does not include a Core balance export for this species, so stat tables are limited to visual, call, and animation-derived data."
+survivalTips = ["Pick fights where your movement and size class are favored.","Avoid burning all stamina before the target is committed.","Disengage early when larger animals or third parties arrive."]
+growthTable = []
+
+[lastUpdated]
+date = "2026-06-28"
+gameVersion = "Local export"
+
+[heroImage]
+src = "assets/images/austroraptor/Icon_Austroraptor.png"
+alt = "Austroraptor"
+
+[adultStats]
+
+[combatMatchups]
+dataDate = "No local matchup dataset"
+strongAgainst = []
+weakAgainst = []
