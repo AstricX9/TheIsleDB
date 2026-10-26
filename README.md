@@ -30,7 +30,8 @@ Then open http://localhost:5174/. A different port can be passed as an argument.
 
 | Path | What it is |
 |------|------------|
-| `content/<category>/<slug>.md` | Page text. A JSON front-matter block, then Markdown. Categories: `dinosaurs`, `mechanics`, `support`, `ui`, `upcoming`. |
+| `content/<category>/<slug>.md` | Page text, plain Markdown with no front matter. Categories: `dinosaurs`, `mechanics`, `support`, `ui`, `upcoming`. |
+| `content/<category>/<slug>.toml` | That page's metadata (`title`, `date`). Dinosaurs keep theirs in `data/dinosaurs/`. |
 | `data/dinosaurs/<name>/*.toml` | Per-dinosaur data: attacks, biomes, calls, mutations, nesting, and so on. |
 | `data/navbar.json`, `data/footer.json` | Site navigation and footer. |
 | `assets/` | Images and dinosaur call audio. See `assets/images/README.md`. |
@@ -41,7 +42,7 @@ Then open http://localhost:5174/. A different port can be passed as an argument.
 
 ### Adding a page
 
-Copy `TEMPLATE.md` to `content/<category>/<slug>.md` and fill it in. Then add a link in `data/navbar.json`.
+Create `<slug>.md` and `<slug>.toml` in `content/<category>/` (see `TEMPLATE.md`). Then add the slug to the page lists in `js/search.js` and a link in `data/navbar.json`.
 
 Pages support extra syntax:
 
