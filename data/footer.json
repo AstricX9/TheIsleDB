@@ -12,7 +12,6 @@
     {
       "column": "Support",
       "links": [
-        { "title": "Lore", "href": "page.html?category=support&slug=lore" },
         { "title": "Bugs & Fixes", "href": "page.html?category=support&slug=bugs-and-fixes" },
         { "title": "Community", "href": "page.html?category=support&slug=community" }
       ]

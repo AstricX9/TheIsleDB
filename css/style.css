@@ -1240,3 +1240,11 @@ body.media-viewer-open {
     width: 100%;
   }
 }
+
+.nav-dropdown-content .nav-item-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  text-decoration: none;
+  user-select: none;
+}
+

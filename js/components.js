@@ -81,15 +81,29 @@ function renderNavbar(data) {
         menu.style.right = 'auto';
       }
 
+
       link.submenu.forEach(sub => {
-        const subA = document.createElement('a');
-        subA.href = sub.href;
-        subA.textContent = sub.title;
-        subA.style.display = 'block';
-        subA.style.padding = '0.5rem 1rem';
-        subA.style.whiteSpace = 'nowrap';
-        menu.appendChild(subA);
+        const isDisabled = sub.disabled === true;
+
+        const subElement = document.createElement(
+          isDisabled ? 'span' : 'a'
+        );
+
+        if (!isDisabled) {
+          subElement.href = sub.href;
+        } else {
+          subElement.setAttribute('aria-disabled', 'true');
+          subElement.classList.add('nav-item-disabled');
+        }
+
+        subElement.textContent = sub.title;
+        subElement.style.display = 'block';
+        subElement.style.padding = '0.5rem 1rem';
+        subElement.style.whiteSpace = 'nowrap';
+
+        menu.appendChild(subElement);
       });
+
 
       // Simple hover logic
       dropdown.addEventListener('mouseenter', () => menu.style.display = 'block');

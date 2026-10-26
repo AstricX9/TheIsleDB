@@ -13,102 +13,126 @@
       "title": "Dinosaurs",
       "href": "dinosaur.html?dino=carnotaurus",
       "submenu": [
-        {
-          "title": "Allosaurus",
-          "href": "dinosaur.html?dino=allosaurus"
-        },
-        {
-          "title": "Austroraptor",
-          "href": "dinosaur.html?dino=austroraptor"
-        },
-        {
-          "title": "Baryonyx",
-          "href": "dinosaur.html?dino=baryonyx"
-        },
-        {
-          "title": "Beipiaosaurus",
-          "href": "dinosaur.html?dino=beipiaosaurus"
-        },
-        {
-          "title": "Carnotaurus",
-          "href": "dinosaur.html?dino=carnotaurus"
-        },
-        {
-          "title": "Ceratosaurus",
-          "href": "dinosaur.html?dino=ceratosaurus"
-        },
-        {
-          "title": "Deinosuchus",
-          "href": "dinosaur.html?dino=deinosuchus"
-        },
-        {
-          "title": "Diabloceratops",
-          "href": "dinosaur.html?dino=diabloceratops"
-        },
-        {
-          "title": "Dilophosaurus",
-          "href": "dinosaur.html?dino=dilophosaurus"
-        },
-        {
-          "title": "Dryosaurus",
-          "href": "dinosaur.html?dino=dryosaurus"
-        },
-        {
-          "title": "Gallimimus",
-          "href": "dinosaur.html?dino=gallimimus"
-        },
-        {
-          "title": "Herrerasaurus",
-          "href": "dinosaur.html?dino=herrerasaurus"
-        },
-        {
-          "title": "Hypsilophodon",
-          "href": "dinosaur.html?dino=hypsilophodon"
-        },
-        {
-          "title": "Kentrosaurus",
-          "href": "dinosaur.html?dino=kentrosaurus"
-        },
-        {
-          "title": "Maiasaura",
-          "href": "dinosaur.html?dino=maiasaurus"
-        },
-        {
-          "title": "Omniraptor",
-          "href": "dinosaur.html?dino=omniraptor"
-        },
-        {
-          "title": "Oviraptor",
-          "href": "dinosaur.html?dino=oviraptor"
-        },
-        {
-          "title": "Pachycephalosaurus",
-          "href": "dinosaur.html?dino=pachycephalosaurus"
-        },
-        {
-          "title": "Pteranodon",
-          "href": "dinosaur.html?dino=pteranodon"
-        },
-        {
-          "title": "Stegosaurus",
-          "href": "dinosaur.html?dino=stegosaurus"
-        },
-        {
-          "title": "Tenontosaurus",
-          "href": "dinosaur.html?dino=tenontosaurus"
-        },
-        {
-          "title": "Triceratops",
-          "href": "dinosaur.html?dino=triceratops"
-        },
-        {
-          "title": "Troodon",
-          "href": "dinosaur.html?dino=troodon"
-        },
-        {
-          "title": "Tyrannosaurus",
-          "href": "dinosaur.html?dino=tyrannosaurus"
-        }
+    {
+      "title": "Allosaurus",
+      "href": "dinosaur.html?dino=allosaurus",
+      "disabled": true
+    },
+    {
+      "title": "Austroraptor",
+      "href": "dinosaur.html?dino=austroraptor",
+      "disabled": true
+    },
+    {
+      "title": "Baryonyx",
+      "href": "dinosaur.html?dino=baryonyx",
+      "disabled": true
+    },
+    {
+      "title": "Beipiaosaurus",
+      "href": "dinosaur.html?dino=beipiaosaurus",
+      "disabled": true
+    },
+    {
+      "title": "Carnotaurus",
+      "href": "dinosaur.html?dino=carnotaurus",
+      "disabled": true
+    },
+    {
+      "title": "Ceratosaurus",
+      "href": "dinosaur.html?dino=ceratosaurus",
+      "disabled": true
+    },
+    {
+      "title": "Deinosuchus",
+      "href": "dinosaur.html?dino=deinosuchus",
+      "disabled": true
+    },
+    {
+      "title": "Diabloceratops",
+      "href": "dinosaur.html?dino=diabloceratops",
+      "disabled": true
+    },
+    {
+      "title": "Dilophosaurus",
+      "href": "dinosaur.html?dino=dilophosaurus",
+      "disabled": true
+    },
+    {
+      "title": "Dryosaurus",
+      "href": "dinosaur.html?dino=dryosaurus",
+      "disabled": true
+    },
+    {
+      "title": "Gallimimus",
+      "href": "dinosaur.html?dino=gallimimus",
+      "disabled": true
+    },
+    {
+      "title": "Herrerasaurus",
+      "href": "dinosaur.html?dino=herrerasaurus",
+      "disabled": true
+    },
+    {
+      "title": "Hypsilophodon",
+      "href": "dinosaur.html?dino=hypsilophodon",
+      "disabled": true
+    },
+    {
+      "title": "Kentrosaurus",
+      "href": "dinosaur.html?dino=kentrosaurus",
+      "disabled": true
+    },
+    {
+      "title": "Maiasaura",
+      "href": "dinosaur.html?dino=maiasaurus",
+      "disabled": true
+    },
+    {
+      "title": "Omniraptor",
+      "href": "dinosaur.html?dino=omniraptor",
+      "disabled": true
+    },
+    {
+      "title": "Oviraptor",
+      "href": "dinosaur.html?dino=oviraptor",
+      "disabled": true
+    },
+    {
+      "title": "Pachycephalosaurus",
+      "href": "dinosaur.html?dino=pachycephalosaurus",
+      "disabled": true
+    },
+    {
+      "title": "Pteranodon",
+      "href": "dinosaur.html?dino=pteranodon",
+      "disabled": true
+    },
+    {
+      "title": "Stegosaurus",
+      "href": "dinosaur.html?dino=stegosaurus",
+      "disabled": true
+    },
+    {
+      "title": "Tenontosaurus",
+      "href": "dinosaur.html?dino=tenontosaurus",
+      "disabled": true
+    },
+    {
+      "title": "Triceratops",
+      "href": "dinosaur.html?dino=triceratops",
+      "disabled": true
+    },
+    {
+      "title": "Troodon",
+      "href": "dinosaur.html?dino=troodon",
+      "disabled": true
+    },
+    {
+      "title": "Tyrannosaurus",
+      "href": "dinosaur.html?dino=tyrannosaurus",
+      "disabled": true
+    }
       ]
     },
     {
@@ -118,6 +142,10 @@
         {
           "title": "The User Interface",
           "href": "article.html?category=ui&slug=user-interface"
+        },
+        {
+          "title": "My Character Screen",
+          "href": "article.html?category=ui&slug=ui-mycharacterscreen"
         }
       ]
     },
@@ -169,10 +197,6 @@
       "title": "Support",
       "href": "page.html?category=support&slug=lore",
       "submenu": [
-        {
-          "title": "Lore",
-          "href": "page.html?category=support&slug=lore"
-        },
         {
           "title": "Bugs & Fixes",
           "href": "page.html?category=support&slug=bugs-and-fixes"
