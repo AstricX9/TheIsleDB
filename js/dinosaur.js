@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             Object.assign(data, sectionsData.frontmatter);
         }
         renderDinosaur(data, content, balanceManifest, sectionsData);
+        const empty = document.querySelectorAll('.no-data, .no-data-cell').length;
+        if (empty) showNeedsInfo(`${empty} section${empty > 1 ? 's have' : ' has'} no data yet.`);
     } catch (err) {
         console.error(err);
         document.getElementById('firstHeading').textContent = 'Dinosaur Not Found';

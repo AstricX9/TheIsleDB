@@ -30,6 +30,10 @@ function renderPage(data, mdContent) {
         const mdHtml = marked.parse(parseInteractiveShortcodes(mdContent));
         document.getElementById('markdown-content').innerHTML = parseFloatImages(mdHtml);
         setupMediaViewer();
+        // shortcut: stub test is a text-length/placeholder guess, tune if real short pages get flagged
+        if (/work in progress/i.test(mdContent) || mdContent.replace(/[#\s]/g, '').length < 200) {
+            showNeedsInfo('This section is a stub.');
+        }
     } else {
         document.getElementById('markdown-content').innerHTML = `<pre>${mdContent}</pre>`;
     }

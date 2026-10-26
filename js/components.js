@@ -189,25 +189,52 @@ function renderFooter(data) {
   footer.appendChild(bottomPara);
 }
 
+// Source file and GitHub links for the page being viewed
+function pageSource() {
+  const params = new URLSearchParams(window.location.search);
+  const dino = params.get('dino');
+  const category = dino ? 'dinosaurs' : params.get('category') || 'mechanics';
+  const slug = dino || params.get('slug') || 'mutations';
+  const repo = 'https://github.com/AstricX9/TheIsleDB';
+  const issue = (title, ask) => `${repo}/issues/new?title=${encodeURIComponent(`${title}: ${category}/${slug}`)}` +
+    `&body=${encodeURIComponent(`Page: ${window.location.href}
+
+${ask}
+
+Source (patch notes, in-game test, etc.):
+`)}`;
+  return {
+    edit: `${repo}/edit/main/content/${category}/${slug}.md`,
+    fix: issue('Fix/add info', 'What is missing or wrong?'),
+    fill: issue('Fill in missing info', 'Which sections can you fill in?')
+  };
+}
+
 // "Edit this page" / "Suggest a fix" links next to the last-updated line
 function addEditLinks() {
   const anchor = document.getElementById('last-updated')?.parentElement;
   if (!anchor) return;
 
-  const params = new URLSearchParams(window.location.search);
-  const dino = params.get('dino');
-  const category = dino ? 'dinosaurs' : params.get('category') || 'mechanics';
-  const slug = dino || params.get('slug') || 'mutations';
-  const file = `content/${category}/${slug}.md`;
-  const repo = 'https://github.com/AstricX9/TheIsleDB';
-  const issue = `${repo}/issues/new?title=${encodeURIComponent(`Fix/add info: ${category}/${slug}`)}` +
-    `&body=${encodeURIComponent(`Page: ${window.location.href}\n\nWhat is missing or wrong?\n\nSource (patch notes, in-game test, etc.):\n`)}`;
-
+  const src = pageSource();
   const links = document.createElement('span');
   links.className = 'edit-links';
-  links.innerHTML = `&nbsp;·&nbsp;<a href="${repo}/edit/main/${file}" target="_blank" rel="noopener"><i class="bi bi-pencil"></i> Edit this page</a>` +
-    `&nbsp;·&nbsp;<a href="${issue}" target="_blank" rel="noopener"><i class="bi bi-flag"></i> Suggest a fix</a>`;
+  links.innerHTML = `&nbsp;&middot;&nbsp;<a href="${src.edit}" target="_blank" rel="noopener"><i class="bi bi-pencil"></i> Edit this page</a>` +
+    `&nbsp;&middot;&nbsp;<a href="${src.fix}" target="_blank" rel="noopener"><i class="bi bi-flag"></i> Suggest a fix</a>`;
   anchor.appendChild(links);
+}
+
+// Banner for pages with missing data; called by the page scripts after rendering
+function showNeedsInfo(message) {
+  if (document.querySelector('.needs-info')) return;
+  const src = pageSource();
+  const banner = document.createElement('div');
+  banner.className = 'needs-info';
+  banner.innerHTML = `<i class="bi bi-info-circle"></i> <strong>This page needs info.</strong> ${message} ` +
+    `Know the answer? <a href="${src.fill}" target="_blank" rel="noopener">Tell us</a> or ` +
+    `<a href="${src.edit}" target="_blank" rel="noopener">edit this page</a>.`;
+  const bar = document.querySelector('.version-bar');
+  if (bar) bar.after(banner);
+  else document.getElementById('markdown-content')?.before(banner);
 }
 
 document.addEventListener('DOMContentLoaded', loadComponents);

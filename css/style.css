@@ -1044,6 +1044,17 @@ sup.ref { font-size: 0.68rem; color: var(--link); }
   font-size: 0.95rem;
   margin-bottom: 1.2rem;
 }
+.needs-info {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.9rem;
+  color: var(--tx);
+  background: var(--s1);
+  border: 1px solid var(--b1);
+  border-left: 3px solid var(--blue);
+  padding: 0.6rem 0.9rem;
+  margin: 0 0 1.2rem 0;
+}
+.needs-info a { color: var(--link); }
 .article-meta a { color: var(--link); text-decoration: none; }
 .article-meta a:hover { text-decoration: underline; }
 .article-content {
