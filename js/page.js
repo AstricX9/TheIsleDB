@@ -5,12 +5,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     const slug = params.get('slug') || 'mutations';
 
     try {
-        const response = await fetch(`content/${category}/${slug}.md`);
+        const [response, metaResponse] = await Promise.all([
+            fetch(`content/${category}/${slug}.md`),
+            fetch(`content/${category}/${slug}.toml`)
+        ]);
         if (!response.ok) throw new Error('Page not found');
-        
-        const text = await response.text();
-        const { data, content } = ContentParser.parseDocument(text);
-        
+
+        const parsed = ContentParser.parseDocument(await response.text());
+        const content = parsed.content;
+        // legacy frontmatter (e.g. written by the Decap CMS) still works when there is no .toml
+        const data = metaResponse.ok ? ContentParser.parseToml(await metaResponse.text()) : parsed.data;
+
         renderPage(data, content);
     } catch (err) {
         console.error(err);

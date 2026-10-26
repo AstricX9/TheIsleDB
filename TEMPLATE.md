@@ -1,221 +1,36 @@
----json
-{
-    "date": "YYYY-MM-DD",
-    "title": "Page Title",
-    "category": "dinosaurs",
-    "slug": "page-slug",
-    "description": "A brief description of the dinosaur",
-    "gameDescription": "Official game description from roadmap",
-    "gameDescriptionSource": "Official The Isle Roadmap",
-    "lastUpdated": {
-        "date": "DD/MM/YYYY",
-        "gameVersion": "0.20.XXX HT",
-        "isOutdated": false
-    },
-    "heroImage": {
-        "src": "/images/dinosaur/Default.png",
-        "alt": "Dinosaur default skin"
-    },
-    "basicStats": {
-        "diet": "Carnivore/Herbivore",
-        "size": "Small/Medium/Large",
-        "speed": "Slow/Medium/Fast",
-        "difficulty": "Easy/Moderate/Hard"
-    },
-    "characteristics": [
-        "Characteristic 1",
-        "Characteristic 2",
-        "Characteristic 3"
-    ],
-    "adultStats": {
-        "weight": "Value",
-        "biteDamage": "Value",
-        "sprintSpeed": "Value",
-        "stamina": "Value"
-    },
-    "balanceStats": {
-        "source": "Optional external balance txt manifest loaded by the page",
-        "staminaDurations": {
-            "regen": {
-                "Standing": "7:01"
-            },
-            "spending": {
-                "Sprinting": "2:35"
-            }
-        },
-        "movementCurves": [
-            {
-                "name": "ATT_PageSlug_WalkSpeed",
-                "label": "Walk Speed",
-                "unit": "km/h",
-                "points": [
-                    { "time": 0.0, "speed_kmh": 1.908, "interp_mode": "RCIM_Linear" }
-                ]
-            }
-        ]
-    },
-    "recommendedMutations": [
-        {
-            "name": "Mutation Name",
-            "description": "Mutation description"
-        }
-    ],
-    "growthTable": [
-        {
-            "stage": "Juvenile",
-            "weight": "Value",
-            "bite": "Value",
-            "sprint": "Value",
-            "stamina": "Value"
-        },
-        {
-            "stage": "Sub-Adult",
-            "weight": "Value",
-            "bite": "Value",
-            "sprint": "Value",
-            "stamina": "Value"
-        },
-        {
-            "stage": "Adult",
-            "weight": "Value",
-            "bite": "Value",
-            "sprint": "Value",
-            "stamina": "Value"
-        }
-    ],
-    "diet": {
-        "alpha": [
-            { "name": "Food Name", "location": "Location" }
-        ],
-        "beta": [
-            { "name": "Food Name", "location": "Location" }
-        ],
-        "gamma": [
-            { "name": "Food Name", "location": "Location" }
-        ]
-    },
-    "combatMatchups": {
-        "dataDate": "DD/MM/YYYY",
-        "strongAgainst": [
-            { "name": "Opponent", "winRate": 65 }
-        ],
-        "weakAgainst": [
-            { "name": "Opponent", "winRate": 35 }
-        ]
-    },
-    "calls": [
-        { "name": "Broadcast", "key": "1", "cooldown": "5s", "range": "3.5km" },
-        { "name": "Friendly", "key": "2", "cooldown": "3s", "range": "350m" },
-        { "name": "Threaten", "key": "3", "cooldown": "3s", "range": "350m" },
-        { "name": "Danger", "key": "4", "cooldown": "3s", "range": "350m" }
-    ],
-    "skins": [
-        {
-            "src": "/images/dinosaur/skins/Skin_1.png",
-            "label": "Skin Name"
-        }
-    ]
-}
----
+# Page template
 
-# Page Title
+Every page is two files with the same name. The Markdown file holds only the article text, and the TOML file holds the metadata.
 
-*Page Title* is a genus of theropod dinosaur in The Isle. Add a brief description here.
+## Articles (mechanics, support, ui, upcoming)
 
----
+`content/<category>/<slug>.toml`
 
-## Overview
-
-Add overview content here. This should provide a general introduction to the subject.
-
----
-
-## Characteristics
-
-- Characteristic 1
-- Characteristic 2
-- Characteristic 3
-
----
-
-## Gameplay
-
-### Survival Tips
-
-Add survival tips here. Use paragraphs instead of bullet points for longer explanations to avoid walls of text.
-
-### Diet
-
-| Tier | Food Source | Location |
-|------|-------------|----------|
-| Alpha | Food source 1 | Location |
-| Alpha | Food source 2 | Location |
-| Beta | Food source 1 | Location |
-| Beta | Food source 2 | Location |
-| Gamma | Food source 1 | Location |
-| Gamma | Food source 2 | Location |
-
-### Biome Information
-
-| Preferred Biomes | Avoid Biomes |
-|-----------------|--------------|
-| Biome 1 | Biome 1 |
-| Biome 2 | Biome 2 |
-
-### Growth Stages
-
-Add growth stage information here. See the growth table in the infobox for detailed statistics.
-
-### Attacks
-
-| Attack | Key | Description |
-|--------|-----|-------------|
-| Attack Name | Key | Description |
-| Attack Name | Key | Description |
-
-### Combat Tactics
-
-#### Strong Against
-
-| Opponent | Tactics |
-|----------|---------|
-| Opponent | Keep tactics concise, 1-2 sentences max |
-
-#### Weak Against
-
-| Opponent | Tactics |
-|----------|---------|
-| Opponent | Keep tactics concise, 1-2 sentences max |
-
-### Nesting
-
-- **Eggs:** Number per clutch
-- **Incubation Time:** Time duration
-- **Nest Type:** Type description
-
----
-
-## External sections convention
-
-To keep large or frequently-changing sections editable without bloating frontmatter, you may place the following TOML files under `data/dinosaurs/` and index them with a simple `data/dinosaurs/<slug>.sections.txt` manifest.
-
-Example `carnotaurus.sections.txt`:
-
-```
-biomeInfo: carnotaurus.biome.json
-nesting: carnotaurus.nesting.json
-attacks: carnotaurus.attacks.json
+```toml
+title = "Page Title"
+date = "YYYY-MM-DD"
 ```
 
-When present, the page renderer will prefer the external TOML for `biomeInfo`, `nesting`, and `attacks` (or similarly named keys). Survival tips should be kept in the markdown body under `## Survival Tips`.
+`content/<category>/<slug>.md`
 
+```markdown
+Plain Markdown, with no front matter.
 
-## Appearance
+## A section
 
-Add appearance description here.
+Text here.
+```
 
----
+The category and slug come from the folder and file name. The page is served at `page.html?category=<category>&slug=<slug>`.
 
-## Recommended Mutations
+## Dinosaurs
 
-See the infobox for recommended mutations.
+`content/dinosaurs/<slug>.md` is plain Markdown. All of its data lives in `data/dinosaurs/<slug>/`:
+
+| File | Contents |
+|------|----------|
+| `metadata.toml` | title, date, description, hero image, `[lastUpdated]` |
+| `attacks.toml`, `biome.toml`, `calls.toml`, `classification.toml`, `mutations.toml`, `nesting.toml`, `appearance.toml` | The matching page sections |
+| `manifest.txt` | Which of the files above the page loads |
+
+Copy an existing dinosaur folder, such as `data/dinosaurs/troodon/`, as a starting point.

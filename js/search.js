@@ -41,28 +41,20 @@ document.addEventListener('DOMContentLoaded', async () => {
                     files = ['upcoming-creatures', 'speculations'];
                 }
 
-                // Fetch all markdown files in this category in parallel
+                // Fetch every page (markdown body + TOML metadata) in this category in parallel
+                const metaPath = file => category.name === 'dinosaurs'
+                    ? `data/dinosaurs/${file}/metadata.toml`
+                    : `${category.path}/${file}.toml`;
                 const responses = await Promise.all(
-                    files.map(file => fetch(`${category.path}/${file}.md`))
+                    files.map(file => Promise.all([fetch(`${category.path}/${file}.md`), fetch(metaPath(file))]))
                 );
 
-                for (const response of responses) {
+                for (const [index, [response, metaResponse]] of responses.entries()) {
                     if (response.ok) {
-                        const text = await response.text();
-                        // We reuse your ContentParser to extract the document frontmatter.
-                        const parsed = ContentParser.parseDocument(text);
-                        const data = parsed.data;
-                        const content = parsed.content;
-                        if (category.name === 'dinosaurs' && !data.title) {
-                            try {
-                                const metadataResponse = await fetch(`data/dinosaurs/${file}/metadata.toml`);
-                                if (metadataResponse.ok) {
-                                    Object.assign(data, ContentParser.parseToml(await metadataResponse.text()));
-                                }
-                            } catch (error) {
-                                console.warn(`Failed to load metadata for ${file}:`, error);
-                            }
-                        }
+                        const content = ContentParser.parseDocument(await response.text()).content;
+                        const data = metaResponse.ok ? ContentParser.parseToml(await metaResponse.text()) : {};
+                        data.category = category.name;
+                        data.slug = files[index];
 
                         // We strip out markdown formatting for an even cleaner text body
                         const cleanContent = content.replace(/[#>*_\[\]`-]/g, '').trim();

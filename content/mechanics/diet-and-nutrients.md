@@ -1,12 +1,3 @@
----json
-{
-    "date":  "2026-05-29",
-    "title":  "Diet And Nutrients",
-    "category":  "mechanics",
-    "slug":  "diet-and-nutrients"
-}
----
-
 Diet and nutrients are one of the most essential mechanics in The Isle.
 They're the difference between a pleasant and a miserable experience while playing the game.
 They're also important in accelerating your growth and giving you buffs to your characteristics, such as Night Vision for example.
