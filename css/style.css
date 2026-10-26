@@ -1044,6 +1044,8 @@ sup.ref { font-size: 0.68rem; color: var(--link); }
   font-size: 0.95rem;
   margin-bottom: 1.2rem;
 }
+.article-meta a { color: var(--link); text-decoration: none; }
+.article-meta a:hover { text-decoration: underline; }
 .article-content {
   font-family: 'EB Garamond', serif;
   font-size: 1.03rem;

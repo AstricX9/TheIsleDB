@@ -189,4 +189,26 @@ function renderFooter(data) {
   footer.appendChild(bottomPara);
 }
 
+// "Edit this page" / "Suggest a fix" links next to the last-updated line
+function addEditLinks() {
+  const anchor = document.getElementById('last-updated')?.parentElement;
+  if (!anchor) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const dino = params.get('dino');
+  const category = dino ? 'dinosaurs' : params.get('category') || 'mechanics';
+  const slug = dino || params.get('slug') || 'mutations';
+  const file = `content/${category}/${slug}.md`;
+  const repo = 'https://github.com/AstricX9/TheIsleDB';
+  const issue = `${repo}/issues/new?title=${encodeURIComponent(`Fix/add info: ${category}/${slug}`)}` +
+    `&body=${encodeURIComponent(`Page: ${window.location.href}\n\nWhat is missing or wrong?\n\nSource (patch notes, in-game test, etc.):\n`)}`;
+
+  const links = document.createElement('span');
+  links.className = 'edit-links';
+  links.innerHTML = `&nbsp;·&nbsp;<a href="${repo}/edit/main/${file}" target="_blank" rel="noopener"><i class="bi bi-pencil"></i> Edit this page</a>` +
+    `&nbsp;·&nbsp;<a href="${issue}" target="_blank" rel="noopener"><i class="bi bi-flag"></i> Suggest a fix</a>`;
+  anchor.appendChild(links);
+}
+
 document.addEventListener('DOMContentLoaded', loadComponents);
+document.addEventListener('DOMContentLoaded', addEditLinks);
