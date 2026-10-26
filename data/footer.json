@@ -20,6 +20,7 @@
     {
       "column": "Socials",
       "links": [
+        { "title": "GitHub", "href": "https://github.com/AstricX9/TheIsleDB" },
         { "title": "Discord", "href": "https://discord.gg/survivetheisle" },
         { "title": "YouTube", "href": "https://www.youtube.com/c/survivetheisle" },
         { "title": "Steam", "href": "https://store.steampowered.com/app/376210/The_Isle/" }

@@ -4,6 +4,8 @@ A community wiki for **The Isle: Evrima**: dinosaur stats, calls and skins, plus
 
 Live site: https://theisledb.netlify.app/
 
+![The Isle Database homepage](assets/images/readme/homepage.png)
+
 ## Help fill it in
 
 Most mechanics pages are still stubs, and several dinosaurs have empty sections. Pages with missing data show a **"This page needs info"** banner.
@@ -14,7 +16,9 @@ Most mechanics pages are still stubs, and several dinosaurs have empty sections.
 
 ## Run locally
 
-Requires [Node.js](https://nodejs.org/).
+**VS Code:** open the folder and start it with the Live Server extension (right-click `index.html` → *Open with Live Server*).
+
+**Or with Node.js:**
 
 ```bash
 node scripts/static-server.mjs
