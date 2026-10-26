@@ -12,6 +12,14 @@ class ContentParser {
      */
     static parseDocument(fileContent) {
         const normalized = fileContent.replace(/^\uFEFF/, '');
+        // UI articles keep only title and date above a blank line, without delimiters.
+        const minimalHeader = normalized.match(/^((?:(?:title|date)[ \t]*=[ \t]*"(?:[^"\r\n\\]|\\.)*"[ \t]*\r?\n){2})(?:[ \t]*\r?\n|$)([\s\S]*)$/);
+        if (minimalHeader) {
+            const data = ContentParser.parseToml(minimalHeader[1]);
+            if (typeof data.title === 'string' && typeof data.date === 'string') {
+                return { data, content: ContentParser.normalizeImagePaths(minimalHeader[2].trim()) };
+            }
+        }
         const regex = /^\uFEFF?---(json|toml)\s*\r?\n([\s\S]*?)\r?\n---(?:\s*\r?\n([\s\S]*))?$/;
         const match = normalized.match(regex);
 

@@ -137,15 +137,71 @@
     },
     {
       "title": "User Interface",
-      "href": "page.html?category=items&slug=weapons",
+      "href": "article.html?category=ui&slug=user-interface",
       "submenu": [
         {
-          "title": "The User Interface",
-          "href": "article.html?category=ui&slug=user-interface"
+          "title": "Overview",
+          "submenu": [
+            {
+              "title": "The User Interface",
+              "href": "article.html?category=ui&slug=user-interface"
+            }
+          ]
         },
         {
-          "title": "My Character Screen",
-          "href": "article.html?category=ui&slug=ui-mycharacterscreen"
+          "title": "Main Menus",
+          "submenu": [
+            {
+              "title": "Main Menu",
+              "href": "article.html?category=ui&slug=main-menus/main-menu"
+            },
+            {
+              "title": "Server Browser",
+              "href": "article.html?category=ui&slug=main-menus/server-browser"
+            },
+            {
+              "title": "Dinosaur Selection",
+              "href": "article.html?category=ui&slug=main-menus/dinosaur-selection"
+            },
+            {
+              "title": "Character Customisation",
+              "href": "article.html?category=ui&slug=main-menus/character-customisation"
+            },
+            {
+              "title": "Settings",
+              "href": "article.html?category=ui&slug=main-menus/settings"
+            }
+          ]
+        },
+        {
+          "title": "In-game Menus",
+          "submenu": [
+            {
+              "title": "My Character Screen",
+              "href": "article.html?category=ui&slug=in-game-menus/ui-mycharacterscreen"
+            },
+            {
+              "title": "Mutations Interface",
+              "href": "article.html?category=ui&slug=in-game-menus/mutations-interface"
+            }
+          ]
+        },
+        {
+          "title": "Heads-up Display (HUD)",
+          "submenu": [
+            {
+              "title": "Survival Indicators",
+              "href": "article.html?category=ui&slug=hud/survival-indicators"
+            },
+            {
+              "title": "Scent & Navigation",
+              "href": "article.html?category=ui&slug=hud/scent-navigation"
+            },
+            {
+              "title": "Interaction Prompts",
+              "href": "article.html?category=ui&slug=hud/interaction-prompts"
+            }
+          ]
         }
       ]
     },

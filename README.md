@@ -30,8 +30,8 @@ Then open http://localhost:5174/. A different port can be passed as an argument.
 
 | Path | What it is |
 |------|------------|
-| `content/<category>/<slug>.md` | Page text, plain Markdown with no front matter. Categories: `dinosaurs`, `mechanics`, `support`, `ui`, `upcoming`. |
-| `content/<category>/<slug>.toml` | That page's metadata (`title`, `date`). Dinosaurs keep theirs in `data/dinosaurs/`. |
+| `content/<category>/<slug>.md` | Page text. Categories: `dinosaurs`, `mechanics`, `support`, `ui`, `upcoming`. UI pages start with title and date; other pages use plain Markdown. |
+| `content/<category>/<slug>.toml` | That page's metadata (`title`, `date`), except UI pages. Dinosaurs keep theirs in `data/dinosaurs/`. |
 | `data/dinosaurs/<name>/*.toml` | Per-dinosaur data: attacks, biomes, calls, mutations, nesting, and so on. |
 | `data/navbar.json`, `data/footer.json` | Site navigation and footer. |
 | `assets/` | Images and dinosaur call audio. See `assets/images/README.md`. |
@@ -43,6 +43,15 @@ Then open http://localhost:5174/. A different port can be passed as an argument.
 ### Adding a page
 
 Create `<slug>.md` and `<slug>.toml` in `content/<category>/` (see `TEMPLATE.md`). Then add the slug to the page lists in `js/search.js` and a link in `data/navbar.json`.
+
+For UI pages, create only a Markdown file under `content/ui/` or its `main-menus/`, `in-game-menus/`, or `hud/` subfolders. Start it with these two lines followed by a blank line and the page text:
+
+```text
+title = "User Interface"
+date = "2026-05-29"
+```
+
+Add the article to its group in `data/navbar.json`; UI search entries come from those links. Nested slugs use paths such as `article.html?category=ui&slug=main-menus/main-menu`.
 
 Pages support extra syntax:
 

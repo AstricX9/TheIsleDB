@@ -83,6 +83,27 @@ function renderNavbar(data) {
 
 
       link.submenu.forEach(sub => {
+        if (sub.submenu) {
+          const group = document.createElement('section');
+          group.className = 'nav-dropdown-group';
+          const heading = document.createElement('strong');
+          heading.className = 'nav-dropdown-heading';
+          heading.textContent = sub.title;
+          group.appendChild(heading);
+          const items = document.createElement('ul');
+          sub.submenu.forEach(item => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = item.href;
+            a.textContent = item.title;
+            li.appendChild(a);
+            items.appendChild(li);
+          });
+          group.appendChild(items);
+          menu.appendChild(group);
+          menu.classList.add('nav-dropdown-grouped');
+          return;
+        }
         const isDisabled = sub.disabled === true;
 
         const subElement = document.createElement(
@@ -108,6 +129,10 @@ function renderNavbar(data) {
       // Simple hover logic
       dropdown.addEventListener('mouseenter', () => menu.style.display = 'block');
       dropdown.addEventListener('mouseleave', () => menu.style.display = 'none');
+      dropdown.addEventListener('focusin', () => menu.style.display = 'block');
+      dropdown.addEventListener('focusout', event => {
+        if (!dropdown.contains(event.relatedTarget)) menu.style.display = 'none';
+      });
 
       dropdown.appendChild(menu);
       nav.appendChild(dropdown);
@@ -208,7 +233,10 @@ function pageSource() {
   const params = new URLSearchParams(window.location.search);
   const dino = params.get('dino');
   const category = dino ? 'dinosaurs' : params.get('category') || 'mechanics';
-  const slug = dino || params.get('slug') || 'mutations';
+  let slug = dino || params.get('slug') || 'mutations';
+  if (category === 'ui' && slug === 'ui-mycharacterscreen') {
+    slug = 'in-game-menus/ui-mycharacterscreen';
+  }
   const repo = 'https://github.com/AstricX9/TheIsleDB';
   const issue = (title, ask) => `${repo}/issues/new?title=${encodeURIComponent(`${title}: ${category}/${slug}`)}` +
     `&body=${encodeURIComponent(`Page: ${window.location.href}

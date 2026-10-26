@@ -1,3 +1,6 @@
+title = "UI - My Character Screen"
+date = "2026-05-29"
+
 ## The My Character Screen
 
 The character screen is the screen you see when pressing {{kbd|TAB}} on your keyboard.

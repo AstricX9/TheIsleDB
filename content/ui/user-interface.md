@@ -1,3 +1,6 @@
+title = "User Interface"
+date = "2026-05-29"
+
 ## Overview
 
 A **user interface (UI)** is the means through which a user interacts with a computer, application, or other electronic system. It enables users to provide input, navigate available functions, and receive information or feedback.
@@ -48,14 +51,19 @@ These interfaces can be divided into three primary categories.
 
 The main menus provide access to the game's core functions, including server selection, dinosaur customisation, and configuration settings.
 
-For more information, see [Main Menus](page.html?category=ui&slug=main-menus).
+- [Main Menu](article.html?category=ui&slug=main-menus/main-menu)
+- [Server Browser](article.html?category=ui&slug=main-menus/server-browser)
+- [Dinosaur Selection](article.html?category=ui&slug=main-menus/dinosaur-selection)
+- [Character Customisation](article.html?category=ui&slug=main-menus/character-customisation)
+- [Settings](article.html?category=ui&slug=main-menus/settings)
 
 <a id="in-game-menus"></a>
 ### In-game menus
 
 In-game menus allow players to access information and functions relating to their dinosaur, including character statistics, dietary requirements, mutations, and nesting.
 
-For more information, see [In-game Menus](page.html?category=ui&slug=in-game-menus).
+- [My Character Screen](article.html?category=ui&slug=in-game-menus/ui-mycharacterscreen)
+- [Mutations Interface](article.html?category=ui&slug=in-game-menus/mutations-interface)
 
 <a id="heads-up-display"></a>
 ### Heads-up display
@@ -64,7 +72,9 @@ The [heads-up display (HUD)](https://en.wikipedia.org/wiki/HUD_(video_games)) co
 
 This includes survival indicators, environmental information, and interaction prompts.
 
-For more information, see [Heads-up Display](page.html?category=ui&slug=heads-up-display).
+- [Survival Indicators](article.html?category=ui&slug=hud/survival-indicators)
+- [Scent & Navigation](article.html?category=ui&slug=hud/scent-navigation)
+- [Interaction Prompts](article.html?category=ui&slug=hud/interaction-prompts)
 
 <a id="further-reading"></a>
 ## Further reading

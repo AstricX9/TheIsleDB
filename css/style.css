@@ -1248,3 +1248,28 @@ body.media-viewer-open {
   user-select: none;
 }
 
+.nav-dropdown-grouped {
+  padding: 0.5rem 1rem;
+  max-height: 80vh;
+  overflow-y: auto;
+  width: max-content;
+  max-width: calc(100vw - 2rem);
+}
+
+.nav-dropdown-heading {
+  display: list-item;
+  list-style: disc inside;
+  color: var(--tx);
+}
+
+.nav-dropdown-group ul {
+  margin: 0.25rem 0 0.5rem;
+  padding-left: 2.5rem;
+  list-style: disc;
+}
+
+#topnav .nav-dropdown-group a {
+  display: block;
+  padding: 0.2rem 0;
+}
+

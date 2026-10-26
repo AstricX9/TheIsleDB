@@ -2,19 +2,27 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Get category and slug from URL parameters
     const params = new URLSearchParams(window.location.search);
     const category = params.get('category') || 'mechanics';
-    const slug = params.get('slug') || 'mutations';
+    let slug = params.get('slug') || 'mutations';
+    // Keep existing links to the relocated character article working.
+    if (category === 'ui' && slug === 'ui-mycharacterscreen') {
+        slug = 'in-game-menus/ui-mycharacterscreen';
+        params.set('slug', slug);
+        window.history.replaceState(null, '', `${window.location.pathname}?${params}${window.location.hash}`);
+    }
 
     try {
         const [response, metaResponse] = await Promise.all([
             fetch(`content/${category}/${slug}.md`),
-            fetch(`content/${category}/${slug}.toml`)
+            category === 'ui' || category.startsWith('ui/')
+                ? Promise.resolve(null)
+                : fetch(`content/${category}/${slug}.toml`)
         ]);
         if (!response.ok) throw new Error('Page not found');
 
         const parsed = ContentParser.parseDocument(await response.text());
         const content = parsed.content;
         // legacy frontmatter (e.g. written by the Decap CMS) still works when there is no .toml
-        const data = metaResponse.ok ? ContentParser.parseToml(await metaResponse.text()) : parsed.data;
+        const data = metaResponse?.ok ? ContentParser.parseToml(await metaResponse.text()) : parsed.data;
 
         renderPage(data, content);
     } catch (err) {

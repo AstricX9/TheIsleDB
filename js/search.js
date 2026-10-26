@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             { name: 'dinosaurs', path: 'content/dinosaurs' },
             { name: 'mechanics', path: 'content/mechanics' },
             { name: 'support', path: 'content/support' },
-            { name: 'upcoming', path: 'content/upcoming' }
+            { name: 'upcoming', path: 'content/upcoming' },
+            { name: 'ui', path: 'content/ui' }
         ];
 
         // Fetch all markdown files from all categories
@@ -39,6 +40,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                     files = ['lore', 'bugs-and-fixes', 'community'];
                 } else if (category.name === 'upcoming') {
                     files = ['upcoming-creatures', 'speculations'];
+                } else if (category.name === 'ui') {
+                    const navbar = await (await fetch('data/navbar.json')).json();
+                    const ui = navbar.links.find(link => link.title === 'User Interface');
+                    files = ui.submenu.flatMap(group => group.submenu).map(link =>
+                        new URL(link.href, window.location.href).searchParams.get('slug'));
                 }
 
                 // Fetch every page (markdown body + TOML metadata) in this category in parallel
@@ -46,13 +52,17 @@ document.addEventListener('DOMContentLoaded', async () => {
                     ? `data/dinosaurs/${file}/metadata.toml`
                     : `${category.path}/${file}.toml`;
                 const responses = await Promise.all(
-                    files.map(file => Promise.all([fetch(`${category.path}/${file}.md`), fetch(metaPath(file))]))
+                    files.map(file => Promise.all([
+                        fetch(`${category.path}/${file}.md`),
+                        category.name === 'ui' ? Promise.resolve(null) : fetch(metaPath(file))
+                    ]))
                 );
 
                 for (const [index, [response, metaResponse]] of responses.entries()) {
                     if (response.ok) {
-                        const content = ContentParser.parseDocument(await response.text()).content;
-                        const data = metaResponse.ok ? ContentParser.parseToml(await metaResponse.text()) : {};
+                        const parsed = ContentParser.parseDocument(await response.text());
+                        const content = parsed.content;
+                        const data = metaResponse?.ok ? ContentParser.parseToml(await metaResponse.text()) : parsed.data;
                         data.category = category.name;
                         data.slug = files[index];
 
@@ -63,6 +73,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                         let url;
                         if (data.category === 'dinosaurs') {
                             url = `dinosaur.html?dino=${data.slug || ''}`;
+                        } else if (data.category === 'ui') {
+                            url = `article.html?category=ui&slug=${data.slug || ''}`;
                         } else {
                             url = `page.html?category=${data.category}&slug=${data.slug || ''}`;
                         }
